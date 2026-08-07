@@ -1,0 +1,14 @@
+.button {
+  display: inline-block;
+  font-size: var(--text-step-0);
+  padding: var(--space-xs) var(--space-m);
+  background: var(--color-light-pink);
+  font-weight: var(--weight-bold);
+  text-decoration: none;
+  border-radius: var(--space-3xs);
+
+  &:hover {
+    background: var(--color-dark-pink);
+    color: var(--color-white);
+  }
+}

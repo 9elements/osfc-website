@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ModularContent from "@/components/dato/ModularContent/ModularContent.astro";
+
+import { VARIABLE_PAGES_QUERY } from "@/utils/dato/queries/variablePages";
+import { fetchDatoCMS } from "@/utils/dato";
+
+export async function getStaticPaths() {
+  const { allVariablePages } = await fetchDatoCMS(VARIABLE_PAGES_QUERY);
+
+  return allVariablePages.map((item) => ({
+    params: { variablePageSlug: item.slug },
+    props: { page: item },
+  }));
+}
+
+const { page } = Astro.props as any;
+const seo = page._seoMetaTags;
+const content = page.content.content || [];
+---
+
+<BaseLayout seo={seo}>
+  <div class="wrapper stack-xl pt-l">
+    <div class="bg-dark-pink p-l-xl">
+      <h1 class="text-step-5 text-white weight-normal leading-tight">
+        {page.title}
+      </h1>
+    </div>
+
+    <ModularContent content={content} />
+  </div>
+</BaseLayout>

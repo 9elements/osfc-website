@@ -1,0 +1,11 @@
+---
+const { href, target, rel, text } = Astro.props;
+---
+
+<a href={href} target={target} rel={rel} class="button">
+  {text}
+</a>
+
+<style>
+  @import "./Button.css";
+</style>

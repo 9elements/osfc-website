@@ -1,0 +1,12 @@
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--cluster-justification, flex-start);
+  align-items: var(--cluster-alignment, flex-start);
+  gap: var(--cluster-gap-vertical, var(--cluster-gap, 1rem))
+    var(--cluster-gap, 1rem);
+}
+
+[data-variant="space-between"] {
+  --cluster-justification: space-between;
+}

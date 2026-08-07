@@ -1,0 +1,77 @@
+---
+const {
+  inlineScrollPadding,
+  itemMinWidth,
+  itemWidth,
+  marker,
+  accentColor,
+  forcedScrolling,
+  scrollAlign = "start",
+  gap,
+  class: className,
+} = Astro.props;
+
+// Check if the default slot has content
+const hasSlotContent = Astro.slots.has("default");
+let shouldRender = false;
+
+if (hasSlotContent) {
+  // Get the rendered slot content to validate it
+  const slotContent = await Astro.slots.render("default");
+
+  // Remove whitespace and check if content only contains <li> elements
+  const trimmedContent = slotContent.trim();
+
+  if (trimmedContent.length === 0) {
+    console.error(
+      "Scroller component: Slot content is empty after trimming whitespace"
+    );
+    shouldRender = false;
+  } else {
+    // Check if content only contains <li> elements (allowing for whitespace between them)
+    // This regex matches: optional whitespace, <li>, any content, </li>, optional whitespace, repeated
+    const liOnlyRegex = /^(\s*<li\b[^>]*>.*?<\/li>\s*)+$/s;
+
+    if (liOnlyRegex.test(trimmedContent)) {
+      shouldRender = true;
+    } else {
+      console.error(
+        "Scroller component: Slot content must contain only <li> elements as direct children. Found invalid content:"
+      );
+      shouldRender = false;
+    }
+  }
+} else {
+  console.warn("Scroller component: No content provided to slot");
+  shouldRender = false;
+}
+---
+
+{
+  shouldRender && (
+    <div
+      class:list={["scroll--root", className]}
+      data-marker={marker}
+      data-scrolling={forcedScrolling ? "forced" : "auto"}
+    >
+      <div class="scroll--viewport">
+        <ul class="scroll--content" role="list">
+          <slot />
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+<style
+  define:vars={{
+    inlineScrollPadding,
+    itemMinWidth,
+    itemWidth,
+    scrollAlign,
+    accentColor,
+    gap,
+  }}
+>
+  @import "./Scroller.css";
+</style>

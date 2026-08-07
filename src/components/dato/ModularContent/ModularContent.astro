@@ -1,0 +1,21 @@
+---
+const { content } = Astro.props;
+
+import StructuredTextBlock from "@/components/dato/StructuredTextBlock/StructuredTextBlock.astro";
+import Gallery from "@/components/dato/Gallery/Gallery.astro";
+---
+
+{
+  content.map((block) => {
+    const typename = block.__typename?.replace(/Record$/, "");
+
+    switch (typename) {
+      case "Gallery":
+        return <Gallery {block} />;
+      case "StructuredTextBlock":
+        return <StructuredTextBlock {block} />;
+      default:
+        return <p>Unknown block: {block.__typename}</p>;
+    }
+  })
+}

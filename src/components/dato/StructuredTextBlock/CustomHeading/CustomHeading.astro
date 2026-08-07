@@ -1,0 +1,19 @@
+---
+const { node } = Astro.props;
+
+const { level = 1 } = node;
+const Element = `h${level}`;
+
+const valueChildren = node.children?.filter((child) => "value" in child) ?? [];
+const value = valueChildren.length === 1 ? valueChildren[0].value : undefined;
+---
+
+{
+  value !== undefined ? (
+    <Element>{value}</Element>
+  ) : (
+    <Element>
+      <slot />
+    </Element>
+  )
+}

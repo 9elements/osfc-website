@@ -1,0 +1,15 @@
+.image-block {
+  &[data-caption="true"] {
+    background: var(--color-light-pink);
+    padding: var(--space-2xs);
+    border-radius: var(--space-3xs);
+  }
+
+  &[data-size="small"] {
+    max-width: 25rem;
+  }
+
+  figcaption {
+    margin-block-start: var(--space-2xs);
+  }
+}

@@ -1,0 +1,174 @@
+.scroll--root {
+  --_scroll-item-size: min(var(--itemMinWidth, 80cqi), var(--itemWidth, 30rem));
+  --_scroller-accent-color: var(--accentColor, currentColor);
+  --_scroller-gap: var(--gap, 2rem);
+
+  --_inline-scroll-padding: var(--inlineScrollPadding, 2rem);
+
+  --marker-size: 1rem;
+  --scrollbar-height: 10px;
+
+  container: --main / inline-size;
+  display: grid;
+}
+
+.scroll--viewport {
+  container: --main-scroller / inline-size scroll-state;
+  display: flex;
+  place-items: center start;
+
+  overflow: auto hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+
+  padding-inline: var(--space-m);
+  scroll-padding-inline: 0px;
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+
+  &::-webkit-scrollbar {
+    height: var(--scrollbar-height);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #0000;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--_scroller-accent-color);
+    border-radius: 1e3px;
+  }
+
+  [data-marker] & {
+    scroll-marker-group: after;
+  }
+}
+
+.scroll--content {
+  display: flex;
+  list-style-type: none;
+  gap: var(--_scroller-gap);
+  margin-block: 0;
+  margin-inline: auto;
+  padding-block: var(--space-m);
+
+  [data-scrolling="forced"] & {
+    /* our overscroll effect sentinels */
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      inline-size: 25cqi;
+      flex-shrink: 0;
+
+      @container style(--scrollAlign: center) {
+        inline-size: 90cqi;
+      }
+    }
+
+    /* the after in this one is hella big so the last item can be snapped/highlighted/title shown */
+    &::after {
+      inline-size: 90cqi;
+    }
+  }
+
+  [data-scrolling="forced"] & {
+    @container style(--scrollAlign: center) {
+      &::before {
+        xinline-size: 90cqi;
+      }
+    }
+  }
+
+  > :global(*) {
+    container-type: scroll-state;
+    scroll-snap-align: var(--scrollAlign);
+    scroll-margin-inline-start: var(--_inline-scroll-padding);
+    scroll-margin-inline-end: var(--space-m);
+    flex-shrink: 0;
+    width: var(--_scroll-item-size);
+
+    @media (prefers-reduced-motion: no-preference) {
+      @supports (animation-timeline: view(x)) {
+        animation:
+          animate-in linear forwards,
+          animate-out linear forwards;
+        animation-timeline: view(inline);
+        animation-range: entry, exit;
+      }
+    }
+  }
+}
+
+@keyframes animate-in {
+  0% {
+    transform-origin: left center;
+    opacity: 0.5;
+    scale: 0.8;
+  }
+  100% {
+    transform-origin: left center;
+    opacity: 1;
+  }
+}
+
+@keyframes animate-out {
+  0% {
+    transform-origin: right center;
+    opacity: 1;
+  }
+  100% {
+    transform-origin: right center;
+    scale: 0.8;
+    opacity: 0.3;
+  }
+}
+
+[data-marker] {
+  .scroll--viewport {
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 1e3px;
+    }
+  }
+
+  .scroll--viewport::scroll-marker-group {
+    box-sizing: border-box;
+    width: 100%;
+    display: none;
+    gap: var(--space-2xs);
+    justify-content: center;
+    padding-block: var(--space-2xs);
+    height: calc(var(--marker-size) + var(--space-2xs) * 2);
+
+    @container --main-scroller scroll-state(scrollable: inline) {
+      display: flex;
+    }
+  }
+
+  .scroll--content > :global(li)::scroll-marker {
+    content: "";
+    display: block;
+    width: var(--marker-size);
+    height: var(--marker-size);
+    background: var(--_scroller-accent-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: all 0.1s ease;
+  }
+
+  .scroll--content > :global(li)::scroll-marker:active {
+    opacity: 1;
+    transform: scale(0.8);
+  }
+  .scroll--content > :global(li)::scroll-marker:target-current {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,20 @@
+---
+import DatoPicture from "../DatoPicture/DatoPicture.astro";
+
+const { block } = Astro.props;
+const caption = block.image.title || null;
+const showCaption = !!block.showCaption && !!block.image.title;
+---
+
+<figure class="image-block" data-size={block.size} data-caption={showCaption}>
+  <DatoPicture
+    image={block.image}
+    widths={[400, 800, 1200]}
+    sizes="(max-width: 600px) 100vw, 50vw"
+  />
+  {showCaption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  @import "./ImageBlock.css";
+</style>

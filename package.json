@@ -1,0 +1,41 @@
+{
+  "name": "dato-astro-boilerplate",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "live-preview": "LIVE_PREVIEW=true astro dev"
+  },
+  "dependencies": {
+    "@astrojs/netlify": "^8.0.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "@datocms/astro": "^0.6.13",
+    "@fontsource-variable/sora": "^5.2.8",
+    "astro": "^7.0.3",
+    "astro-icon": "^1.1.5",
+    "dotenv": "^17.4.2",
+    "jsdom": "^29.1.1",
+    "postcss": "^8.5.15",
+    "postcss-import": "^16.1.1",
+    "postcss-import-ext-glob": "^2.1.1",
+    "utopia-core": "^1.6.0"
+  },
+  "devDependencies": {
+    "@csstools/postcss-global-data": "^4.0.0",
+    "node-addon-api": "^8.8.0",
+    "node-gyp": "^13.0.0",
+    "postcss-preset-env": "^11.3.1",
+    "prettier-plugin-astro": "^0.14.1",
+    "sharp": "^0.35.2"
+  },
+  "browserslist": [
+    "> 0.5% and not dead and supports css-media-range-syntax"
+  ],
+  "engines": {
+    "node": ">=22.22.0",
+    "npm": ">=10.9.4"
+  }
+}

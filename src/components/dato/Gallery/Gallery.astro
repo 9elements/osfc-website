@@ -1,0 +1,25 @@
+---
+import DatoPicture from "@/components/dato/DatoPicture/DatoPicture.astro";
+const { block } = Astro.props;
+const images = block.images || [];
+---
+
+<div class="auto-grid gallery">
+  {
+    images.map((image) => (
+      <DatoPicture
+        image={image}
+        ratio={1 / 1}
+        widths={[200, 400, 800]}
+        formats={["webp", "svg"]}
+        pictureClass="picture-image"
+        class="image-class"
+        theme="dark"
+      />
+    ))
+  }
+</div>
+
+<style>
+  @import "./Gallery.css";
+</style>

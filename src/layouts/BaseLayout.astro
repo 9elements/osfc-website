@@ -1,0 +1,59 @@
+---
+import favicon from "@/assets/svg/favicon.svg";
+import { LIVE_PREVIEW } from "astro:env/client";
+
+import "@/styles/global.css";
+import "@fontsource-variable/sora";
+
+import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
+import SiteHead from "@/components/SiteHead/SiteHead.astro";
+
+import { fetchDatoCMS } from "@/utils/dato";
+import { SITE_QUERY } from "@/utils/dato/queries/site";
+const { _site } = await fetchDatoCMS(SITE_QUERY);
+const siteName = _site.globalSeo.siteName;
+
+import { getSeoWithLocalImages } from "@/utils/dato/seo";
+import { Seo } from "@datocms/astro";
+const { seo } = Astro.props;
+
+/**
+ * Takes the seo object and downloads all linked images (og:image, twitter:image) to prevent using bandwidth
+ */
+const seoWithLocalImages =
+  seo && (await getSeoWithLocalImages(seo, Astro.site));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={favicon.src} />
+    <meta name="generator" content={Astro.generator} />
+
+    {
+      LIVE_PREVIEW ? (
+        <>
+          <title>Preview-Mode | {siteName}</title>
+          <meta name="robots" content="noindex" />
+        </>
+      ) : seo ? (
+        <Seo data={seoWithLocalImages} />
+      ) : (
+        <title>{siteName}</title>
+      )
+    }
+  </head>
+  <body>
+    <SiteHead />
+    <main tabindex="-1">
+      <slot />
+    </main>
+    <SiteFoot />
+  </body>
+</html>
+
+<script>
+  import "@/js/global.js";
+</script>

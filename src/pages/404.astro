@@ -1,0 +1,13 @@
+---
+export const prerender = true;
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout seo={[{ tag: "title", content: "Error" }]}>
+  <div class="wrapper stack-m py-2xl">
+    <h1 class="text-step-3">Error 404 – Page not found</h1>
+    <p>You might have mistyped the URL or the page doesn't exist anymore.</p>
+    <p><a href="/">Back home</a></p>
+  </div>
+</BaseLayout>

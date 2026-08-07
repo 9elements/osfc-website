@@ -1,0 +1,6 @@
+.highlight-box {
+  border: 1px solid;
+  border-radius: var(--space-m);
+  padding: var(--space-m);
+  margin-block: var(--space-xl);
+}

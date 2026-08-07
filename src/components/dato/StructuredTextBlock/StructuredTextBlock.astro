@@ -1,0 +1,24 @@
+---
+import Quote from "@/components/dato/Quote/Quote.astro";
+import HighlightBox from "@/components/dato/HighlightBox/HighlightBox.astro";
+import { StructuredText } from "@datocms/astro";
+import ImageBlock from "@/components/dato/ImageBlock/ImageBlock.astro";
+
+import CustomHeading from "@/components/dato/StructuredTextBlock/CustomHeading/CustomHeading.astro";
+
+const { block } = Astro.props;
+---
+
+<div class="plain-html | stack-s">
+  <StructuredText
+    data={block.text}
+    blockComponents={{
+      QuoteRecord: Quote,
+      HighlightBoxRecord: HighlightBox,
+      ImageRecord: ImageBlock,
+    }}
+    nodeOverrides={{
+      heading: CustomHeading,
+    }}
+  />
+</div>

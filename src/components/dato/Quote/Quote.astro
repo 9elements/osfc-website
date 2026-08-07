@@ -1,0 +1,36 @@
+---
+import { StructuredText } from "@datocms/astro";
+import DatoPicture from "@/components/dato/DatoPicture/DatoPicture.astro";
+
+const { block } = Astro.props;
+---
+
+<div class="quote">
+  {
+    block.portrait && (
+      <DatoPicture
+        image={block.portrait}
+        ratio={1 / 1}
+        widths={[200]}
+        formats={["webp", "svg"]}
+        emptyAlt
+      />
+    )
+  }
+  <figure class="stack-s">
+    <blockquote class="text-step-2 balanced">
+      <StructuredText data={block.quote} />
+    </blockquote>
+    {
+      block.author && (
+        <footer>
+          <cite>{block.author}</cite>
+        </footer>
+      )
+    }
+  </figure>
+</div>
+
+<style>
+  @import "./Quote.css";
+</style>

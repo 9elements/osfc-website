@@ -1,0 +1,308 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Scroller from "@/components/Scroller/Scroller.astro";
+---
+
+<BaseLayout>
+  <div
+    class="scroller-demos | wrapper stack-xl py-2xl"
+    style="--wrapper-max: 100rem;"
+  >
+    <h1>Scroller Component Showcase</h1>
+    <p>
+      This page demonstrates all the available options for the Scroller
+      component.
+    </p>
+
+    <!-- Default Scroller -->
+    <section>
+      <h2>Default Configuration</h2>
+      <p>Basic scroller with default settings</p>
+      <Scroller>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+        <li>Item 8</li>
+      </Scroller>
+    </section>
+
+    <!-- itemWidth -->
+    <section>
+      <h2>itemWidth Option</h2>
+      <p>
+        <code>itemWidth="40rem"</code> - Sets fixed width for each scroll item
+      </p>
+      <Scroller itemWidth="40rem">
+        <li>Fixed Item 1</li>
+        <li>Fixed Item 2</li>
+        <li>Fixed Item 3</li>
+        <li>Fixed Item 4</li>
+        <li>Fixed Item 5</li>
+        <li>Fixed Item 6</li>
+      </Scroller>
+    </section>
+
+    <!-- itemMinWidth -->
+    <section>
+      <h2>itemMinWidth Option</h2>
+      <p>
+        <code>itemMinWidth="50cqi"</code> - Sets minimum width for each scroll item.
+        Default is 80cqi.
+      </p>
+      <Scroller itemMinWidth="50cqi">
+        <li>Wide Item 1</li>
+        <li>Wide Item 2</li>
+        <li>Wide Item 3</li>
+        <li>Wide Item 4</li>
+        <li>Wide Item 5</li>
+        <li>Wide Item 6</li>
+      </Scroller>
+    </section>
+
+    <!-- itemWidth -->
+    <section>
+      <h2>gap</h2>
+      <p>
+        <code>gap="5px"</code> - defines the gap, defaults to 2rem;
+      </p>
+      <Scroller gap="5px">
+        <li>Fixed Item 1</li>
+        <li>Fixed Item 2</li>
+        <li>Fixed Item 3</li>
+        <li>Fixed Item 4</li>
+        <li>Fixed Item 5</li>
+        <li>Fixed Item 6</li>
+      </Scroller>
+    </section>
+
+    <!-- marker -->
+    <section>
+      <h2>marker Option</h2>
+      <p>
+        <code>marker</code> - Adds markers as scroll indicators instead of scrollbar.
+      </p>
+      <Scroller marker>
+        <li>Featured Item 1</li>
+        <li>Featured Item 2</li>
+        <li>Featured Item 3</li>
+        <li>Featured Item 4</li>
+        <li>Featured Item 5</li>
+      </Scroller>
+    </section>
+
+    <!-- accentColor -->
+    <section>
+      <h2>accentColor Option</h2>
+      <p>
+        <code>accentColor="#ff6b6b"</code> - Sets custom accent color for the scroller
+      </p>
+      <div class="stack-l">
+        <Scroller accentColor="#ff6b6b">
+          <li>Accent Item 1</li>
+          <li>Accent Item 2</li>
+          <li>Accent Item 3</li>
+          <li>Accent Item 4</li>
+          <li>Accent Item 5</li>
+          <li>Accent Item 6</li>
+        </Scroller>
+
+        <Scroller accentColor="#ff6b6b" marker>
+          <li>Accent Item 1</li>
+          <li>Accent Item 2</li>
+          <li>Accent Item 3</li>
+          <li>Accent Item 4</li>
+          <li>Accent Item 5</li>
+          <li>Accent Item 6</li>
+        </Scroller>
+      </div>
+    </section>
+
+    <!-- forcedScrolling -->
+    <section>
+      <h2>forcedScrolling Option</h2>
+      <p>
+        <code>forcedScrolling</code> - Forces scrolling behavior even on larger screens
+      </p>
+      <div class="stack-l">
+        <Scroller forcedScrolling itemWidth="10rem">
+          <li>Forced Scroll 1</li>
+          <li>Forced Scroll 2</li>
+          <li>Forced Scroll 3</li>
+          <li>Forced Scroll 4</li>
+          <li>Forced Scroll 5</li>
+        </Scroller>
+        <Scroller forcedScrolling marker itemWidth="10rem">
+          <li>Forced Scroll 1</li>
+          <li>Forced Scroll 2</li>
+          <li>Forced Scroll 3</li>
+          <li>Forced Scroll 4</li>
+          <li>Forced Scroll 5</li>
+        </Scroller>
+      </div>
+    </section>
+
+    <!-- scrollAlign -->
+    <section>
+      <h2>scrollAlign Options</h2>
+
+      <h3>scrollAlign="start" (default)</h3>
+      <p>Items align to the start of the scroll container</p>
+      <Scroller scrollAlign="start">
+        <li>Start Align 1</li>
+        <li>Start Align 2</li>
+        <li>Start Align 3</li>
+        <li>Start Align 4</li>
+        <li>Start Align 5</li>
+      </Scroller>
+
+      <h3 style="margin-top: 2rem;">scrollAlign="center"</h3>
+      <p>Items align to the center of the scroll container</p>
+      <Scroller scrollAlign="center">
+        <li>Center Align 1</li>
+        <li>Center Align 2</li>
+        <li>Center Align 3</li>
+        <li>Center Align 4</li>
+        <li>Center Align 5</li>
+      </Scroller>
+
+      <h3 style="margin-top: 2rem;">scrollAlign="end"</h3>
+      <p>Items align to the end of the scroll container</p>
+      <Scroller scrollAlign="end">
+        <li>End Align 1</li>
+        <li>End Align 2</li>
+        <li>End Align 3</li>
+        <li>End Align 4</li>
+        <li>End Align 5</li>
+      </Scroller>
+    </section>
+
+    <!-- inlineScrollPadding -->
+    <section>
+      <h2>inlineScrollPadding Option</h2>
+      <p>
+        <code>inlineScrollPadding="25cqi"</code> - Sets padding around the scroll
+        area. Mostly useful in combination with forcedScrolling.
+      </p>
+      <Scroller inlineScrollPadding="25cqi" forcedScrolling>
+        <li>Padded Item 1</li>
+        <li>Padded Item 2</li>
+        <li>Padded Item 3</li>
+        <li>Padded Item 4</li>
+        <li>Padded Item 5</li>
+      </Scroller>
+    </section>
+
+    <!-- Combined Options -->
+    <section>
+      <h2>Combined Options</h2>
+      <p>Multiple options working together</p>
+      <Scroller
+        itemWidth="35rem"
+        itemMinWidth="50cqi"
+        marker
+        accentColor="#4ecdc4"
+        scrollAlign="center"
+        inlineScrollPadding="1rem"
+      >
+        <li>Premium Item 1</li>
+        <li>Premium Item 2</li>
+        <li>Premium Item 3</li>
+        <li>Premium Item 4</li>
+        <li>Premium Item 5</li>
+        <li>Premium Item 6</li>
+      </Scroller>
+    </section>
+
+    <!-- Custom Classes -->
+    <section>
+      <h2>Custom Classes</h2>
+      <p><code>class="custom-scroller"</code> - Apply custom CSS classes</p>
+      <Scroller class="custom-scroller">
+        <li>Custom Styled 1</li>
+        <li>Custom Styled 2</li>
+        <li>Custom Styled 3</li>
+        <li>Custom Styled 4</li>
+        <li>Custom Styled 5</li>
+      </Scroller>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Demo page styles */
+  section {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 2rem;
+    background: #f8fafc;
+  }
+
+  h1 {
+    color: #1a202c;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: #2d3748;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+  }
+
+  code {
+    background: #edf2f7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #e53e3e;
+  }
+
+  /* Example custom scroller styles */
+  .custom-scroller {
+    border: 2px dashed #9f7aea;
+    border-radius: 12px;
+  }
+
+  /* Style the list items for better visibility */
+  .scroller-demos li {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+
+    &:nth-child(2n) {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    &:nth-child(3n) {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    &:nth-child(4n) {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+/**
+ * Renders a responsive <picture> element for a DatoCMS image using Astro's <Picture> component.
+ *
+ * Props:
+ * - image (object, required): The DatoCMS image object. Must contain `url`, `width`, `height`.
+ * - alt (string, optional): The alternative text for the image. Falls back to image.alt or image.title.
+ * - ratio (number, optional): Override the original aspect ratio. If not provided, original ratio is used.
+ * - pictureClass (string, optional): Adds a CSS class to the outer <picture> element.
+ * - widths (number[], default: [200, 400]): List of responsive image widths. Largest value is used to determine height.
+ * - formats (string[], default: ["webp"]): Output formats to generate (e.g., "webp", "jpeg").
+ * - fit (string, default: "crop"): The DatoCMS image fit mode ("crop", "fill", "facearea", etc.).
+ * - sizes (string, default: "(min-width: 22em) 30vw, 100vw"): Sizes attribute for responsive behavior.
+ * - emptyAlt (boolean, default: false): If true, forces alt text to be empty (e.g. for decorative images).
+ * - priority (boolean, default: false): If true, marks the image as high-priority (loads eagerly).
+ * - facepad (number, optional): When using fit="facearea", adds padding around detected faces (e.g., 1.5 for 50% extra space).
+ *
+ * Examples:
+ *
+ * Basic:
+ * <DatoPicture image={myDatoImage} alt="Saskia Michalski" />
+ *
+ * Advanced:
+ * <DatoPicture
+ *   image={myDatoImage}
+ *   ratio={16/9}
+ *   widths={[300, 600, 900]}
+ *   formats={["webp", "jpeg"]}
+ *   fit="crop"
+ *   sizes="(min-width: 600px) 50vw, 100vw"
+ *   emptyAlt
+ *   priority
+ *   pictureClass="gallery-image"
+ * />
+ *
+ * With face detection:
+ * <DatoPicture image={personPhoto} ratio={1} fit="facearea" facepad={1.5} />
+ */
+
+import { Picture } from "astro:assets";
+import { LIVE_PREVIEW } from "astro:env/client";
+
+const isPreview = LIVE_PREVIEW;
+
+const {
+  image,
+  alt,
+  ratio,
+  pictureClass,
+  class: className,
+  widths = [200, 400],
+  formats = ["webp"],
+  fit = "crop",
+  sizes = "(min-width: 22em) 30vw, 100vw",
+  emptyAlt = false,
+  priority = false,
+  facepad,
+  ...rest
+} = Astro.props;
+
+const imageUrl = image.url;
+
+// Calculate the original image ratio
+const originalRatio = image.width / image.height;
+// Use provided ratio or fall back to original ratio
+const targetRatio = ratio || originalRatio;
+
+// Find the largest width in the widths array
+const largestWidth = Math.max(...widths);
+// Calculate height based on the target ratio
+const targetHeight = Math.round(largestWidth / targetRatio);
+
+// Check if the image is an SVG and formats include "svg"
+let isSvg = false;
+if (image.mimeType == "image/svg+xml" && formats.includes("svg")) {
+  isSvg = true;
+}
+
+function svgToDataUri(svg: string) {
+  // Remove extra whitespace/newlines (optional, keeps URI smaller)
+  const cleaned = svg
+    .replace(/\r?\n|\r/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  // Encode to make it safe for a URL context
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(cleaned)}`;
+}
+
+let rawSvg = "";
+if (isSvg && isPreview) {
+  rawSvg = await fetch(imageUrl)
+    .then((res) => res.text())
+    .catch(() => "");
+}
+const svgSrc = svgToDataUri(rawSvg);
+
+// Generate the URL with parameters
+const focalPoint = image.focalPoint || { x: 0.5, y: 0.5 };
+const facepadParam = facepad ? `&facepad=${facepad}` : "";
+const processedImageUrl = `${imageUrl}?fit=${fit}&fp-x=${focalPoint.x}&fp-y=${focalPoint.y}&w=${largestWidth}&h=${targetHeight}${facepadParam}`;
+
+// Determine the alt text
+const altText = emptyAlt ? "" : alt || image.alt || image.title || "";
+
+// Only add class attribute if pictureClass is provided
+const pictureAttributes = pictureClass ? { class: pictureClass } : {};
+
+// Custom SVG handling needed because Astro's image handling doesn't support SVG when in on-demand-rendering
+let formatsToUse = formats;
+
+if (isPreview) {
+  formatsToUse = ["webp"];
+} else if (isSvg) {
+  formatsToUse = ["svg"];
+}
+---
+
+{
+  isPreview && isSvg ? (
+    // Custom SVG handling needed because Astro's image handling doesn't support SVG when in on-demand-rendering
+    <picture class={pictureClass}>
+      <img
+        src={svgSrc}
+        alt={altText}
+        width={image.width}
+        height={image.height}
+        class={className}
+        loading={priority ? "eager" : "lazy"}
+        {...rest}
+      />
+    </picture>
+  ) : (
+    <Picture
+      src={isSvg ? image.url : processedImageUrl}
+      alt={altText}
+      width={isSvg ? image.width : largestWidth}
+      height={isSvg ? image.height : targetHeight}
+      widths={isSvg ? undefined : widths}
+      sizes={isSvg ? undefined : sizes}
+      formats={formatsToUse}
+      priority={priority}
+      pictureAttributes={pictureAttributes}
+      class={className}
+      {...rest}
+    />
+  )
+}
