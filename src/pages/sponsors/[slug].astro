@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import RhombImage from "@/components/RhombImage/RhombImage.astro";
-import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
 import { getSponsors } from "@/utils/sponsors";
 import { renderPageMarkdown } from "@/utils/conference";
 import { toDescription } from "@/utils/seo";
@@ -26,7 +25,6 @@ const description =
   description={description}
   transparentHeader
 >
-  <RhombDefs />
 
   <div class="stack-major">
     <section>
