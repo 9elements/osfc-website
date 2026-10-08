@@ -1,4 +1,4 @@
-# dato-astro-boilerplate
+# [WIP – NOT PRODUCTION] dato-astro-boilerplate
 
 ## 📑 Table of Contents
 
