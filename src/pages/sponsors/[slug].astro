@@ -52,16 +52,17 @@ const description =
                   set:html={renderPageMarkdown(sponsor.body)}
                 />
                 <a
-                  style="display: inline-block"
-                  class="uppercase weight-bold"
+                  class="sponsor__link | uppercase weight-bold"
                   href={sponsor.link}>{sponsor.linkText ?? sponsor.link}</a
                 >
               </div>
             </div>
 
             <div
-              class="uppercase text-peach weight-bold sponsor-buttons"
-              style={`display: flex; justify-content: ${prev ? "space-between" : "flex-end"};`}
+              class:list={[
+                "sponsor-buttons | uppercase text-peach weight-bold",
+                !prev && "sponsor-buttons--end",
+              ]}
             >
               {
                 prev && (

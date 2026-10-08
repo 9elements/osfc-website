@@ -272,3 +272,7 @@
     font-size: var(--space-600);
   }
 }
+
+.venue__address {
+  font-style: normal;
+}

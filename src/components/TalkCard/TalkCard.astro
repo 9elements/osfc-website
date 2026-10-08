@@ -14,10 +14,7 @@ const {
 } = Astro.props;
 ---
 
-<article
-  class:list={["talk-card", href && "talk-card--linked"]}
-  style="padding: 0.5rem 1rem;"
->
+<article class:list={["talk-card", href && "talk-card--linked"]}>
   <Heading class={headingClass}>{title}</Heading>
   <p class="text-300"><slot /></p>
   {

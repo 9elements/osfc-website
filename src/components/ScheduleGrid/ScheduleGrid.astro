@@ -72,25 +72,22 @@ const getDayGrid = (day) => {
 
           <div
             class="schedule"
-            style={`grid-template-columns: var(--schedule-first-column, 4ch) repeat(${rooms.length}, 1fr); grid-template-rows: [head] auto ${rows};`}
+            style={`--room-count: ${rooms.length}; --slice-rows: ${rows};`}
           >
-            <div
-              class="bg-white text-dark-gray"
-              style="grid-row-start: head; padding: 0.5rem; position: sticky; top: 0; grid-column: 1 / -1; z-index: 2; margin-bottom: 0.5rem;"
-            />
+            <div class="schedule__head | bg-white text-dark-gray" />
 
             {hours.map((hour) => (
               <>
                 <div
                   class="schedule__hour | text-300-400"
-                  style={`grid-row-start: slice-${padNumber(hour)}-00;`}
+                  style={`--row-start: slice-${padNumber(hour)}-00;`}
                   aria-hidden="true"
                 >
                   {padNumber(hour)}:00
                 </div>
                 <div
                   class="schedule__divider"
-                  style={`grid-row-start: slice-${padNumber(hour)}-00;`}
+                  style={`--row-start: slice-${padNumber(hour)}-00;`}
                   aria-hidden="true"
                 />
               </>
@@ -100,7 +97,7 @@ const getDayGrid = (day) => {
               <>
                 <div
                   class="schedule__room | bg-white text-dark-gray weight-black uppercase text-400-500 leading-tight"
-                  style={`grid-column: ${roomIndex + 2};`}
+                  style={`--column: ${roomIndex + 2};`}
                 >
                   {room.name}
                 </div>
@@ -108,7 +105,7 @@ const getDayGrid = (day) => {
                 {day.rooms[room.name].map((talk) => (
                   <article
                     class="schedule__event grid-event"
-                    style={`grid-row-start: slice-${talk.start.slice(0, 2)}-${talk.start.slice(3, 5)}; grid-row-end: span ${toMinutes(talk.duration) / 5}; grid-column: ${roomIndex + 2};`}
+                    style={`--row-start: slice-${talk.start.slice(0, 2)}-${talk.start.slice(3, 5)}; --row-span: ${toMinutes(talk.duration) / 5}; --column: ${roomIndex + 2};`}
                   >
                     <div class="grid-event__time | bg-violet leading-tight">
                       <span class="weight-bold text-300-400">{talk.start}</span>

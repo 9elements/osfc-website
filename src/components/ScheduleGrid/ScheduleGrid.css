@@ -55,6 +55,12 @@
   --schedule-first-column: 4ch;
 
   display: grid;
+  /* --room-count and --slice-rows (named 5-minute rows) are set per day in the markup */
+  grid-template-columns: var(--schedule-first-column, 4ch) repeat(
+      var(--room-count),
+      1fr
+    );
+  grid-template-rows: [head] auto var(--slice-rows);
   gap: 2px 1rem;
   max-width: 100%;
   overflow-x: auto;
@@ -65,19 +71,32 @@
   }
 }
 
+.schedule__head {
+  grid-row-start: head;
+  grid-column: 1 / -1;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
 .schedule__hour {
+  grid-row-start: var(--row-start);
   grid-row-end: span 12;
   grid-column: 1;
   padding: 0.5rem;
 }
 
 .schedule__divider {
+  grid-row-start: var(--row-start);
   background: #ccc;
   height: 1px;
   grid-column: 1 / -1;
 }
 
 .schedule__room {
+  grid-column: var(--column);
   grid-row-start: head;
   text-align: center;
   padding: 1rem;
@@ -131,4 +150,10 @@
   .grid-event:hover {
     box-shadow: inset 0 0 0 3px var(--color-peach);
   }
+}
+
+/* --row-start, --row-span and --column come from the talk's time and room */
+.schedule__event {
+  grid-row: var(--row-start) / span var(--row-span);
+  grid-column: var(--column);
 }

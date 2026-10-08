@@ -9,8 +9,20 @@
   top: -5rem;
 }
 
+.sponsor__link {
+  display: inline-block;
+}
+
 .sponsor-buttons {
+  display: flex;
+  justify-content: space-between;
+
   a {
     text-decoration: none;
   }
+}
+
+/* No previous sponsor: keep the "next" link on the right */
+.sponsor-buttons--end {
+  justify-content: flex-end;
 }

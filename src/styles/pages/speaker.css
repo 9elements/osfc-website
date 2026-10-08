@@ -1,0 +1,15 @@
+.speaker-intro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.speaker-intro__bio {
+  flex-basis: 50%;
+  flex-grow: 1;
+  max-width: 60ch;
+}
+
+.speaker-talk__link {
+  text-decoration: none;
+}

@@ -59,7 +59,7 @@ const socialImage = await avatarSocialImage(speaker.avatar_url);
       <h1 class="text-black uppercase text-800-major weight-black leading-flat">
         {speaker.name}
       </h1>
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <div class="speaker-intro">
         {
           speaker.avatar_url && (
             <Avatar src={speaker.avatar_url} name={speaker.name} size={280} />
@@ -68,8 +68,7 @@ const socialImage = await avatarSocialImage(speaker.avatar_url);
         {
           speaker.biography && (
             <div
-              class="stack-300 | text-400-500"
-              style="flex-basis: 50%; flex-grow: 1; max-width: 60ch;"
+              class="speaker-intro__bio | stack-300 text-400-500"
               set:html={renderMarkdown(speaker.biography)}
             />
           )
@@ -83,8 +82,7 @@ const socialImage = await avatarSocialImage(speaker.avatar_url);
               <h2 class="leading-tight uppercase text-600-700 weight-bold">
                 <a
                   href={talkPath(year, talk)}
-                  class="text-violet"
-                  style="text-decoration: none;"
+                  class="speaker-talk__link | text-violet"
                 >
                   {talk.title}
                 </a>
@@ -106,3 +104,7 @@ const socialImage = await avatarSocialImage(speaker.avatar_url);
     </div>
   </section>
 </BaseLayout>
+
+<style is:global>
+  @import "../../../styles/pages/speaker.css" layer(blocks);
+</style>
