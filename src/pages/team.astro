@@ -1,4 +1,6 @@
 ---
+import beam04 from "@/assets/images/beams/beam-04.svg";
+import beam05 from "@/assets/images/beams/beam-05.svg";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import RhombImage from "@/components/RhombImage/RhombImage.astro";
@@ -15,16 +17,11 @@ const team = (await getCollection("team")).sort(
 >
   <div class="stack-major">
     <section id="team" class="team">
-      <img
-        alt=""
-        class="team__beam"
-        src="/assets/images/beams/beam-04.svg"
-        aria-hidden="true"
-      />
+      <img alt="" class="team__beam" src={beam04.src} aria-hidden="true" />
       <img
         alt=""
         class="team__beam team__beam--1"
-        src="/assets/images/beams/beam-05.svg"
+        src={beam05.src}
         aria-hidden="true"
       />
       <div class="wrapper-l">

@@ -1,4 +1,8 @@
 ---
+import beam01 from "@/assets/images/beams/beam-01.svg";
+import beam05 from "@/assets/images/beams/beam-05.svg";
+import smallGreyStripe from "@/assets/images/beams/small_grey_stripe_left.svg";
+import bigGreyStripe from "@/assets/images/beams/big_grey_stripe_left.svg";
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Newsletter from "@/components/Newsletter/Newsletter.astro";
@@ -123,7 +127,7 @@ const dateRange = new Intl.DateTimeFormat("en-US", {
         decoding="async"
         alt=""
         class="venue__beam"
-        src="/assets/images/beams/beam-01.svg"
+        src={beam01.src}
         aria-hidden="true"
       />
       <div class="wrapper-l stack-600">
@@ -248,7 +252,7 @@ const dateRange = new Intl.DateTimeFormat("en-US", {
         decoding="async"
         alt=""
         class="sponsors__beam"
-        src="/assets/images/beams/beam-05.svg"
+        src={beam05.src}
         aria-hidden="true"
       />
       <img
@@ -256,7 +260,7 @@ const dateRange = new Intl.DateTimeFormat("en-US", {
         decoding="async"
         alt=""
         class="sponsors__beam sponsors__beam--1"
-        src="/assets/images/beams/small_grey_stripe_left.svg"
+        src={smallGreyStripe.src}
         aria-hidden="true"
       />
       <img
@@ -264,7 +268,7 @@ const dateRange = new Intl.DateTimeFormat("en-US", {
         decoding="async"
         alt=""
         class="sponsors__beam sponsors__beam--2"
-        src="/assets/images/beams/big_grey_stripe_left.svg"
+        src={bigGreyStripe.src}
         aria-hidden="true"
       />
       <div class="wrapper-l">

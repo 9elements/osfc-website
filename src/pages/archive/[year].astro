@@ -1,4 +1,5 @@
 ---
+import beam02 from "@/assets/images/beams/beam-02.svg";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import DayTalkList from "@/components/DayTalkList/DayTalkList.astro";
 import YearNavigation from "@/components/YearNavigation/YearNavigation.astro";
@@ -24,7 +25,7 @@ const { year, schedule } = conference;
       decoding="async"
       alt=""
       class="archive__beam"
-      src="/assets/images/beams/beam-02.svg"
+      src={beam02.src}
       aria-hidden="true"
     />
     <div class="wrapper-l | stack-700">

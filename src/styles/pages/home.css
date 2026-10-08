@@ -86,7 +86,7 @@
     left: -6rem;
     width: 90vw;
     aspect-ratio: 570/219;
-    background: url(/assets/images/beams/deco-line-01.svg);
+    background: url("@/assets/images/beams/deco-line-01.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     content: "";
@@ -124,7 +124,7 @@
     top: -25rem;
     width: 20.02rem;
     height: 40.2rem;
-    background: url(/assets/images/beams/deco-line-02.svg);
+    background: url("@/assets/images/beams/deco-line-02.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     content: "";
@@ -141,7 +141,7 @@
     top: -2rem;
     width: 35.02vw;
     height: 50.2vw;
-    background: url(/assets/images/beams/deco-line-03.svg);
+    background: url("@/assets/images/beams/deco-line-03.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     content: "";
@@ -168,7 +168,7 @@
     top: -10rem;
     width: 28.02rem;
     height: 60.2rem;
-    background: url(/assets/images/beams/deco-line-05.svg);
+    background: url("@/assets/images/beams/deco-line-05.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     content: "";

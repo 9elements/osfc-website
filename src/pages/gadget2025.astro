@@ -1,4 +1,8 @@
 ---
+import macropadPoster from "@/assets/video/gadget-2025/macropad-thumb.webp";
+import macropadWebm from "@/assets/video/gadget-2025/macropad.webm";
+import macropadMp4 from "@/assets/video/gadget-2025/macropad.mp4";
+import behindTheScenesWebm from "@/assets/video/gadget-2025/gadget-bts.webm";
 import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Newsletter from "@/components/Newsletter/Newsletter.astro";
@@ -25,17 +29,14 @@ import slider8 from "@/assets/images/gadget-2025/slider-8.jpg";
       <video
         aria-hidden="true"
         class="gadget-intro__video"
-        poster="/assets/video/gadget-2025/macropad-thumb.webp"
+        poster={macropadPoster.src}
         playsinline
         muted
         autoplay
         loop
       >
-        <source
-          src="/assets/video/gadget-2025/macropad.webm"
-          type="video/webm"
-        />
-        <source src="/assets/video/gadget-2025/macropad.mp4" type="video/mp4" />
+        <source src={macropadWebm} type="video/webm" />
+        <source src={macropadMp4} type="video/mp4" />
       </video>
 
       <div class="gadget-intro__content">
@@ -129,7 +130,7 @@ import slider8 from "@/assets/images/gadget-2025/slider-8.jpg";
         </swiper-slide>
         <swiper-slide>
           <video
-            src="/assets/images/gadget-2025/gadget-bts.webm"
+            src={behindTheScenesWebm}
             type="video/webm"
             playsinline
             controls

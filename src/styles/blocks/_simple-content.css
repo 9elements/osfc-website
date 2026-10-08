@@ -8,7 +8,7 @@
     top: 50%;
     width: 24.02vw;
     height: 40.2vw;
-    background: url(/assets/images/beams/deco-line-02.svg);
+    background: url("../../assets/images/beams/deco-line-02.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
     content: "";

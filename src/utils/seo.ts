@@ -1,5 +1,6 @@
 import { getImage } from "astro:assets";
 import type { Event, Organization, Person, WebSite } from "schema-dts";
+import favicon from "@/assets/images/meta/favicon.svg";
 import { site } from "@/data/site";
 import { renderMarkdown, speakerPath, talkPath } from "./conference.js";
 
@@ -64,7 +65,7 @@ export const organizationJsonLd: Organization = {
   name: "Open Source Firmware Conference",
   alternateName: site.name,
   url: `${site.url}/`,
-  logo: `${site.url}/assets/images/meta/favicon.svg`,
+  logo: absoluteUrl(favicon.src),
   sameAs: [
     "https://twitter.com/osfc_io",
     "https://www.linkedin.com/company/osff",

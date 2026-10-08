@@ -1,4 +1,5 @@
 ---
+import beam05 from "@/assets/images/beams/beam-05.svg";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const { title, description } = Astro.props;
@@ -12,7 +13,7 @@ const { title, description } = Astro.props;
         decoding="async"
         alt=""
         class="simple-content__beam"
-        src="/assets/images/beams/beam-05.svg"
+        src={beam05.src}
         aria-hidden="true"
       />
       <div class="wrapper-l">
