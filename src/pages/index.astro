@@ -1,75 +1,9 @@
 ---
-import { LIVE_PREVIEW } from "astro:env/client";
-import { DATOCMS_API_KEY } from "astro:env/server";
-
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Gallery from "@/components/dato/Gallery/Gallery.astro";
-import localImage from "@/assets/images/laptop.jpg";
-import { fetchDatoCMS } from "@/utils/dato";
-import { HOMEPAGE_QUERY } from "@/utils/dato/queries/homepage";
-import { BLOG_POSTS_QUERY } from "@/utils/dato/queries/blogPosts";
-import { VARIABLE_PAGES_QUERY } from "@/utils/dato/queries/variablePages";
-const { homepage } = await fetchDatoCMS(HOMEPAGE_QUERY);
-const { allBlogPosts } = await fetchDatoCMS(BLOG_POSTS_QUERY);
-const { allVariablePages } = await fetchDatoCMS(VARIABLE_PAGES_QUERY);
-
-import { QueryListener } from "@datocms/astro/QueryListener";
-
-import { getItemPath } from "@/utils/helpers/getItemPath";
-import { Picture } from "astro:assets";
 ---
 
-<BaseLayout seo={homepage._seoMetaTags}>
+<BaseLayout title="OSFC">
   <div class="wrapper stack-m py-2xl">
-    <h1 class="text-step-3">
-      {homepage.title}
-    </h1>
-
-    <h2 class="text-step-2">Variable Pages</h2>
-    <ul class="stack-xs">
-      {
-        allVariablePages.map((page) => (
-          <li>
-            <a href={getItemPath(page)}>{page.title}</a>
-          </li>
-        ))
-      }
-    </ul>
-
-    <h2 class="text-step-2">Blog Posts</h2>
-    <ul class="stack-xs">
-      {
-        allBlogPosts.map((post) => (
-          <li>
-            <a href={getItemPath(post)}>{post.title}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <h1 class="text-step-3">OSFC</h1>
   </div>
-
-  <Gallery block={homepage.gallery} />
-
-  <figure
-    style="margin-inline: auto; max-width: 50rem; padding: 1rem;"
-    class="stack-xs"
-  >
-    <Picture
-      src={localImage}
-      widths={[600, 800]}
-      sizes="100vw"
-      formats={["avif", "webp"]}
-      alt=""
-    />
-    <figcaption>↑ I am a local image!</figcaption>
-  </figure>
-
-  {
-    LIVE_PREVIEW && (
-      <>
-        <QueryListener query={HOMEPAGE_QUERY} token={DATOCMS_API_KEY} />
-        <QueryListener query={BLOG_POSTS_QUERY} token={DATOCMS_API_KEY} />
-      </>
-    )
-  }
 </BaseLayout>

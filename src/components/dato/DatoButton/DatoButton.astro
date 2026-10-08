@@ -1,9 +1,0 @@
----
-import Button from "@/components/Button/Button.astro";
-import { resolveLinkTarget } from "@/utils/helpers/resolveLinkTarget";
-const { link } = Astro.props;
-
-const { href, target, rel } = resolveLinkTarget(link.linktarget);
----
-
-<Button {href} {target} {rel} text={link.text} />
