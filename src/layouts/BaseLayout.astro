@@ -1,11 +1,9 @@
 ---
 import favicon from "@/assets/images/meta/favicon.svg";
 import socialShare from "@/assets/images/meta/social-share.png";
-import "@fontsource/roboto/latin-400.css";
-import "@fontsource/roboto/latin-700.css";
-import "@fontsource/roboto/latin-900.css";
+import "@fontsource-variable/roboto/wght.css";
 import "@/styles/global.css";
-import roboto400 from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?url";
+import robotoLatin from "@fontsource-variable/roboto/files/roboto-latin-wght-normal.woff2";
 
 import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
 import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
@@ -104,7 +102,7 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
 
     <link
       rel="preload"
-      href={roboto400}
+      href={robotoLatin}
       as="font"
       type="font/woff2"
       crossorigin

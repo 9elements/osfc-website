@@ -91,7 +91,7 @@ Logos and photos are referenced relative to the Markdown file and optimized by A
   ```
 
 - `src/styles/_root.css` is unlayered on purpose and wins over utilities, like on the previous site.
-- Roboto is self-hosted through Fontsource (latin subset, weights 400/700/900).
+- Roboto is self-hosted as a variable font through Fontsource (`@fontsource-variable/roboto`). The latin file is preloaded; other subsets only load when a page needs those characters.
 
 ## SEO
 
