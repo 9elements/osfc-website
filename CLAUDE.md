@@ -6,7 +6,7 @@ This document contains coding guidelines and conventions for the OSFC conference
 
 - **Framework**: Astro 7.x
 - **Styling**: PostCSS with modern CSS features
-- **Deployment**: Static output (`output: "static"`), deployed to Netlify. No adapter.
+- **Deployment**: Static output (`output: "static"`), deployed to Netlify via `netlify.toml`. No adapter.
 
 ## Component Development
 

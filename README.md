@@ -101,3 +101,9 @@ Logos and photos are referenced relative to the Markdown file and optimized by A
 ## Redirects
 
 `public/_redirects` (Netlify) keeps URLs of the previous site working, for example renamed or canceled talks and former sponsors. Run `npm run compare:urls` against an old build to check that every old page still exists or redirects.
+
+## Deployment
+
+Netlify builds the site with the settings in `netlify.toml`: `npm run build`, publish `dist`, Node 22. It also sets long-lived caching for the hashed files in `/_astro/` and a few security headers.
+
+Set `PRETALX_TOKEN` and `TALKS_OSFC_TOKEN` in the Netlify environment variables once a year in `src/utils/pretalx/years.js` has `live: true`. Snapshot-only builds don't need them.
