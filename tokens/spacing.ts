@@ -14,5 +14,5 @@ export const spacingPx = {
 };
 
 export const spacing = Object.fromEntries(
-  Object.entries(spacingPx).map(([key, px]) => [key, rem(px)]),
+  Object.entries(spacingPx).map(([key, px]) => [key, rem(px)])
 );

@@ -9,7 +9,8 @@ const markdown = markdownIt({ html: false, breaks: true, linkify: true });
 markdown.linkify.set({ fuzzyLink: true });
 // …which also turns academic degrees into links (".sc" is a real top-level domain)
 const validateLink = markdown.validateLink;
-markdown.validateLink = (url) => !/^http:\/\/[BM]\.Sc$/i.test(url) && validateLink(url);
+markdown.validateLink = (url) =>
+  !/^http:\/\/[BM]\.Sc$/i.test(url) && validateLink(url);
 
 // Pretalx texts use any heading level; start them at <h2> below the page's own <h1>
 markdown.core.ruler.push("normalize_headings", (state) => {

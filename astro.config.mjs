@@ -19,9 +19,5 @@ export default defineConfig({
     domains: ["pretalx.com", "talks.osfc.io", "cfp.osfc.io"],
   },
 
-  integrations: [
-    generateVarUtils(),
-    icon(),
-    sitemap(),
-  ],
+  integrations: [generateVarUtils(), icon(), sitemap()],
 });

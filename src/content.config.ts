@@ -78,13 +78,25 @@ const logoSize = z.enum(["s", "m", "l"]).optional();
 const projects = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/projects" }),
   schema: ({ image }) =>
-    z.object({ name: z.string(), image: image(), link: z.url(), size: logoSize, order: z.number() }),
+    z.object({
+      name: z.string(),
+      image: image(),
+      link: z.url(),
+      size: logoSize,
+      order: z.number(),
+    }),
 });
 
 const organizers = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/organizers" }),
   schema: ({ image }) =>
-    z.object({ name: z.string(), image: image(), link: z.url(), size: logoSize, order: z.number() }),
+    z.object({
+      name: z.string(),
+      image: image(),
+      link: z.url(),
+      size: logoSize,
+      order: z.number(),
+    }),
 });
 
 const sponsors = defineCollection({
@@ -104,7 +116,19 @@ const sponsors = defineCollection({
 const team = defineCollection({
   loader: glob({ pattern: "*.md", base: "./src/content/team" }),
   schema: ({ image }) =>
-    z.object({ name: z.string(), position: z.string(), image: image(), order: z.number() }),
+    z.object({
+      name: z.string(),
+      position: z.string(),
+      image: image(),
+      order: z.number(),
+    }),
 });
 
-export const collections = { conferenceYears, pages, projects, organizers, sponsors, team };
+export const collections = {
+  conferenceYears,
+  pages,
+  projects,
+  organizers,
+  sponsors,
+  team,
+};

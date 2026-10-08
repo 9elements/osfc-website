@@ -37,11 +37,12 @@ const toPattern = (from) =>
     `^${from
       .replace(/[.+?^${}()|[\]\\]/g, "\\$&")
       .replace(/:[a-z]+/gi, "[^/]+")
-      .replace(/\*$/, ".*")}$`,
+      .replace(/\*$/, ".*")}$`
   );
 
 const redirectPatterns = redirects.map(toPattern);
-const isRedirected = (url) => redirectPatterns.some((pattern) => pattern.test(url));
+const isRedirected = (url) =>
+  redirectPatterns.some((pattern) => pattern.test(url));
 
 const oldUrls = listUrls(oldDir);
 const newUrls = new Set(listUrls(newDir));

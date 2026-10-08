@@ -38,7 +38,9 @@ const stackUtilities = Object.keys(spacing)
   .join("\n");
 
 const stackSpaceUtilities = Object.keys(spacing)
-  .map((key) => `.my-stack-space-${key} { --stack-space: var(--space-${key}); }`)
+  .map(
+    (key) => `.my-stack-space-${key} { --stack-space: var(--space-${key}); }`
+  )
   .join("\n");
 
 const fontWeightUtilities = Object.keys(fontWeights)

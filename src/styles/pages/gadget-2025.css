@@ -104,7 +104,8 @@
   --line-scale-start: 0.9;
   --line-scale-end: 1;
   scale: calc(
-    var(--line-scale-start) + (var(--line-scale-end) - var(--line-scale-start)) *
+    var(--line-scale-start) +
+      (var(--line-scale-end) - var(--line-scale-start)) *
       clamp(0, var(--progress), 1)
   );
 
