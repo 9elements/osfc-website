@@ -76,14 +76,14 @@
     display: none;
   }
 
-  .no-js & {
+  @media (--no-js) {
     display: none;
   }
 }
 
-.js-active {
-  /* When JS is enabled hide the nav Items on small screens */
-  & .nav__items {
+/* With JavaScript, the hamburger button opens the nav items on small screens */
+@media (--js) {
+  .nav__items {
     display: none;
 
     @media (--nav) {
@@ -131,17 +131,5 @@
     .nav__item:last-of-type & {
       margin-right: calc(-1 * var(--inline-padding));
     }
-  }
-}
-
-@media (--nav) {
-  /* Show Subnavi on hover when JS is disabled */
-  .no-js > li:hover .nav__sublist ul {
-    display: block;
-  }
-
-  .sub-nav-toggle + .nav__sublist ul {
-    display: none;
-    position: absolute;
   }
 }
