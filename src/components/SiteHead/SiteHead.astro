@@ -33,7 +33,7 @@ const Logo = isTransparent ? LogoBlack : LogoNoYear;
         class="nav__home-link"
         {...!isHome && { href: "/", "aria-label": "Home" }}
       >
-        <Logo />
+        <Logo aria-hidden="true" />
       </HomeLinkTag>
       <button
         class="nav__button"

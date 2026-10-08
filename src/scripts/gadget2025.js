@@ -1,4 +1,12 @@
 import { register } from "swiper/element/bundle";
+
+// Looping videos have no pause control; respect reduced motion
+if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  document.querySelectorAll("video[autoplay]").forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.pause();
+  });
+}
 register();
 
 import gsap from "gsap";
@@ -59,11 +67,11 @@ function setupPointerListener(enabled) {
 
       document.documentElement.style.setProperty(
         "--pointer-x",
-        state.x.toFixed(4),
+        state.x.toFixed(4)
       );
       document.documentElement.style.setProperty(
         "--pointer-y",
-        state.y.toFixed(4),
+        state.y.toFixed(4)
       );
     };
 

@@ -11,9 +11,11 @@ interface Props {
   name: string;
   size: number;
   class?: string;
+  /** Use when the name is already shown next to the image */
+  decorative?: boolean;
 }
 
-const { src, name, size, class: className } = Astro.props;
+const { src, name, size, class: className, decorative = false } = Astro.props;
 
 const placeholders = [avatar01, avatar02, avatar03, avatar04, avatar05];
 // Stable per name, so rebuilds don't shuffle placeholder avatars
@@ -28,7 +30,7 @@ const placeholder =
   src ? (
     <Image
       src={src}
-      alt={name}
+      alt={decorative ? "" : name}
       width={size}
       height={size}
       densities={[1, 2]}

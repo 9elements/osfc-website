@@ -5,6 +5,19 @@ import { getYearConfig } from "./pretalx/years.js";
 
 const markdown = markdownIt({ html: true, breaks: true, linkify: true });
 
+// Pretalx texts use any heading level; start them at <h2> below the page's own <h1>
+markdown.core.ruler.push("normalize_headings", (state) => {
+  const headings = state.tokens.filter(
+    (token) => token.type === "heading_open" || token.type === "heading_close"
+  );
+  if (!headings.length) return;
+  const shift =
+    2 - Math.min(...headings.map((token) => Number(token.tag.slice(1))));
+  for (const token of headings) {
+    token.tag = `h${Math.min(Number(token.tag.slice(1)) + shift, 6)}`;
+  }
+});
+
 export const renderMarkdown = (value) => markdown.render(value ?? "");
 
 // Eleventy's default markdown-it options, so text pages render exactly like before

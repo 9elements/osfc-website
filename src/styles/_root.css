@@ -101,3 +101,19 @@ pre {
   overflow: clip;
   position: relative;
 }
+
+.skip-link {
+  position: absolute;
+  top: var(--space-300);
+  left: var(--space-300);
+  z-index: 1000;
+  padding: var(--space-200) var(--space-400);
+  background: var(--color-white);
+  color: var(--color-violet);
+  font-weight: var(--weight-bold);
+  transform: translateY(-200%);
+
+  &:focus-visible {
+    transform: none;
+  }
+}
