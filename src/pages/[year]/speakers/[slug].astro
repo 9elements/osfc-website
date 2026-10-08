@@ -1,0 +1,79 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Avatar from "@/components/Avatar/Avatar.astro";
+import {
+  getConferenceYears,
+  renderMarkdown,
+  talkPath,
+} from "@/utils/conference";
+import { slugify } from "@/utils/slugify";
+
+export const getStaticPaths = async () =>
+  (await getConferenceYears()).flatMap((conference) =>
+    conference.speakers.map((speaker) => ({
+      params: { year: String(conference.year), slug: slugify(speaker.name) },
+      props: { conference, speaker },
+    }))
+  );
+
+const { conference, speaker } = Astro.props;
+const { year, talks } = conference;
+
+const speakerTalks = (speaker.submissions ?? [])
+  .flatMap((code) => talks.filter((talk) => talk.code === code))
+  .filter((talk) => !talk.description || talk.description.length > 30);
+---
+
+<BaseLayout title={speaker.name} transparentHeader>
+  <section id="intro" class="intro">
+    <div class="wrapper-l stack-300">
+      <h1 class="text-black uppercase text-800-major weight-black leading-flat">
+        {speaker.name}
+      </h1>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        {
+          speaker.avatar_url && (
+            <Avatar src={speaker.avatar_url} name={speaker.name} size={280} />
+          )
+        }
+        {
+          speaker.biography && (
+            <div
+              class="stack-300 | text-400-500"
+              style="flex-basis: 50%; flex-grow: 1; max-width: 60ch;"
+              set:html={renderMarkdown(speaker.biography)}
+            />
+          )
+        }
+      </div>
+
+      <div class="stack-500">
+        {
+          speakerTalks.map((talk) => (
+            <div class="stack-400 shadow-box">
+              <h2 class="leading-tight uppercase text-600-700 weight-bold">
+                <a
+                  href={talkPath(year, talk)}
+                  class="text-violet"
+                  style="text-decoration: none;"
+                >
+                  {talk.title}
+                </a>
+              </h2>
+              <div
+                class="stack-300"
+                set:html={renderMarkdown(talk.abstract || talk.description)}
+              />
+            </div>
+          ))
+        }
+        <div class="wrapper-s">
+          <a
+            href={`/${year}/speakers/`}
+            class="uppercase weight-bold text-peach">&lt; Back to speakers</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

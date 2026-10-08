@@ -13,6 +13,11 @@ export default defineConfig({
 
   scopedStyleStrategy: "where",
 
+  image: {
+    // Speaker avatars from Pretalx, optimized at build time
+    domains: ["pretalx.com", "talks.osfc.io", "cfp.osfc.io"],
+  },
+
   integrations: [
     generateVarUtils(),
     sitemap(),

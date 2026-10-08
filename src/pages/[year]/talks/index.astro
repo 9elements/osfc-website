@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DayTalkList from "@/components/DayTalkList/DayTalkList.astro";
+import { getYearPaths } from "@/utils/yearPaths";
+
+export const getStaticPaths = getYearPaths;
+
+const { conference } = Astro.props;
+const { year, schedule } = conference;
+---
+
+<BaseLayout title="Talks" transparentHeader>
+  <section>
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="leading-tight uppercase text-800-major weight-black text-peach"
+      >
+        Talks {year}!
+      </h1>
+      <DayTalkList year={year} schedule={schedule} />
+    </div>
+  </section>
+</BaseLayout>

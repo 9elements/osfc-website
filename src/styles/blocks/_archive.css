@@ -1,0 +1,35 @@
+.archive {
+  position: relative;
+  h1 {
+    text-align: center;
+  }
+
+  .year-navigation {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+      text-decoration: none;
+    }
+  }
+}
+
+.archive__beam {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  width: clamp(70rem, 233vw, 100%);
+  right: 0;
+  top: 15rem;
+  max-width: none;
+  display: none;
+
+  @media (--lg) {
+    top: 10vh;
+    display: block;
+  }
+}

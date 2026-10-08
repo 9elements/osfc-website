@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ScheduleGrid from "@/components/ScheduleGrid/ScheduleGrid.astro";
+import { getYearPaths } from "@/utils/yearPaths";
+
+export const getStaticPaths = getYearPaths;
+
+const { conference } = Astro.props;
+const { year, schedule } = conference;
+---
+
+<BaseLayout title="Schedule" transparentHeader>
+  <section>
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="text-800-major weight-black uppercase leading-tight text-peach"
+      >
+        Schedule {year}
+      </h1>
+      <ScheduleGrid year={year} schedule={schedule} />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,72 @@
+---
+import TalkCard from "@/components/TalkCard/TalkCard.astro";
+import { formatDay, joinNames, padNumber, talkPath } from "@/utils/conference";
+
+interface Props {
+  year: number;
+  schedule: { days: any[]; rooms: { name: string }[] };
+  monthName?: boolean;
+}
+
+const { year, schedule, monthName = false } = Astro.props;
+const days = schedule.days.filter((day) => Object.keys(day.rooms).length > 0);
+---
+
+<ul class="jump-navigation | bg-peach" role="list">
+  {
+    days.map((day, index) => (
+      <li>
+        <a href={`#day-${day.date}`} class="text-white weight-bold">
+          <span class="jump-navigation__day-count">
+            Day {padNumber(index + 1)}
+          </span>
+          <span class="jump-navigation__date">{formatDay(day.date)}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<div class="stack-800">
+  {
+    days.map((day) => (
+      <section
+        id={`day-${day.date}`}
+        class="jump-navigation-target | stack-400"
+      >
+        <h2 class="uppercase weight-black text-violet text-700-800 leading-flat">
+          {formatDay(day.date, { monthName })}
+        </h2>
+        <div class="stack-600">
+          {schedule.rooms
+            .filter((room) => day.rooms[room.name])
+            .map((room) => (
+              <div class="stack-200">
+                <h3 class="uppercase weight-black text-500-600 leading-flat">
+                  {room.name}
+                </h3>
+                <div class="stack-100">
+                  {day.rooms[room.name].map((talk) => (
+                    <TalkCard
+                      title={talk.title}
+                      href={
+                        talk.abstract || talk.description
+                          ? talkPath(year, talk)
+                          : undefined
+                      }
+                    >
+                      {joinNames(talk.persons ?? [], "public_name")}
+                    </TalkCard>
+                  ))}
+                </div>
+              </div>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+</div>
+
+<style is:global>
+  @import "./DayTalkList.css" layer(blocks);
+</style>

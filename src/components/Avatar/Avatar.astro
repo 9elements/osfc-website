@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import avatar01 from "@/assets/images/avatars/avatar-01.webp";
+import avatar02 from "@/assets/images/avatars/avatar-02.webp";
+import avatar03 from "@/assets/images/avatars/avatar-03.webp";
+import avatar04 from "@/assets/images/avatars/avatar-04.webp";
+import avatar05 from "@/assets/images/avatars/avatar-05.webp";
+
+interface Props {
+  src?: string | null;
+  name: string;
+  size: number;
+  class?: string;
+}
+
+const { src, name, size, class: className } = Astro.props;
+
+const placeholders = [avatar01, avatar02, avatar03, avatar04, avatar05];
+// Stable per name, so rebuilds don't shuffle placeholder avatars
+const placeholder =
+  placeholders[
+    [...name].reduce((sum, char) => sum + char.charCodeAt(0), 0) %
+      placeholders.length
+  ];
+---
+
+{
+  src ? (
+    <Image
+      src={src}
+      alt={name}
+      width={size}
+      height={size}
+      densities={[1, 2]}
+      class:list={["avatar", className]}
+    />
+  ) : (
+    <Image
+      src={placeholder}
+      alt=""
+      aria-hidden="true"
+      width={size}
+      height={size}
+      densities={[1, 2]}
+      class:list={["avatar", className]}
+    />
+  )
+}
+
+<style is:global>
+  @import "./Avatar.css" layer(blocks);
+</style>

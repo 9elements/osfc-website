@@ -18,6 +18,7 @@
  * @property {boolean} [speakerNameFallback] use the speaker code when the name is empty
  * @property {boolean} [mergeSpeakersByName] merge speakers that would share a slug
  * @property {boolean} [sortTalksByTitle]
+ * @property {boolean} [hasSchedule] talk pages link back to the schedule (only while the year is current)
  * @property {boolean} [live]
  */
 
@@ -99,6 +100,7 @@ export const years = [
     speakers: "confirmed",
     mergeSpeakersByName: true,
     sortTalksByTitle: true,
+    hasSchedule: true,
   },
 ];
 

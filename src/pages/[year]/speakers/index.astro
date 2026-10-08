@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SpeakerCard from "@/components/SpeakerCard/SpeakerCard.astro";
+import { getYearPaths } from "@/utils/yearPaths";
+
+export const getStaticPaths = getYearPaths;
+
+const { conference } = Astro.props;
+const { year, speakers, talks } = conference;
+---
+
+<BaseLayout title={`Speakers ${year}`} transparentHeader>
+  <section>
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="leading-tight uppercase text-800-major weight-black text-peach"
+      >
+        Speakers {year}
+      </h1>
+
+      <div
+        class="auto-grid"
+        style="--auto-grid-min-size: 25rem; --auto-grid-gap: 2rem;"
+      >
+        {
+          speakers
+            .filter((speaker) => speaker.submissions?.length >= 1)
+            .map((speaker) => (
+              <SpeakerCard year={year} speaker={speaker} talks={talks} />
+            ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

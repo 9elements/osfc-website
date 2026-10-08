@@ -1,0 +1,102 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SpeakerPill from "@/components/SpeakerPill/SpeakerPill.astro";
+import VideoEmbed from "@/components/VideoEmbed/VideoEmbed.astro";
+import {
+  formatDay,
+  getConferenceYears,
+  renderMarkdown,
+} from "@/utils/conference";
+import { currentYear } from "@/utils/pretalx/years.js";
+import { slugify } from "@/utils/slugify";
+
+export const getStaticPaths = async () =>
+  (await getConferenceYears()).flatMap((conference) =>
+    conference.talks.map((talk) => ({
+      params: { year: String(conference.year), slug: slugify(talk.title) },
+      props: { conference, talk },
+    }))
+  );
+
+const { conference, talk } = Astro.props;
+const { year, videos, config } = conference;
+
+const slot = talk.slots[0];
+const talkVideos = videos.filter((video) => video.submission === talk.code);
+
+const backLink =
+  year < currentYear
+    ? { href: `/archive/${year}/`, text: "Back to archive" }
+    : config.hasSchedule
+      ? { href: `/${year}/schedule/`, text: "Back to schedule" }
+      : { href: `/${year}/talk-list/`, text: "Back to featured talks" };
+---
+
+<BaseLayout title={talk.title} transparentHeader>
+  <div class="wrapper-l stack-200">
+    <h1 class="text-black uppercase text-800-900 leading-flat weight-black">
+      {talk.title}
+    </h1>
+    <div class="cluster" style="--cluster-gap: 0.5rem;">
+      {
+        talk.speakers.map((speaker) => (
+          <SpeakerPill year={year} speaker={speaker} />
+        ))
+      }
+    </div>
+    {
+      slot && (
+        <p class="weight-bold">
+          {slot.room?.name?.en},
+          {slot.start && (
+            <time datetime={new Date(slot.start).toISOString()}>
+              {formatDay(slot.start)}
+            </time>
+          )}
+        </p>
+      )
+    }
+    <div class="wrapper-s shadow-box stack-400 my-stack-space-600">
+      {
+        talkVideos.map((video) => (
+          <VideoEmbed vimeoId={video.vimeo_id} title={talk.title} />
+        ))
+      }
+      {
+        talk.abstract && (
+          <div
+            class="stack-300 text-400-500"
+            set:html={renderMarkdown(talk.abstract)}
+          />
+        )
+      }
+      {
+        talk.description && (
+          <div
+            class="stack-300 text-400-500"
+            set:html={renderMarkdown(talk.description)}
+          />
+        )
+      }
+      {
+        talk.resources.length > 0 && (
+          <>
+            <h2>Resources:</h2>
+            <ul>
+              {talk.resources.map((resource) => (
+                <li>
+                  <a href={resource.resource}>{resource.description}</a>
+                </li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+    </div>
+    <div class="wrapper-s">
+      <a href={backLink.href} class="uppercase weight-bold text-peach"
+        >&lt; {backLink.text}</a
+      >
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TalkCard from "@/components/TalkCard/TalkCard.astro";
+import { joinNames, talkPath } from "@/utils/conference";
+import { getYearPaths } from "@/utils/yearPaths";
+
+export const getStaticPaths = getYearPaths;
+
+const { conference } = Astro.props;
+const { year, talks } = conference;
+---
+
+<BaseLayout title="Talk List" transparentHeader>
+  <section>
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="leading-tight uppercase text-800-major weight-black text-peach"
+      >
+        Talk List {year}
+      </h1>
+
+      <div class="stack-100">
+        {
+          talks.map((talk) => (
+            <TalkCard
+              title={talk.title}
+              headingLevel="h2"
+              headingClass="weight-bold text-500-600"
+              href={
+                talk.abstract || talk.description
+                  ? talkPath(year, talk)
+                  : undefined
+              }
+            >
+              by {joinNames(talk.speakers, "name")}
+            </TalkCard>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

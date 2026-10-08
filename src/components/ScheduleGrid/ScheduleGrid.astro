@@ -1,0 +1,148 @@
+---
+import { formatDay, joinNames, padNumber, talkPath } from "@/utils/conference";
+
+interface Props {
+  year: number;
+  schedule: { days: any[]; rooms: { name: string }[] };
+}
+
+const { year, schedule } = Astro.props;
+const days = schedule.days.filter((day) => Object.keys(day.rooms).length > 0);
+
+const toMinutes = (duration: string) =>
+  Number(duration.slice(0, 2)) * 60 + Number(duration.slice(3, 5));
+
+/** Grid rows span from the first to the last starting hour of the day, in 5 minute slices. */
+const getDayGrid = (day) => {
+  const rooms = schedule.rooms.filter((room) => day.rooms[room.name]);
+  const startHours = rooms.flatMap((room) =>
+    day.rooms[room.name].map((talk) => Number(talk.start.slice(0, 2)))
+  );
+  const firstHour = Math.min(
+    ...rooms.map((room) => Number(day.rooms[room.name][0].start.slice(0, 2)))
+  );
+  // Talks after midnight belong to the end of the day
+  const lastHour = Math.max(
+    ...startHours.map((hour) => (hour < firstHour ? hour + 24 : hour))
+  );
+  const hourCount = lastHour - firstHour;
+  const hours = Array.from(
+    { length: hourCount + 1 },
+    (_, i) => (firstHour + i) % 24
+  );
+  const rows = hours
+    .flatMap((hour) =>
+      Array.from(
+        { length: 12 },
+        (_, j) =>
+          `[slice-${padNumber(hour)}-${padNumber(j * 5)}] minmax(10px, auto)`
+      )
+    )
+    .join(" ");
+
+  return { rooms, hours, rows };
+};
+---
+
+<div class="tabbed">
+  <div class="tabbed__header | bg-peach">
+    <ul class="cluster tablist">
+      {
+        days.map((day) => (
+          <li>
+            <a href={`#day-${day.date}`} class="text-300-400">
+              {formatDay(day.date)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  {
+    days.map((day) => {
+      const { rooms, hours, rows } = getDayGrid(day);
+      return (
+        <section
+          id={`day-${day.date}`}
+          class="tabbed__body | bg-white stack-500"
+        >
+          <h2 class="tabbed__headline | text-white bg-peach weight-black uppercase text-700 leading-flat">
+            {formatDay(day.date)}
+          </h2>
+
+          <div
+            class="schedule"
+            style={`grid-template-columns: var(--schedule-first-column, 4ch) repeat(${rooms.length}, 1fr); grid-template-rows: [head] auto ${rows};`}
+          >
+            <div
+              class="bg-white text-dark-gray"
+              style="grid-row-start: head; padding: 0.5rem; position: sticky; top: 0; grid-column: 1 / -1; z-index: 2; margin-bottom: 0.5rem;"
+            />
+
+            {hours.map((hour) => (
+              <>
+                <div
+                  class="schedule__hour | text-300-400"
+                  style={`grid-row-start: slice-${padNumber(hour)}-00;`}
+                  aria-hidden="true"
+                >
+                  {padNumber(hour)}:00
+                </div>
+                <div
+                  class="schedule__divider"
+                  style={`grid-row-start: slice-${padNumber(hour)}-00;`}
+                  aria-hidden="true"
+                />
+              </>
+            ))}
+
+            {rooms.map((room, roomIndex) => (
+              <>
+                <div
+                  class="schedule__room | bg-white text-dark-gray weight-black uppercase text-400-500 leading-tight"
+                  style={`grid-column: ${roomIndex + 2};`}
+                >
+                  {room.name}
+                </div>
+
+                {day.rooms[room.name].map((talk) => (
+                  <article
+                    class="schedule__event grid-event"
+                    style={`grid-row-start: slice-${talk.start.slice(0, 2)}-${talk.start.slice(3, 5)}; grid-row-end: span ${toMinutes(talk.duration) / 5}; grid-column: ${roomIndex + 2};`}
+                  >
+                    <div class="grid-event__time | bg-violet leading-tight">
+                      <span class="weight-bold text-300-400">{talk.start}</span>
+                      <span class="text-300">
+                        {toMinutes(talk.duration)}min
+                      </span>
+                    </div>
+                    <div class="grid-event__body | stack-100 | leading-tight">
+                      <h3 class="weight-bold text-300-400">{talk.title}</h3>
+                      <p class="grid-event__subline | text-300">
+                        {joinNames(talk.persons ?? [], "public_name")}
+                      </p>
+                    </div>
+
+                    {(talk.abstract || talk.description?.length > 30) && (
+                      <a class="grid-event__link" href={talkPath(year, talk)}>
+                        <span class="sr-only">Talk details: {talk.title}</span>
+                      </a>
+                    )}
+                  </article>
+                ))}
+              </>
+            ))}
+          </div>
+        </section>
+      );
+    })
+  }
+</div>
+
+<style is:global>
+  @import "./ScheduleGrid.css" layer(blocks);
+</style>
+
+<script>
+  import "./tablist.js";
+</script>

@@ -1,0 +1,23 @@
+---
+import Avatar from "@/components/Avatar/Avatar.astro";
+import { speakerPath } from "@/utils/conference";
+
+const { year, speaker } = Astro.props;
+---
+
+<a
+  href={speakerPath(year, speaker)}
+  class="speaker-pill | leading-tight weight-bold uppercase"
+>
+  <Avatar
+    src={speaker.avatar_url}
+    name={speaker.name}
+    size={24}
+    class="speaker-pill__image"
+  />
+  <span>{speaker.name}</span>
+</a>
+
+<style is:global>
+  @import "./SpeakerPill.css" layer(blocks);
+</style>

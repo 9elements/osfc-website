@@ -1,0 +1,37 @@
+.jump-navigation {
+  padding: 0 0.5rem;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  a {
+    text-decoration: none;
+    padding: 0.5rem;
+    display: block;
+
+    &:focus-visible {
+      outline-color: var(--color-violet);
+      outline-offset: -5px;
+    }
+  }
+}
+
+.jump-navigation__date {
+  display: none;
+
+  @media (--md) {
+    display: inline;
+  }
+}
+.jump-navigation__day-count {
+  @media (--md) {
+    display: none;
+  }
+}
+
+.jump-navigation-target {
+  scroll-margin-top: 3rem;
+}
