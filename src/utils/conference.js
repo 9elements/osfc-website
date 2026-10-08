@@ -5,6 +5,11 @@ import { currentYear, getYearConfig, latestYear } from "./pretalx/years.js";
 
 // No raw HTML: speakers write these texts in Pretalx
 const markdown = markdownIt({ html: false, breaks: true, linkify: true });
+// markdown-it 15 stopped linking bare domains like "tianocore.org" by default
+markdown.linkify.set({ fuzzyLink: true });
+// …which also turns academic degrees into links (".sc" is a real top-level domain)
+const validateLink = markdown.validateLink;
+markdown.validateLink = (url) => !/^http:\/\/[BM]\.Sc$/i.test(url) && validateLink(url);
 
 // Pretalx texts use any heading level; start them at <h2> below the page's own <h1>
 markdown.core.ruler.push("normalize_headings", (state) => {
