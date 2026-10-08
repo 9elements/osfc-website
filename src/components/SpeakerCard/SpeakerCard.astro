@@ -16,7 +16,12 @@ const speakerTalks = (speaker.submissions ?? []).flatMap((code) =>
     tabindex="-1"
     aria-hidden="true"
   >
-    <Avatar src={speaker.avatar_url} name={speaker.name} size={224} />
+    <Avatar
+      src={speaker.avatar_url}
+      name={speaker.name}
+      size={224}
+      decorative
+    />
   </a>
   <div class="speaker-card__body | stack-200">
     <h2
