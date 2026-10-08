@@ -35,7 +35,7 @@
     gap: 0.25rem;
     flex-wrap: wrap;
     align-items: center;
-    img {
+    svg {
       display: block;
     }
 
@@ -48,4 +48,10 @@
   @media (--md) {
     flex-direction: row;
   }
+}
+
+.site-foot__icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
 }

@@ -1,20 +1,26 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const links = [
   {
-    icon: "icon_telephone",
+    icon: "telephone",
     text: "+49 234 689 41 88",
     href: "tel:+492346894188",
   },
-  { icon: "icon_mail", text: "Contact", href: "mailto:info@osfc.io" },
-  { icon: "icon_pin", text: "Twitter", href: "https://twitter.com/osfc_io" },
+  { icon: "mail", text: "Contact", href: "mailto:info@osfc.io" },
   {
-    icon: "icon_linkedin",
+    icon: "twitter",
+    text: "Twitter",
+    href: "https://twitter.com/osfc_io",
+  },
+  {
+    icon: "linkedin",
     text: "LinkedIn",
     href: "https://www.linkedin.com/company/osff",
   },
-  { icon: "icon_imprint", text: "Imprint", href: "/imprint/" },
+  { icon: "imprint", text: "Imprint", href: "/imprint/" },
   {
-    icon: "icon_data_privacy",
+    icon: "data_privacy",
     text: "Privacy Policy",
     href: "/privacy-policy/",
   },
@@ -31,23 +37,13 @@ const links = [
       </div>
       <ul class="site-foot__list text-400">
         <li>
-          <img
-            src="/assets/images/icons/icon_pin.svg"
-            alt=""
-            width="18"
-            height="18"
-          />
+          <Icon name="pin" class="site-foot__icon" aria-hidden="true" />
           Kortumstraße 19-21, 44787 Bochum
         </li>
         {
           links.map(({ icon, text, href }) => (
             <li>
-              <img
-                src={`/assets/images/icons/${icon}.svg`}
-                alt=""
-                width="18"
-                height="18"
-              />
+              <Icon name={icon} class="site-foot__icon" aria-hidden="true" />
               <a href={href}>{text}</a>
             </li>
           ))
