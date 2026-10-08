@@ -18,6 +18,8 @@ npm install
 npm run dev
 ```
 
+Conference data comes from committed Pretalx snapshots in `src/data/pretalx/`. To refresh them, copy `.env.example` to `.env`, add the Pretalx tokens and run `npm run pretalx:sync` (or `npm run pretalx:sync -- 2026` for one year).
+
 ---
 
 ## 🚀 Project Structure

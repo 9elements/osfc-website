@@ -1,0 +1,2896 @@
+{
+  "year": 2021,
+  "schedule": {
+    "acronym": "osfc2021",
+    "title": "Open Source Firmware Conference 2021",
+    "start": "2021-11-30",
+    "end": "2021-12-01",
+    "daysCount": 2,
+    "timeslot_duration": "00:05",
+    "time_zone_name": "Europe/Berlin",
+    "colors": {
+      "primary": "#CAE6DF"
+    },
+    "rooms": [
+      {
+        "name": "PadSec",
+        "slug": "1149-padsec",
+        "guid": "6878f169-6eeb-5c15-ae93-2182734f8ec2",
+        "description": null,
+        "capacity": null
+      },
+      {
+        "name": "Main Stage",
+        "slug": "1102-main-stage",
+        "guid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+        "description": "Our Main Stage - where all the fun happens!",
+        "capacity": null
+      }
+    ],
+    "tracks": [],
+    "days": [
+      {
+        "index": 1,
+        "date": "2021-11-30",
+        "day_start": "2021-11-30T04:00:00+01:00",
+        "day_end": "2021-12-01T03:59:00+01:00",
+        "rooms": {
+          "Main Stage": [
+            {
+              "guid": "673c98f6-27a9-5856-8002-b53df15e10fc",
+              "code": "EWEZGU",
+              "id": 14272,
+              "logo": null,
+              "date": "2021-11-30T16:40:00+01:00",
+              "start": "16:40",
+              "end": "2021-11-30T16:55:00+01:00",
+              "duration": "00:15",
+              "room": "Main Stage",
+              "slug": "osfc2021-14272-osfc-opening",
+              "url": "https://talks.osfc.io/osfc2021/talk/EWEZGU/",
+              "title": "OSFC Opening",
+              "subtitle": "",
+              "track": null,
+              "type": "Event Info",
+              "language": "en",
+              "abstract": "",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/EWEZGU/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/EWEZGU/",
+              "attachments": []
+            },
+            {
+              "guid": "063f9f84-f32e-5866-bdac-d1006fd35378",
+              "code": "MA7KHW",
+              "id": 12836,
+              "logo": null,
+              "date": "2021-11-30T17:00:00+01:00",
+              "start": "17:00",
+              "end": "2021-11-30T17:30:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12836-u-bmc-the-next-gen-bmc-software-stack-born-from-the-u-root-ecosystem",
+              "url": "https://talks.osfc.io/osfc2021/talk/MA7KHW/",
+              "title": "u-bmc, the next gen BMC software stack born from the u-root ecosystem",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "This talk will be about u-bmc, a proof of concept project born out of the idea of having u-root on the BMC side as well. I will talk about the basic structure of the software stack, the way u-root and gobusybox can assemble a complete userspace that lives in a single binary, the advantages it has over OpenBMC as well as the disadvantages. In addition concepts like IPMI will be compared to gRPC which is used by u-bmc. A very short part of the presentation will also be held about u-bmc's buildsystem called Taskfile as it fits will within the topic. The current state of development and a roadmap will also be presented. This includes possible directions this project can take and also shows the progress it made in the past and how it shifted from using U-Boot to using LinuxBoot and how it could be slimmed down further using other Open Source projects that focus on barematel boot logic of ARM SoCs.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "8PCFES",
+                  "guid": "77d3a5a9-27ea-52f2-b6bc-c2927d5f7423",
+                  "name": "Marvin Drees",
+                  "public_name": "Marvin Drees",
+                  "biography": "Cyber Sec student at the Ruhr University Bochum and student worker at 9eSec. Passionate about security features on ARM, the Linux Kernel and coreboot. Hosts Clusters in his free time and has subpar soldering skills.",
+                  "avatar": "https://talks.osfc.io/media/avatars/8PCFES_lX5uT0R.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/8PCFES/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/MA7KHW/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/MA7KHW/",
+              "attachments": [
+                {
+                  "title": "slides",
+                  "url": "/media/osfc2021/submissions/MA7KHW/resources/OSFC2021_ubmc.pptx_594elFy.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "e4d87f20-2f55-516a-be87-3a5e2d8787f6",
+              "code": "P7MXRY",
+              "id": 12786,
+              "logo": null,
+              "date": "2021-11-30T17:40:00+01:00",
+              "start": "17:40",
+              "end": "2021-11-30T18:10:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12786-micropython-based-interactive-platform-configuration-for-coreboot",
+              "url": "https://talks.osfc.io/osfc2021/talk/P7MXRY/",
+              "title": "MicroPython based interactive platform configuration for Coreboot",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "MicroPython as a full Python compiler and runtime that runs on the bare-metal, presents very light weight use cases of executable scripts for microcontrollers and embedded devices today. It is useful and beneficiary because python script can be executed without having a fully running operating system such as Linux/Windows.\n\n\n\nThis presentation talks about some work done in enabling MicroPython in Coreboot with libpayload, and some potential future use case enabling that can comes with it. The platform that was used for this enabling activity is x86 QEMU.\n\n\n\nCurrently coreboot limits the update of certain FSP related boot parameters during compile time only. This limits developers/advanced user to make changes rapidly. Idea here is to have Micropython based UI which allows user to modify boot parameters without having to re-compile the code. Micropython can be run as alternative payload so it doesn't hinder current user experience but can provide useful tool to developers to tinker multiple parameters without re-compiling code multiple times.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "8DGVWR",
+                  "guid": "89c96140-f0cf-53ec-b156-a731fc2c5ee1",
+                  "name": "Loo Tung Lun",
+                  "public_name": "Loo Tung Lun",
+                  "biography": "Tung Lun is a senior BIOS lead at Intel Corporation focusing on BIOS and bootloader solutions design and power on activities on IOTG platforms. He had successfully brought up BIOS and bootloaders for Apollo Lake, Elkhart Lake, Kaby Lake, Coffee Lake and future Intel IOT platforms.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/8DGVWR/"
+                },
+                {
+                  "code": "3W9EXD",
+                  "guid": "13541c0b-7497-531d-8631-0464e93b480d",
+                  "name": "Subrata Banik",
+                  "public_name": "Subrata Banik",
+                  "biography": "Subrata Banik is a Firmware Engineer with twelve years of industry experience in system firmware design,\ndevelopment and debugging across various firmware architectures like EDK, coreboot, Slim bootloader etc. for x86\nand ARM platforms. Subrata has experience working for all leading PC-makers. Subrata is an active member of open\nsource firmware development across different projects like coreboot, oreboot, EDKII etc., where he is one of the top\nten contributors in the open firmware (coreboot) community. Subrata has 17 US Patents approved and is very\npassionate about learning new technology and sharing knowledge among enthusiast engineers. Subrata has\npresented his technical talk at industry events such as Open Source Firmware conference, Institute for Security and\nTechnology, Intel Developer Forum etc. Subrata is also a first-time author working with Apress publication on\npublishing two of his books on essentials of System Firmware and Firmware Development.",
+                  "avatar": "https://talks.osfc.io/media/avatars/3W9EXD_nBSEEC9.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/3W9EXD/"
+                },
+                {
+                  "code": "NEDCUT",
+                  "guid": "013a73b6-0556-5424-8f31-85fcebf25063",
+                  "name": "Maulik",
+                  "public_name": "Maulik",
+                  "biography": "I am firmware/BIOS engineer working primarily on coreboot BIOS on IA architecture. My area of interest include development of new features, collaborate with community to work on upcoming features / idea. You can connect with me on my linkedin here:  www.linkedin.com/in/maulik-vaghela-7707056a",
+                  "avatar": "https://talks.osfc.io/media/avatars/NEDCUT_5QCTo7J.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/NEDCUT/"
+                },
+                {
+                  "code": "CUSPBJ",
+                  "guid": "3e3b5cbc-b001-575b-8026-64cfabeac3ca",
+                  "name": "Lean Sheng Tan",
+                  "public_name": "Lean Sheng Tan",
+                  "biography": "Sheng is a firmware engineer working on coreboot and Slim Bootloader projects after joining Intel in 2017. Since then he has developed a keen interest in firmware development and actively involved in open source firmware initiatives . Outside of work Sheng is a tech geek and enjoys playing Frisbee.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/CUSPBJ/"
+                },
+                {
+                  "code": "S3ZKGN",
+                  "guid": "b5a28091-2c99-5694-a308-75ffa0a92762",
+                  "name": "Maurice Ma",
+                  "public_name": "Maurice Ma",
+                  "biography": "Xiang (Maurice) Ma is an Intel software architect on IA firmware, BIOS and bootloader.  He has more than 19 years’ extensive experience in the legacy BIOS, UEFI firmware, bootloader and embedded OS development for various Intel IA platforms including embedded systems and workstation/servers,  focusing on the core architecture, firmware security, silicon reference code design and prototyping as well as platform enabling and porting. Now he is focusing on IoT firmware and bootloader initiatives, including Intel FSP, Slim Bootloader, UEFI payload, etc.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/S3ZKGN/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/P7MXRY/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/P7MXRY/",
+              "attachments": [
+                {
+                  "title": "Session Presentation",
+                  "url": "/media/osfc2021/submissions/P7MXRY/resources/Micropython_based_interactive_platform_configurati_aZz1n2X.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "37178ba2-12b0-5868-af04-ec59111f467a",
+              "code": "BCEELY",
+              "id": 12627,
+              "logo": null,
+              "date": "2021-11-30T18:45:00+01:00",
+              "start": "18:45",
+              "end": "2021-11-30T19:15:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12627-expanding-the-lvfs-ecosystem",
+              "url": "https://talks.osfc.io/osfc2021/talk/BCEELY/",
+              "title": "Expanding the LVFS Ecosystem",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "Over the last year we've grown the LVFS ecosystem over 100%. Recently we hit 2 million firmware downloads per month for the first time. There are now over 3000 firmware files available on the LVFS, with over 100 vendors using 50 different protocols. We're clearly winning.\n\nI wanted a chance to talk about the latest things that you can do on the LVFS and with fwupd.\n\n * We have more vendors using HSI for real use cases\n * We now have a complete Redfish implementation working with tier-1 OEM hardware.\n * Signed LVFS firmware reports for hardware certification.\n * Scanning EFI binaries on upload for common security problems.\n * Soft requirements in the form of recommends and requires.\n * A global progressbar, to be used for instance in something like ChromeOS.\n * Bidirectional support for VINCE, allowing us to work effectively with CERT.\n * Mirroring to IPFS for firmware updates from behind less-than-great firewalls.\n * Adding support for CapsuleOnDisk and chainloading from grub, and more generally FreeBSD.\n\nTime will be left for some questions and feedback.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "DMZWKT",
+                  "guid": "96b2a7c9-0c5a-51c0-8750-4edc072e7db8",
+                  "name": "Richard Hughes",
+                  "public_name": "Richard Hughes",
+                  "biography": "Richard has over 15 years of experience developing open source software.\n\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\n\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+                  "avatar": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/DMZWKT/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/BCEELY/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/BCEELY/",
+              "attachments": [
+                {
+                  "title": "Slides",
+                  "url": "/media/osfc2021/submissions/BCEELY/resources/OSFC_2021_crRx7RG.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "76aa6184-9986-5fdf-bbfc-8594e2dd5e0f",
+              "code": "ZD9EXK",
+              "id": 12809,
+              "logo": null,
+              "date": "2021-11-30T19:25:00+01:00",
+              "start": "19:25",
+              "end": "2021-11-30T19:55:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12809-fiedka-the-firmware-editor",
+              "url": "https://talks.osfc.io/osfc2021/talk/ZD9EXK/",
+              "title": "Fiedka the Firmware Editor",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "### Advancing from CLIs to GUIs\n\nThis talk presents the birth of [Fiedka](https://fiedka.app/) out of _utk-web_, a proof of concept\nimage exploration tool that runs on web platforms using WebAssembly.\n\nLeveraging [Fiano](https://github.com/linuxboot/fiano)'s `utk`, Fiedka supports\nfirmware developers and analysts through quick navigation and ideas from the web\ndevelopment world, organizing the many different views on the same image in a\nconcise manner. For example, when looking at a typical AMD platform OEM image,\nthere are UEFI and PSP parts. Walking through the challenges of building a\nsuitable graphical interface with a great experience and dealing with specifics,\nthe talk concludes with where Fiedka is at right now and what the next milestones\nwill be, what users can do and try out already, and how to contribute on the\nvarious layers of back-end and front-end work as well as conceptual ideas and\nfeature requests.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "V9XHZH",
+                  "guid": "b76b4146-4cad-571d-a4e5-87e994b721e9",
+                  "name": "Daniel Maslowski",
+                  "public_name": "Daniel Maslowski",
+                  "biography": "web developer working on firmware, operating systems and distributions in his spare time",
+                  "avatar": "https://talks.osfc.io/media/avatars/V9XHZH_znEOfq8.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/V9XHZH/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/ZD9EXK/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/ZD9EXK/",
+              "attachments": [
+                {
+                  "title": "Fiedka mascot logo",
+                  "url": "/media/osfc2021/submissions/ZD9EXK/resources/fiedka_BRUotDX.svg",
+                  "type": "related"
+                },
+                {
+                  "title": "Slides",
+                  "url": "/media/osfc2021/submissions/ZD9EXK/resources/slides_EgrRx7k.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "4c9d680f-bc00-5c68-a42b-b8b27406da0a",
+              "code": "UDU39T",
+              "id": 13616,
+              "logo": null,
+              "date": "2021-11-30T20:20:00+01:00",
+              "start": "20:20",
+              "end": "2021-11-30T21:05:00+01:00",
+              "duration": "00:45",
+              "room": "Main Stage",
+              "slug": "osfc2021-13616-open-source-firmware-foundation-discussion-round",
+              "url": "https://talks.osfc.io/osfc2021/talk/UDU39T/",
+              "title": "Open-Source Firmware Foundation - Discussion Round",
+              "subtitle": "",
+              "track": null,
+              "type": "Keynote",
+              "language": "en",
+              "abstract": "The Open-Source Firmware Foundation has been founded 6 month ago - we like to look back on the founding process, and like to invite guest to talk about workstreams within the OSFF, and the future of open-source firmware.\n\nConfirmed Guests:\n* Philipp and Chris summarize the past year, trying to bring the foundation to live and solving problems along the way.\n* Alex Matrosov is one of the first individuals leading the security workstream within the Open-Source Firmware Foundation\n* Bryan Cantrill, Co-Founder of Oxide, refers about open-source firmware and the rising importance of OSF within the industry\n* and some more..\n\nJoin in on 45 minutes of \"behind the scenes\" of the OSFF and general talks on why OSF is important. We will shim some light on these topics from an industry point-of-view.\n\nThis session will be moderated by 9elements which will guide you through the discussion.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "SPWA9R",
+                  "guid": "31ba0492-d143-537d-9ccb-4be0a08959a2",
+                  "name": "Philipp Deppenwiese",
+                  "public_name": "Philipp Deppenwiese",
+                  "biography": null,
+                  "avatar": "https://talks.osfc.io/media/avatars/SPWA9R_EGTEpTp.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/SPWA9R/"
+                },
+                {
+                  "code": "AQF8VK",
+                  "guid": "7ea1f67f-d50b-5e46-9f62-ec133985408d",
+                  "name": "ronald g. minnich",
+                  "public_name": "ronald g. minnich",
+                  "biography": "ron started the coreboot project in 1999. He also started the u-root and linuxboot projects, more recently.",
+                  "avatar": "https://talks.osfc.io/media/avatars/AQF8VK_LaKUjzj.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/AQF8VK/"
+                },
+                {
+                  "code": "EU9GLW",
+                  "guid": "e5258ad5-190a-5d57-8fae-173f213e1cc4",
+                  "name": "Christian Walter",
+                  "public_name": "Christian Walter",
+                  "biography": null,
+                  "avatar": "https://talks.osfc.io/media/avatars/EU9GLW_rJkUJ5F.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/EU9GLW/"
+                },
+                {
+                  "code": "J3LAW3",
+                  "guid": "6883c959-263c-5c21-bb82-b5a8af2e4d97",
+                  "name": "Fredrik Stromberg",
+                  "public_name": "Fredrik Stromberg",
+                  "biography": null,
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/J3LAW3/"
+                },
+                {
+                  "code": "FQ3VR9",
+                  "guid": "cb1b0373-3206-5b17-aac9-b5ce786217c3",
+                  "name": "Alex Matrosov",
+                  "public_name": "Alex Matrosov",
+                  "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+                  "avatar": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/FQ3VR9/"
+                },
+                {
+                  "code": "WPKTNS",
+                  "guid": "e388dace-01c1-5ae0-b4e9-9f5ca8213e73",
+                  "name": "Bryan Cantrill",
+                  "public_name": "Bryan Cantrill",
+                  "biography": null,
+                  "avatar": "https://talks.osfc.io/media/avatars/WPKTNS_9HAp4TK.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/WPKTNS/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/UDU39T/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/UDU39T/",
+              "attachments": []
+            },
+            {
+              "guid": "67180b53-5d19-5ebf-8b22-76acc518668d",
+              "code": "JTWYEH",
+              "id": 12756,
+              "logo": null,
+              "date": "2021-11-30T21:10:00+01:00",
+              "start": "21:10",
+              "end": "2021-11-30T21:40:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12756-on-hubris-and-humility-developing-an-os-for-robustness-in-rust",
+              "url": "https://talks.osfc.io/osfc2021/talk/JTWYEH/",
+              "title": "On Hubris and Humility: developing an OS for robustness in Rust",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "On Hubris and Humility: when \"write your own OS\" isn't the worst idea\n\nHubris is a small open-source operating system for deeply-embedded computer\nsystems, such as our server's replacement for the Baseboard Management\nController. Because our BMC replacement uses a lower-complexity microcontroller\nwith region-based memory protection instead of virtual memory, our options were\nlimited. We were unable to find an off-the-shelf option that met our\nrequirements around safety, security, and correctness, so we wrote one.\n\nHubris provides preemptive multitasking, memory isolation between\nseparately-compiled components, the ability to isolate crashing drivers and\nrestart them without affecting the rest of the system, and flexible\ninter-component messaging that eliminates the need for most syscalls -- in about\n2000 lines of Rust. The Hubris debugger, Humility, allows us to walk up to a\nrunning system and inspect the interaction of all tasks, or capture a dump for\noffline debugging.\n\nHowever, Hubris may be more interesting for what it _doesn't_ have. There are no\noperations for creating or destroying tasks at runtime, no dynamic resource\nallocation, no driver code running in privileged mode, and no C code in the\nsystem. This removes, by construction, a lot of the attack surface normally\npresent in similar systems.\n\nThis talk will provide an overview of Hubris's design, the structure of a Hubris\napplication, and some highlights of things we learned along the way.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "TVYBFQ",
+                  "guid": "84ee3d07-9c17-5739-a291-bd082d94599a",
+                  "name": "Cliff L. Biffle",
+                  "public_name": "Cliff L. Biffle",
+                  "biography": "Cliff is a software generalist at Oxide Computer Company working on server system software. He's spent the most recent 12 years of his career neck-deep in low-level applications from processor sandboxing on Native Client, to stratospheric avionics firmware at Loon, to machine learning ASIC design at Google. He has a passion for equipping programmers with better tools that let them build more complex things, faster, with fewer defects, which caused him to get really excited about Rust around 2015. He is the author of \"Learn Rust the Dangerous Way,\" a tutorial aimed at C systems programmers like him.\n\nWhen not exchanging services for currency, he enjoys building absurdist electronic art and upending fashion norms.",
+                  "avatar": "https://talks.osfc.io/media/avatars/TVYBFQ_gW3fu3j.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/TVYBFQ/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/JTWYEH/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/JTWYEH/",
+              "attachments": []
+            },
+            {
+              "guid": "1c137e46-1249-58ff-a503-c9cdd5c0469c",
+              "code": "US3TPX",
+              "id": 13129,
+              "logo": null,
+              "date": "2021-11-30T22:10:00+01:00",
+              "start": "22:10",
+              "end": "2021-11-30T22:40:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-13129-oreboot-2021-status-update",
+              "url": "https://talks.osfc.io/osfc2021/talk/US3TPX/",
+              "title": "oreboot: 2021 Status Update",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "oreboot is a derivative of coreboot without C. The oreboot is a fully open-source power-on-reset and romstage firmware written in Rust.\n\noreboot can boot the following:\n\n* Linux on Sifive Unleashed with M-Mode kernel\n* Linux on Beagle-V\n* Linux on x86 QEMU with Intel FSP\n* Linux on RISC-V QEMU\n* Linux on arm QEMU\n\nCurrently being brought up on:\n\n* AMD Picasso-based Chromebooks\n* AMD Rome on AMD Reference Board\n* UPXtreme with Intel Coffeelake FSP\n\nThere have been some slight adjustments to oreboot's firmware driver models. Each driver is distilled into basic functions including: init, pread, pwrite, ctl, and status. The ctl and status are new. This interface allows us to make convenient higher-level drivers such as a \"union driver\" which duplicates a single write operation to multiple drivers. This makes consoles which have multiple underlying UART drivers elegant. The oreboot driver model inspired recent changes to the coreboot console code, within the limits of what C will allow of course.\n\nBy using the Rust programming language, oreboot has a leg-up in terms of security and reliability compared to contemporary firmware written in C or assembly. Rust's borrow-checker ensures pointers are not used after freed and proves that coroutines are thread-safe at compile time. We know the stack size at compile time. There is no need for linker sets. We have the appearance of dynamically sized vectors without needing an allocator. There is no heap. Macros are safe. Rust optimizations far exceed what is possible in coreboot.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "FYDFMX",
+                  "guid": "4fd1efa6-0193-58d5-9967-cae07316fd5e",
+                  "name": "Ryan O'Leary",
+                  "public_name": "Ryan O'Leary",
+                  "biography": "Ryan O’Leary is a core developer of LinuxBoot within Google. Ryan contributes significantly to u-root, fiano, oreboot, and was a key researcher of the LinuxBoot project in its early stages at Google.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/FYDFMX/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/US3TPX/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/US3TPX/",
+              "attachments": [
+                {
+                  "title": "oreboot: 2021 Status Update",
+                  "url": "/media/osfc2021/submissions/US3TPX/resources/Oreboot_Status_-_Nov_2021_GWxD1LL.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "5b800ac7-06c6-5cee-94c8-b4cdda1f7fb9",
+              "code": "D9X39Z",
+              "id": 13207,
+              "logo": null,
+              "date": "2021-11-30T22:50:00+01:00",
+              "start": "22:50",
+              "end": "2021-11-30T23:20:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-13207-the-firmware-supply-chain-security-is-broken-can-we-fix-it",
+              "url": "https://talks.osfc.io/osfc2021/talk/D9X39Z/",
+              "title": "The firmware supply-chain security is broken: can we fix it?",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "Nowadays, it’s difficult to find any hardware vendor who develops all the components present in its products. Many of these components, including firmware, are outsourced to ODMs. As a result, this limits the ability of hardware vendors to have complete control over their hardware products. In addition to creating extra supply chain security risks, this also produces security gaps in the threat modeling process. Through this research, ​we wanted to raise awareness about the risks in the firmware supply chain and the complexity of fixing known vulnerabilities. \n\nThe firmware patch cycles last typically around 6-9 months (sometimes even longer) due to the complexity of the firmware supply chain and the lack of a uniform patching process. The 1-day and n-day vulnerabilities in many cases have a large impact on enterprises since the latest firmware update wasn’t installed or the device vendor had not released a patch yet. Each vendor follows their own patch cycle. Even known issues may not be patched until the next firmware update is available.\n\nWe decided to build an open-source framework to identify known vulnerabilities in the context of UEFI specifics, classify them based on their impact and detect across the firmware ecosystem with the help of the LVFS project. We will be sharing our approach as well as the tooling we have created to help industry identify the problems and get patched.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "DMZWKT",
+                  "guid": "96b2a7c9-0c5a-51c0-8750-4edc072e7db8",
+                  "name": "Richard Hughes",
+                  "public_name": "Richard Hughes",
+                  "biography": "Richard has over 15 years of experience developing open source software.\n\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\n\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+                  "avatar": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/DMZWKT/"
+                },
+                {
+                  "code": "QK9KBX",
+                  "guid": "de8b1400-b185-5a30-8b6e-4b4a432dd3f1",
+                  "name": "Kai Michaelis",
+                  "public_name": "Kai Michaelis",
+                  "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/QK9KBX/"
+                },
+                {
+                  "code": "FQ3VR9",
+                  "guid": "cb1b0373-3206-5b17-aac9-b5ce786217c3",
+                  "name": "Alex Matrosov",
+                  "public_name": "Alex Matrosov",
+                  "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+                  "avatar": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/FQ3VR9/"
+                },
+                {
+                  "code": "YHHG7F",
+                  "guid": "99419158-769a-5ffb-bc04-2aa1c45a90d0",
+                  "name": "Alex Ermolov",
+                  "public_name": "Alex Ermolov",
+                  "biography": "Alex leads supply chain security research & development at Binarly Inc. With more than 10 years of experience in researching low-level design, firmware and system software built for various platforms and architectures, he helps to create a solution for protecting devices against firmware threats.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/YHHG7F/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/D9X39Z/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/D9X39Z/",
+              "attachments": [
+                {
+                  "title": "slides",
+                  "url": "/media/osfc2021/submissions/D9X39Z/resources/The_firmware_supply-chain_security_is_broken_Can_w_fzVgCe5.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "f65b4d87-6b84-5ad3-a095-e53972e9432c",
+              "code": "J3NSBZ",
+              "id": 12928,
+              "logo": null,
+              "date": "2021-11-30T23:45:00+01:00",
+              "start": "23:45",
+              "end": "2021-12-01T00:15:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12928-making-the-raspberrypi-systemready-a-study-in-applying-firmware-standards-to-nonstandard-hardware",
+              "url": "https://talks.osfc.io/osfc2021/talk/J3NSBZ/",
+              "title": "Making the RaspberryPi SystemReady: A study in applying firmware standards to nonstandard hardware.",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "Modern Arm machines have management processors, security states, and EL3 (which is conceptually somewhat similar to SMM on x86). They also have a wild west of power, clock, and nonstandard hardware devices which need to be supported before general purpose operating systems can be utilized.  In the server space, Arm has hardware (SBSA) and firmware (SBBR) standards for assuring long term support, as well as providing a \"just works\" experience for end users. The Arm SystemReady program is designed to bring many of these advantages to the Edge and Iot markets as well. It is born out of the fact that much of the what makes x86 or SBSA/SBBR work are standardized firmware abstractions that create a common platform out of diverse hardware, and questioning what the minimal HW platform that is required for those software standards to work.\n\nA couple years ago, the RPi was identified as an easily available platform that could be used to demonstrate that it was possible to boot a wide range of OS's without a lot of custom driver/etc work by focusing on the firmware. Earlier this year the resulting community first, opensource project (https://github.com/pftf/), was successfully one of the first platforms to be SystemReady ES certified and boots a who's who of OSs and hypervisors, both opensource and commercial.\n\nThis talk will focus on explaining some of what modern Arm machines look like, their failings, how much code we avoided putting in the Linux kernel, as well as some concrete examples of platform abstraction in ACPI/AML in the context of the RPi. It will also cover some of the critical HW/SW problems that can stop a project like this from succeeding.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "DUGFEQ",
+                  "guid": "e89a27de-18f9-55bc-9955-db86f9b9abca",
+                  "name": "Jeremy Linton",
+                  "public_name": "Jeremy Linton",
+                  "biography": "Software Engineer at Arm,  on the opensource communities and distro's team. Our mandate is to assure that our partners machines, new architectural features, and software products, are enabled on Linux. The goal is to make the ecosystem \"just work\".",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/DUGFEQ/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/J3NSBZ/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/J3NSBZ/",
+              "attachments": [
+                {
+                  "title": "Making the RaspberryPi Systemready Slides",
+                  "url": "/media/osfc2021/submissions/J3NSBZ/resources/OSFS2_8armINC.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "068c6a1f-0ff6-55ef-8b79-ad0a087f799a",
+              "code": "WJXVWG",
+              "id": 13027,
+              "logo": null,
+              "date": "2021-12-01T00:25:00+01:00",
+              "start": "00:25",
+              "end": "2021-12-01T00:40:00+01:00",
+              "duration": "00:15",
+              "room": "Main Stage",
+              "slug": "osfc2021-13027-improving-the-secure-boot-landscape-sbctl-go-uefi",
+              "url": "https://talks.osfc.io/osfc2021/talk/WJXVWG/",
+              "title": "Improving the Secure Boot landscape: sbctl & go-uefi",
+              "subtitle": "",
+              "track": null,
+              "type": "Short Talk",
+              "language": "en",
+              "abstract": "Taking advantage of Secure Boot should be simple! But convoluted tooling and poor documentation makes this extremely hard for people to navigate viable options, opting them to disable Secure Boot unless they are using the shim provided by larger distributions.\n\nIn this talk I'll introduce the tooling improvements I have made in this space. go-uefi which is a userspace library for dealing with efivarfs with high-level abstractions and support for the most common operations towards secure boot on Linux.\n\nBuilt on-top of this is the secure boot key manager, sbctl. This aims to be a user-friendly way of setting up and interacting with secure boot for the common user. We will take a look at why secure boot is hard to grasp for users, the current challenges facing the existing tools and how sbctl solves these. \n\nLastly, we will introduce some solutions to deal with the largest hurdle that stands in the way of independent key management: Option ROM.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "7KZKAN",
+                  "guid": "9cb7ef44-8126-52f0-83bd-5ff5f7caf861",
+                  "name": "Morten Linderud",
+                  "public_name": "Morten Linderud",
+                  "biography": "Morten is a Open-Source developer interested in supply-chain security, vulnerability management, linux distributions and software development. He has contributed to the Arch Linux distribution since 2016 along with other projects.",
+                  "avatar": "https://talks.osfc.io/media/avatars/7KZKAN_ldmmPxr.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/7KZKAN/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/WJXVWG/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/WJXVWG/",
+              "attachments": [
+                {
+                  "title": "Presentation",
+                  "url": "/media/osfc2021/submissions/WJXVWG/resources/Improving_the_Secure_Boot_landscape_sbctl__go-uefi_FjeGwl2.pdf",
+                  "type": "related"
+                }
+              ]
+            }
+          ],
+          "PadSec": [
+            {
+              "guid": "f324bffa-e122-5612-a487-e2263965fa46",
+              "code": "D388SS",
+              "id": 14271,
+              "logo": null,
+              "date": "2021-11-30T19:35:00+01:00",
+              "start": "19:35",
+              "end": "2021-11-30T19:45:00+01:00",
+              "duration": "00:10",
+              "room": "PadSec",
+              "slug": "osfc2021-14271-padsec-opening",
+              "url": "https://talks.osfc.io/osfc2021/talk/D388SS/",
+              "title": "PADSEC Opening",
+              "subtitle": "",
+              "track": null,
+              "type": "Event Info",
+              "language": "en",
+              "abstract": "",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "QK9KBX",
+                  "guid": "de8b1400-b185-5a30-8b6e-4b4a432dd3f1",
+                  "name": "Kai Michaelis",
+                  "public_name": "Kai Michaelis",
+                  "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/QK9KBX/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/D388SS/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/D388SS/",
+              "attachments": []
+            },
+            {
+              "guid": "6b7e6575-d47a-5070-b115-fc66d9b2e465",
+              "code": "FUZQDQ",
+              "id": 12748,
+              "logo": null,
+              "date": "2021-11-30T19:50:00+01:00",
+              "start": "19:50",
+              "end": "2021-11-30T20:10:00+01:00",
+              "duration": "00:20",
+              "room": "PadSec",
+              "slug": "osfc2021-12748-designing-transparency-systems-using-the-claimant-model",
+              "url": "https://talks.osfc.io/osfc2021/talk/FUZQDQ/",
+              "title": "Designing Transparency Systems using the Claimant Model",
+              "subtitle": "",
+              "track": null,
+              "type": "PADSEC: Full Talk",
+              "language": "en",
+              "abstract": "In this talk we will introduce roles for describing participation in verifiable systems, and use this terminology to understand what it means for a system to be transparent. Having a common model for these ecosystems allows for precise communication, and avoids blindly copying design decisions from other systems that may not be appropriate.\n\nBy the end of this talk you will be familiar with the Claimant, Believer, Verifier, and Arbiter roles. You will understand what a Claim is, and how this is committed to by a Statement. You will understand how logs can be used to make these Statements discoverable to Verifiers, and how this can enable systems to operate using Trust But Verify.\n\nWe will use Certificate Authorities and Certificate Transparency as case studies. Prior knowledge of this would be beneficial but is not required.\n\nMartin is a SWE on the TrustFabric team at Google. The TrustFabric team works on Trillian, Certificate Transparency, and also research into other verifiable data structures, witnessing, and more.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "UWP3QP",
+                  "guid": "5bfa1221-061b-5e75-ac4d-e3aa4214278e",
+                  "name": "Martin Hutchinson",
+                  "public_name": "Martin Hutchinson",
+                  "biography": "I'm a software engineer on the TrustFabric team at Google. The TrustFabric team works on Trillian, Certificate Transparency, and also research into other verifiable data structures, witnessing, and more.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/UWP3QP/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/FUZQDQ/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/FUZQDQ/",
+              "attachments": []
+            },
+            {
+              "guid": "197b1a03-d7a3-5520-bcab-ca97457f9126",
+              "code": "NHTZTG",
+              "id": 12828,
+              "logo": null,
+              "date": "2021-11-30T21:40:00+01:00",
+              "start": "21:40",
+              "end": "2021-11-30T22:20:00+01:00",
+              "duration": "00:40",
+              "room": "PadSec",
+              "slug": "osfc2021-12828-s-rtm-and-d-rtm-better-together",
+              "url": "https://talks.osfc.io/osfc2021/talk/NHTZTG/",
+              "title": "S-RTM and D-RTM: Better Together",
+              "subtitle": "",
+              "track": null,
+              "type": "Live Session",
+              "language": "en",
+              "abstract": "Together with Daniel Smith, TrenchBoot Project Leader, we invite Open Source Firmware Community to discuss various approaches to establishing a root of trust and maintaining its security properties over platform runtime. Initial measurement is crucial to platform security because the code that creates root measurement has to be secured. S-RTM (Static Root of Trust for Measurement) is found at a fixed point in time, which is the beginning of the boot process for most platforms. Typically, it is done by Intel Boot Guard, AMD Hardware Validated Boot, NXP High-Assured Boot, or other proprietary implementations. S-RTM-related measurements are recorded in TPM PCR[0-7]. Those can be used for local attestation (unsealing of secret, e.g., disk encryption password) or remote attestation. Finally, to keep the security properties of S-RTM, there is a need for a mechanism that can adjust firmware measurements after its update. D-RTM (Dynamic Root of Trust for Measurement) can be established at any point in time through dedicated hardware and firmware functions. D-RTM initial measurement happens right before the execution of minimal code called D-RTM Configuration Environment, which establishes a new Root of Trust for Measurement. D-RTM-related measurements are recorded in PCR[17-22] protected by hardware through the TPM locality mechanism. Obtained measurements can be used in precisely the same way as in the S-RTM case.\n\nLet's discuss:\n- update mechanisms \n- protection mechanisms for S-RTM and D-RTM\n- future of related functionality\n- synergy: beyond RTM coexistence",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "D8FJUY",
+                  "guid": "9e0f129c-b03b-5b7a-aaec-a288193cc9b4",
+                  "name": "Piotr Król",
+                  "public_name": "Piotr Król",
+                  "biography": "Piotr Król is a multi-disciplinary executive running several companies in the embedded systems and semiconductor industries, including 3mdeb, LPN Plant, and Vitro Technology. Piotr helps companies around the world realize their products’ potential by supporting upgradeability and enabling advanced hardware features through firmware. \n\nHis career started in Intel’s Data Center Division. He went through building storage controllers validation frameworks to implementing hardware initialization code for modern server platforms as BIOS Software Engineer realizing that the firmware ecosystem has to change and become more open.\n\nAfter seven years at Intel, Piotr went on to start his own consulting company. Piotr specializes in Embedded Firmware (coreboot, UEFI/EDK2/BIOS, training, and security), Embedded Linux (Yocto, Buildroot, OpenWrt), and Trusted Execution Environments. His teams contributed to NGI projects related to open source implementation of Trusted Computing D-RTM, a firmware update for QubesOS and BSD systems, and working on bringing more open-source firmware and hardware-related projects in the future.\n\nHe is an active leader in the firmware community, speaking at events like the Platform Security Summit, Open Source Firmware Conference, and FOSDEM. Piotr is open-source software and open-source hardware evangelist, active in the Open Source Firmware (e.g. coreboot) and Linux communities.",
+                  "avatar": "https://talks.osfc.io/media/avatars/D8FJUY_clDzu23.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/D8FJUY/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/NHTZTG/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/NHTZTG/",
+              "attachments": [
+                {
+                  "title": "S-RTM and D-RTM: Better Together",
+                  "url": "/media/osfc2021/submissions/NHTZTG/resources/S-RTM_and_D-RTM_KO5QUzI.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "2c7965bc-63d3-5cc0-b317-0f8e0d32ce63",
+              "code": "VDPPQH",
+              "id": 12759,
+              "logo": null,
+              "date": "2021-11-30T23:20:00+01:00",
+              "start": "23:20",
+              "end": "2021-11-30T23:40:00+01:00",
+              "duration": "00:20",
+              "room": "PadSec",
+              "slug": "osfc2021-12759-platform-integrity-attestation-at-scale",
+              "url": "https://talks.osfc.io/osfc2021/talk/VDPPQH/",
+              "title": "Platform Integrity Attestation at Scale",
+              "subtitle": "",
+              "track": null,
+              "type": "PADSEC: Full Talk",
+              "language": "en",
+              "abstract": "Assuring platform integrity is top-of-mind for platform owners. Hardware roots of trust can measure and attest to firmware integrity, but this is only one component of platform integrity in hyperscalar environments, which impose a number of practical design constraints. Constraints include scaling to a large fleet of machines, scaling to increasingly complex machines, and all while ensuring the high levels of availability and reliability required of our data center fleet.\n\nThis talk gives an overview of a platform attestation framework designed by Google, whose primary goals consist of providing scalable recovery from firmware vulnerabilities, while amortizing engineering effort across multiple hardware devices and configurations. Subjects of interest include:\n\n* Attestation policy content, generation, revocation, and enforcement.\n\n* Representing the physical model of complex platform topologies.\n\n* Contributions Google has made to standards like SPDM and Redfish, to enable platform operators to directly verify attestations from a wide range of roots of trust.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "SMHHG8",
+                  "guid": "48378604-f754-59d7-92ee-a89ff4f1f119",
+                  "name": "Chris Koch",
+                  "public_name": "Chris Koch",
+                  "biography": null,
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/SMHHG8/"
+                },
+                {
+                  "code": "EDAXDB",
+                  "guid": "9fedac15-a7bf-59fd-9800-47ab50217e23",
+                  "name": "Jeff Andersen",
+                  "public_name": "Jeff Andersen",
+                  "biography": "Jeff Andersen focuses on hyperscalar platform integrity solutions at Google. He has worked on Google's in-house Titan root-of-trust chip and is now looking to apply Google's domain experience to help advance the state of attestation APIs in the wider industry.",
+                  "avatar": "https://talks.osfc.io/media/avatars/EDAXDB_lLIXIfd.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/EDAXDB/"
+                },
+                {
+                  "code": "EAQUV8",
+                  "guid": "25decf99-4e03-5362-8f4d-1914d5461550",
+                  "name": "Jonathan Cooke",
+                  "public_name": "Jonathan Cooke",
+                  "biography": "Jonathan has worked in the security industry since 2010, doing a variety of things related to abusing the security of systems. Currently, he is employed by Google to help secure its production data center servers.",
+                  "avatar": "https://talks.osfc.io/media/avatars/EAQUV8_OeKrNoE.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/EAQUV8/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/VDPPQH/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/VDPPQH/",
+              "attachments": []
+            }
+          ]
+        }
+      },
+      {
+        "index": 2,
+        "date": "2021-12-01",
+        "day_start": "2021-12-01T04:00:00+01:00",
+        "day_end": "2021-12-02T03:59:00+01:00",
+        "rooms": {
+          "Main Stage": [
+            {
+              "guid": "344e4813-3cc1-550f-95ed-386d680285b5",
+              "code": "NVDFNC",
+              "id": 12882,
+              "logo": null,
+              "date": "2021-12-01T17:00:00+01:00",
+              "start": "17:00",
+              "end": "2021-12-01T17:30:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12882-arm-lbbr-requirements-for-open-source-linuxboot-firmware",
+              "url": "https://talks.osfc.io/osfc2021/talk/NVDFNC/",
+              "title": "Arm LBBR requirements for open source LinuxBoot firmware",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "The Base Boot Requirements (BBR) specification defines standard firmware interfaces for OS and Hypervisors boot on Arm 64-bit based systems. It builds on Arm’s standards-based approach for systems design. The BBR specification defines multiple “recipes” to accommodate different requirements across various operating systems and use cases, regardless of the segments. The LBBR recipe is defined specifically for Arm servers using LinuxBoot based firmware. LinuxBoot (https://www.linuxboot.org/) is an open-source project to replace certain UEFI stages with a Linux kernel and runtime. The LBBR recipe is created to address the needs of hyperscalers and CSPs, where LinuxBoot is often a business requirement. In this presentation, we will highlight the latest developments in defining the LBBR recipe, and show how LinuxBoot can be implemented on Arm systems to be compliant with the requirements. We will also explain how the LBBR recipe is used to build SystemReady LS compliant servers. Finally, we will demonstrate open source proof of concept implementations of LBBR compatible firmware on different devices.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "3DPRVF",
+                  "guid": "3eedd589-e1f6-5509-95f7-5f2df62c0717",
+                  "name": "Samer El-Haj-Mahmoud",
+                  "public_name": "Samer El-Haj-Mahmoud",
+                  "biography": "Samer El-Haj-Mahmoud is a Sr. Principal Architect at Arm Architecture and Technology Group, working on firmware architecture, industry standards, and the Arm SystemReady certification program. His work focuses on Arm infrastructure enablement from cloud to edge. He leads and contributes to industry standards bodies, including the UEFI Forum, DMTF, OCP, CXL Consortium, and the Arm System Architecture Advisory Council (SystemArchAC).",
+                  "avatar": "https://talks.osfc.io/media/avatars/3DPRVF_hYlNgYH.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/3DPRVF/"
+                },
+                {
+                  "code": "PHJDAB",
+                  "guid": "9347a133-2b19-50fd-a2a8-e11f197dc815",
+                  "name": "Jeffrey Booher-Kaeding",
+                  "public_name": "Jeffrey Booher-Kaeding",
+                  "biography": "Jeff Works as a Systems Architecture Engineer in the Arm Architecture and Technology Group. Jeff has worked with a variety of open source projects in the areas firmware, server manageability, and the Arm SystemReady certification program.",
+                  "avatar": "https://talks.osfc.io/media/avatars/PHJDAB_RhFwzZz.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/PHJDAB/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/NVDFNC/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/NVDFNC/",
+              "attachments": [
+                {
+                  "title": "LBBR Slides",
+                  "url": "/media/osfc2021/submissions/NVDFNC/resources/LBBR_OSFC_2021_Bg6kGLT.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "63a16d1b-50fb-5167-a8ef-0127666ec9a8",
+              "code": "NTG77F",
+              "id": 12811,
+              "logo": null,
+              "date": "2021-12-01T17:40:00+01:00",
+              "start": "17:40",
+              "end": "2021-12-01T17:55:00+01:00",
+              "duration": "00:15",
+              "room": "Main Stage",
+              "slug": "osfc2021-12811-coreboot-linuxboot-development-on-ocp-server-delta-lake",
+              "url": "https://talks.osfc.io/osfc2021/talk/NTG77F/",
+              "title": "coreboot/LinuxBoot Development on OCP Server Delta Lake",
+              "subtitle": "",
+              "track": null,
+              "type": "Short Talk",
+              "language": "en",
+              "abstract": "In this talk, I will talk about coreboot/LinuxBoot development progress on OCP Delta Lake, \nwhich is a single-socket compute server based on the 3rd Gen Intel Xeon Scalable processor Cooper Lake. This is a joint effort between Wiwynn, Facebook, Intel and 9elements. The OCP Open System Firmware project is an initiative with the goal to move the control of firmware to the system owner. It allows the system firmware (also known as BIOS) to be modified and shared openly. Starting from March 2021, “OCP Accepted” badge for servers requires that server systems support OSF and can pass the OSF checklist. Delta Lake is the first server product that achieves this milestone. I will present the development progress, how to download and build the firmware image, and the OCP OSF checklist. Our firmware configuration method is also presented. And finally, I will share the benefits of employing an open source firmware solution for our customers.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "ZYHJCG",
+                  "guid": "5f7388f1-e2df-53c9-9787-076b43bb0563",
+                  "name": "Johnny Lin",
+                  "public_name": "Johnny Lin",
+                  "biography": "For the past 10 years, I had been working on Linux embedded system bootloader, kernel driver and user space software.\nMy current focus is on coreboot and Linuxboot development for server.",
+                  "avatar": "https://talks.osfc.io/media/avatars/ZYHJCG_Jm9HO5t.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/ZYHJCG/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/NTG77F/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/NTG77F/",
+              "attachments": [
+                {
+                  "title": "corebootLinuxBoot Development on OCP Server Delta Lake",
+                  "url": "/media/osfc2021/submissions/NTG77F/resources/corebootLinuxBoot_Development_on_OCP_Server_Delta__cRP4v8A.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "0178c7ce-644e-500d-a2b7-9770ece4ab11",
+              "code": "E9YYJF",
+              "id": 13208,
+              "logo": null,
+              "date": "2021-12-01T18:30:00+01:00",
+              "start": "18:30",
+              "end": "2021-12-01T19:30:00+01:00",
+              "duration": "01:00",
+              "room": "Main Stage",
+              "slug": "osfc2021-13208-the-firmware-supply-chain-security-is-broken-can-we-fix-it-workshop",
+              "url": "https://talks.osfc.io/osfc2021/talk/E9YYJF/",
+              "title": "The firmware supply-chain security is broken: can we fix it? (Workshop)",
+              "subtitle": "",
+              "track": null,
+              "type": "Live Session",
+              "language": "en",
+              "abstract": "Nowadays, it’s difficult to find any hardware vendor who develops all the components present in its products. Many of these components, including firmware, are outsourced to ODMs. As a result, this limits the ability of hardware vendors to have complete control over their hardware products. In addition to creating extra supply chain security risks, this also produces security gaps in the threat modeling process. Through this research, ​we wanted to raise awareness about the risks in the firmware supply chain and the complexity of fixing known vulnerabilities. \n\nThe firmware patch cycles last typically around 6-9 months (sometimes even longer) due to the complexity of the firmware supply chain and the lack of a uniform patching process. The 1-day and n-day vulnerabilities in many cases have a large impact on enterprises since the latest firmware update wasn’t installed or the device vendor had not released a patch yet. Each vendor follows their own patch cycle. Even known issues may not be patched until the next firmware update is available.\n\nWe decided to build an open-source framework to identify known vulnerabilities in the context of UEFI specifics, classify them based on their impact and detect across the firmware ecosystem with the help of the LVFS project. We will be sharing our approach as well as the tooling we have created to help industry identify the problems and get patched.\n\nWorkshop outline:\n\n* Why it's important to get patched in time, and why your EDR won't help you with compromised firmware?\n* The uefi_r2 scanner details internals (https://github.com/binarly-io/uefi_r2)\n  * How semantic code annotations work to bring UEFI codentext for code analysis \n  * How to scale uefi_r2 scanner in enterprise infrastructure?\n* Deep dive into FwHunt rules format\n  * What is the difference between detecting new and known issues?\n  * How does the FwHunt detection work on different layers PEI/DXE/SMM?\n* LVFS integration of uefi_r2 and FwHunt\n  * How patch the industry deal with the help of LVFS?\n* Future plans and upcoming updates for FwHunt technology",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "DMZWKT",
+                  "guid": "96b2a7c9-0c5a-51c0-8750-4edc072e7db8",
+                  "name": "Richard Hughes",
+                  "public_name": "Richard Hughes",
+                  "biography": "Richard has over 15 years of experience developing open source software.\n\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\n\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+                  "avatar": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/DMZWKT/"
+                },
+                {
+                  "code": "QK9KBX",
+                  "guid": "de8b1400-b185-5a30-8b6e-4b4a432dd3f1",
+                  "name": "Kai Michaelis",
+                  "public_name": "Kai Michaelis",
+                  "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/QK9KBX/"
+                },
+                {
+                  "code": "FQ3VR9",
+                  "guid": "cb1b0373-3206-5b17-aac9-b5ce786217c3",
+                  "name": "Alex Matrosov",
+                  "public_name": "Alex Matrosov",
+                  "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+                  "avatar": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/FQ3VR9/"
+                },
+                {
+                  "code": "YHHG7F",
+                  "guid": "99419158-769a-5ffb-bc04-2aa1c45a90d0",
+                  "name": "Alex Ermolov",
+                  "public_name": "Alex Ermolov",
+                  "biography": "Alex leads supply chain security research & development at Binarly Inc. With more than 10 years of experience in researching low-level design, firmware and system software built for various platforms and architectures, he helps to create a solution for protecting devices against firmware threats.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/YHHG7F/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/E9YYJF/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/E9YYJF/",
+              "attachments": []
+            },
+            {
+              "guid": "7ef38365-aed3-5bb6-a17c-dabf8cb048d5",
+              "code": "SKYZV8",
+              "id": 13242,
+              "logo": null,
+              "date": "2021-12-01T19:35:00+01:00",
+              "start": "19:35",
+              "end": "2021-12-01T19:50:00+01:00",
+              "duration": "00:15",
+              "room": "Main Stage",
+              "slug": "osfc2021-13242-unit-testing-coreboot-status-update-after-one-year",
+              "url": "https://talks.osfc.io/osfc2021/talk/SKYZV8/",
+              "title": "Unit testing coreboot - status update after one year",
+              "subtitle": "",
+              "track": null,
+              "type": "Short Talk",
+              "language": "en",
+              "abstract": "In May 2020, initial support for unit testing the coreboot landed in the tree - it was included in the 4.12 release. During talk on the OSFC2020 we described why firmware (and especially coreboot) benefits from the unit testing and how unit testing framework in coreboot is working from the background.\n\nIn almost every area of programming new frameworks aren't something stable from the beginning - the same applies for unit testing frameworks. In parallel with writing tests for new modules new challenges arise. Almost every new test brings in the need for improving the testing framework and infrastructure. Once starting this journey we weren't sure where it would end and how difficult it may be to test such low-level code as coreboot firmware.\n\nWe want to go through what the community achieved during the previous year and whether all goals were reached. What is the current test coverage and how test coverage statistics reports work. Furthermore, what were the new features and improvements introduced into the unit testing framework. Finally, how the new libpayload test framework will look like and how the new mock architecture is working.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "T7TMMD",
+                  "guid": "709d6519-380d-531e-af80-5834f00e53e8",
+                  "name": "Jan Dąbroś",
+                  "public_name": "Jan Dąbroś",
+                  "biography": "Jan Dąbroś is an embedded software engineer interested in firmware, hardware and security.\n\nHe is working at the Semihalf - company based in Cracow, Poland. Previously he was working on different firmware projects (both for embedded and server class platforms), including U-boot, ARM-TF and EDK2. Recently he has engaged in development of the coreboot.",
+                  "avatar": "https://talks.osfc.io/media/avatars/T7TMMD_Svr8ymN.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/T7TMMD/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/SKYZV8/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/SKYZV8/",
+              "attachments": [
+                {
+                  "title": "Slides",
+                  "url": "/media/osfc2021/submissions/SKYZV8/resources/coreboot_unit_testing_-_status_update_after_one_ye_CqrwmBJ.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "56cbd5c7-a578-55d1-9f9c-8ee8c875850c",
+              "code": "VSPKZG",
+              "id": 13130,
+              "logo": null,
+              "date": "2021-12-01T20:30:00+01:00",
+              "start": "20:30",
+              "end": "2021-12-01T21:00:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-13130-rundxerun-safely-running-dxe-bootloaders-in-a-vm-with-a-go-vmm",
+              "url": "https://talks.osfc.io/osfc2021/talk/VSPKZG/",
+              "title": "RunDXERun: safely running DXE bootloaders, in a VM, with a Go VMM",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "RunDXERun allows safe execution of UEFI boot applications. It runs these applications in a KVM-based VM, using a Virtual Machine Manager (VMM) written in Go. As the boot applications call UEFI services, they exit the VM and and the RunDXERun VMM handles them. The services themselves are also implemented in Go.\n\nRunDXERun is  intended to be compiled as part of u-root and used in firmware images. As of October, RunDXERun successfully starts the u-boot EFItest program, and runs one of its tests. \n\nRunDXERun in a u-root image increases its size by about 500K (uncompressed) or 145K (xz compressed).  This is not much larger than building in a full EDK2. It fits easily in payloads destined for coreboot. \n\nThe reason to use RunDXERun is for the security it provides. Normally, UEFI boot applications run at the highest privilege level of a machine, as do the boot services. RunDXERun allows running both applications and UEFI services at the lowest privilege level, and the services are implemented in a memory safe language. RunDXERun is similar in spirit to the \"safe\" ROM support already in coreboot.\n\nRunDXERun compiles for both x86 and ARM64; writing the initial port for ARM64 took four hours.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "AQF8VK",
+                  "guid": "7ea1f67f-d50b-5e46-9f62-ec133985408d",
+                  "name": "ronald g. minnich",
+                  "public_name": "ronald g. minnich",
+                  "biography": "ron started the coreboot project in 1999. He also started the u-root and linuxboot projects, more recently.",
+                  "avatar": "https://talks.osfc.io/media/avatars/AQF8VK_LaKUjzj.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/AQF8VK/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/VSPKZG/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/VSPKZG/",
+              "attachments": []
+            },
+            {
+              "guid": "2d5f062a-a2cb-597e-ac28-66c763651435",
+              "code": "HYZL3U",
+              "id": 12833,
+              "logo": null,
+              "date": "2021-12-01T21:10:00+01:00",
+              "start": "21:10",
+              "end": "2021-12-01T21:40:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12833-an-evolutionary-approach-to-system-firmware",
+              "url": "https://talks.osfc.io/osfc2021/talk/HYZL3U/",
+              "title": "An evolutionary approach to system firmware",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "This talk will cover Universal Scalable Firmware (USF). USF entails an evolution of the platform firmware stack. It entails evolutions from the hardware through the SOC to the platform layer and in the OS facing payload. Elements of the stack include the system on a chip (SOC) abstraction layer (SAL) into the scalable Firmware Support Package (sFSP). Atop of the sFSP a set of infrastructure referred to as the Platform Orchestration Layer (POL) will support a plurality of bootloader implementations, such as coreboot, EDKII, and slim bootloader. Each of these POL entities can then be composed with a Universal Payload to provide alternate boot methodologies such as UEFI and LinuxBoot. In addition to supporting a variety of POL's, this work hopes to support a variety of implementation languages beyond C, including Rust. And beyond booting, USF provides guidance on more consistent configuration using YAML and firmware support beyond the host CPU SOC into alternate platform computing elements, or XPU’s. More information on this work can be found at https://github.com/UniversalScalableFirmware.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "PSYZCP",
+                  "guid": "c203920a-1232-588e-b65e-dfbcc60cfae3",
+                  "name": "Vincent Zimmer",
+                  "public_name": "Vincent Zimmer",
+                  "biography": "Vincent is an engineer working on firmware in the Pacific Northwest.",
+                  "avatar": "https://talks.osfc.io/media/avatars/PSYZCP_d01Svai.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/PSYZCP/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/HYZL3U/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/HYZL3U/",
+              "attachments": [
+                {
+                  "title": "Presentation material",
+                  "url": "/media/osfc2021/submissions/HYZL3U/resources/OSFC_UFS_Zimmer_2021_HBiMx9p.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "f7cca82a-b08d-5c79-aa15-c88ff92d3bb3",
+              "code": "X7FUHN",
+              "id": 12816,
+              "logo": null,
+              "date": "2021-12-01T22:15:00+01:00",
+              "start": "22:15",
+              "end": "2021-12-01T22:30:00+01:00",
+              "duration": "00:15",
+              "room": "Main Stage",
+              "slug": "osfc2021-12816-open-source-firmware-on-modern-intel-based-laptops",
+              "url": "https://talks.osfc.io/osfc2021/talk/X7FUHN/",
+              "title": "Open Source Firmware on modern Intel based laptops",
+              "subtitle": "",
+              "track": null,
+              "type": "Short Talk",
+              "language": "en",
+              "abstract": "coreboot has support for many recent Intel platforms, largely thanks to Google's\ncommitment to open source firmware in their Chromebook line of laptops. However,\ndespite the fact that the chips themselves are well supported, getting coreboot\nto run on other recent Intel based laptops can be more challenging than one might\nthink.\n\nWe will present the current state of support for the latest Intel platforms in\ncoreboot and what it takes to get coreboot running on a recent Intel based\nlaptop. We'll then discuss some of the largest obstacles we encountered while\ndeveloping a coreboot port for one of our clients' laptops, including Windows\ncompatibility, power management and dealing with proprietary embedded controller\nfirmware.\n\nWe will also discuss other components needed to replace proprietary firmware\ncompletely, as well as reasons why one might want to have coreboot power their\nnewest laptop in the first place, considering the current blob situation.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "KQAZFW",
+                  "guid": "7ac7b9ba-6cf4-54cf-ac48-7b4b07031f86",
+                  "name": "Michał Kopeć",
+                  "public_name": "Michał Kopeć",
+                  "biography": "Michał Kopeć is a Junior Embedded C Developer at 3mdeb Embedded Systems Consulting. He's been involved with maintaining firmware for the PC Engines apu devices as well as helping port fwupd to FreeBSD. He is an enthusiast of all things open source with a special interest in firmware.",
+                  "avatar": "https://talks.osfc.io/media/avatars/KQAZFW_E1J02EI.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/KQAZFW/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/X7FUHN/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/X7FUHN/",
+              "attachments": [
+                {
+                  "title": "Slides",
+                  "url": "/media/osfc2021/submissions/X7FUHN/resources/coreboot_intel_osfc_2021_CDgzY3z.pdf",
+                  "type": "related"
+                }
+              ]
+            },
+            {
+              "guid": "a797bfa7-e0d4-5251-a09d-33b58676beb6",
+              "code": "NJD893",
+              "id": 12832,
+              "logo": null,
+              "date": "2021-12-01T22:40:00+01:00",
+              "start": "22:40",
+              "end": "2021-12-01T23:10:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12832-testing-platform-for-open-system-firmware",
+              "url": "https://talks.osfc.io/osfc2021/talk/NJD893/",
+              "title": "Testing platform for Open System Firmware",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "It's been a long held notion that having standardized testing across the various near metal projects. With standardized testing, we can build a testing framework to test platforms that have open hardware components across coreboot, linuxboot, u-root and so on. With these in place we would be able to thoroughly test all platforms that use these ecosystems. Furthermore by agreeing on the framework we would be able to build our own internal tests for the platforms we care about. \n\nThis brief talk will talk about the fundamentals of standard testing and how we can build these tests using ConTest, a testing framework that was written by Facebook and released as an open source project. By standardizing on a single framework we will be able to ramp up specific tests to help build more reliable platforms by being able to detect regressions, adding new tests for new failure scenarios and so on. We hope that after this talk that you would be excited in joining the effort to build these tests and improve the state of these open source projects and the platforms that depend on it.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "EU9GLW",
+                  "guid": "e5258ad5-190a-5d57-8fae-173f213e1cc4",
+                  "name": "Christian Walter",
+                  "public_name": "Christian Walter",
+                  "biography": null,
+                  "avatar": "https://talks.osfc.io/media/avatars/EU9GLW_rJkUJ5F.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/EU9GLW/"
+                },
+                {
+                  "code": "BM7HUR",
+                  "guid": "1d20dd44-4077-582c-a8f4-3c19941c5003",
+                  "name": "Sriram Ramkrishna",
+                  "public_name": "Sriram Ramkrishna",
+                  "biography": "Sriram Ramkrishna works for ITRenew Inc as a Principal Ecosystems Engineering - using his over 22 years of experience in free and open source communities and a diverse set of skill sets from IT to marketing and social media, to engage with upstream projects.\n\nSri revels in creating meta communities and building coalitions in order to advance high level goals whether for his employer or for his personal ambitions.",
+                  "avatar": "https://talks.osfc.io/media/avatars/BM7HUR_lxjzix9.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/BM7HUR/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/NJD893/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/NJD893/",
+              "attachments": []
+            },
+            {
+              "guid": "d5e50c4d-06b2-58b2-b429-f6c36d49fae8",
+              "code": "GVKKXU",
+              "id": 12782,
+              "logo": null,
+              "date": "2021-12-01T23:20:00+01:00",
+              "start": "23:20",
+              "end": "2021-12-01T23:50:00+01:00",
+              "duration": "00:30",
+              "room": "Main Stage",
+              "slug": "osfc2021-12782-how-slim-bootloader-turned-fantastic-in-this-pandemic",
+              "url": "https://talks.osfc.io/osfc2021/talk/GVKKXU/",
+              "title": "How Slim Bootloader turned fantastic in this pandemic",
+              "subtitle": "",
+              "track": null,
+              "type": "Long Talk",
+              "language": "en",
+              "abstract": "The open-source Slim Bootloader project began 3 years ago with the goal of providing a boot firmware that’s specific to Internet of Things use cases especially in Intel-based embedded systems and solutions. It’s also designed to be small in flash footprint, boots fast, secure, extensible, and easily configurable. \nSince its inception, Slim Bootloader has matured into a robust boot firmware with multiple exciting new features such as Time Coordinated Computing (TCC) technology, Functional Safety (FuSa), Firmware Update Resiliency, enhanced firmware & Intel Firmware Support Package (FSP) configuration just to name a few. As Intel continues to release various new processors and System on Chips (SoC), the Intel team has continued to enable Slim Bootloader support for them on the respective reference platform offerings. \nThis talk will provide a state of art update of what has changed over the years and what we’ve learnt from maintaining it in the open-source community.",
+              "description": null,
+              "recording_license": "",
+              "do_not_record": false,
+              "persons": [
+                {
+                  "code": "TY3MBG",
+                  "guid": "ae61eac6-2f50-5f5f-b2b2-7be075e78752",
+                  "name": "Yah-Wen Ho",
+                  "public_name": "Yah-Wen Ho",
+                  "biography": "Yah-Wen is a Senior Firmware Tech Lead from the Intel Internet of Things Group. He has close to 18 years of experience mainly boot firmware for products such as desktop & laptop motherboards, test & measurement instruments (PXI) and Intel Architecture based-IoT embedded solutions. He's an active Slim Bootloader evangelist.\n\nAside from technology, he's also passionate in health & fitness and spends his free time as a certified Personal Trainer specializing in fat loss & body composition.",
+                  "avatar": "https://talks.osfc.io/media/avatars/TY3MBG_Gc4tmRO.webp",
+                  "url": "https://talks.osfc.io/osfc2021/speaker/TY3MBG/"
+                },
+                {
+                  "code": "AAP3EU",
+                  "guid": "c788aa78-f12d-52ac-889e-f869df018002",
+                  "name": "Sai Kiran Talamudupula",
+                  "public_name": "Sai Kiran Talamudupula",
+                  "biography": "Firmware Engineer working on the Slim Bootloader project.",
+                  "avatar": null,
+                  "url": "https://talks.osfc.io/osfc2021/speaker/AAP3EU/"
+                }
+              ],
+              "links": [],
+              "feedback_url": "https://talks.osfc.io/osfc2021/talk/GVKKXU/feedback/",
+              "origin_url": "https://talks.osfc.io/osfc2021/talk/GVKKXU/",
+              "attachments": [
+                {
+                  "title": "How Slim Bootloader turned fantastic in this pandemic",
+                  "url": "/media/osfc2021/submissions/GVKKXU/resources/OSFC2021_-_How_Slim_Bootloader_turned_fantastic_in_HLEzX2H.pdf",
+                  "type": "related"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "talks": [
+    {
+      "code": "BCEELY",
+      "title": "Expanding the LVFS Ecosystem",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Over the last year we've grown the LVFS ecosystem over 100%. Recently we hit 2 million firmware downloads per month for the first time. There are now over 3000 firmware files available on the LVFS, with over 100 vendors using 50 different protocols. We're clearly winning.\r\n\r\nI wanted a chance to talk about the latest things that you can do on the LVFS and with fwupd.\r\n\r\n * We have more vendors using HSI for real use cases\r\n * We now have a complete Redfish implementation working with tier-1 OEM hardware.\r\n * Signed LVFS firmware reports for hardware certification.\r\n * Scanning EFI binaries on upload for common security problems.\r\n * Soft requirements in the form of recommends and requires.\r\n * A global progressbar, to be used for instance in something like ChromeOS.\r\n * Bidirectional support for VINCE, allowing us to work effectively with CERT.\r\n * Mirroring to IPFS for firmware updates from behind less-than-great firewalls.\r\n * Adding support for CapsuleOnDisk and chainloading from grub, and more generally FreeBSD.\r\n\r\nTime will be left for some questions and feedback.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "DMZWKT",
+          "name": "Richard Hughes",
+          "biography": "Richard has over 15 years of experience developing open source software.\r\n\r\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\r\n\r\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184797,
+          "start": "2021-11-30T18:45:00+01:00",
+          "end": "2021-11-30T19:15:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 982,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/BCEELY/resources/OSFC_2021_crRx7RG.pdf",
+          "description": "Slides"
+        }
+      ]
+    },
+    {
+      "code": "D388SS",
+      "title": "PADSEC Opening",
+      "submission_type": 1463,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "",
+      "duration": 10,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "QK9KBX",
+          "name": "Kai Michaelis",
+          "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184771,
+          "start": "2021-11-30T19:35:00+01:00",
+          "end": "2021-11-30T19:45:00+01:00",
+          "duration": 10,
+          "description": null,
+          "room": {
+            "id": 1149,
+            "guid": null,
+            "uuid": "6878f169-6eeb-5c15-ae93-2182734f8ec2",
+            "name": {
+              "en": "PadSec"
+            },
+            "description": {},
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "D9X39Z",
+      "title": "The firmware supply-chain security is broken: can we fix it?",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Nowadays, it’s difficult to find any hardware vendor who develops all the components present in its products. Many of these components, including firmware, are outsourced to ODMs. As a result, this limits the ability of hardware vendors to have complete control over their hardware products. In addition to creating extra supply chain security risks, this also produces security gaps in the threat modeling process. Through this research, ​we wanted to raise awareness about the risks in the firmware supply chain and the complexity of fixing known vulnerabilities. \r\n\r\nThe firmware patch cycles last typically around 6-9 months (sometimes even longer) due to the complexity of the firmware supply chain and the lack of a uniform patching process. The 1-day and n-day vulnerabilities in many cases have a large impact on enterprises since the latest firmware update wasn’t installed or the device vendor had not released a patch yet. Each vendor follows their own patch cycle. Even known issues may not be patched until the next firmware update is available.\r\n\r\nWe decided to build an open-source framework to identify known vulnerabilities in the context of UEFI specifics, classify them based on their impact and detect across the firmware ecosystem with the help of the LVFS project. We will be sharing our approach as well as the tooling we have created to help industry identify the problems and get patched.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "DMZWKT",
+          "name": "Richard Hughes",
+          "biography": "Richard has over 15 years of experience developing open source software.\r\n\r\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\r\n\r\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+          "submissions": []
+        },
+        {
+          "code": "QK9KBX",
+          "name": "Kai Michaelis",
+          "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "FQ3VR9",
+          "name": "Alex Matrosov",
+          "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+          "submissions": []
+        },
+        {
+          "code": "YHHG7F",
+          "name": "Alex Ermolov",
+          "biography": "Alex leads supply chain security research & development at Binarly Inc. With more than 10 years of experience in researching low-level design, firmware and system software built for various platforms and architectures, he helps to create a solution for protecting devices against firmware threats.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184800,
+          "start": "2021-11-30T22:50:00+01:00",
+          "end": "2021-11-30T23:20:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 988,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/D9X39Z/resources/The_firmware_supply-chain_security_is_broken_Can_w_fzVgCe5.pdf",
+          "description": "slides"
+        }
+      ]
+    },
+    {
+      "code": "E9YYJF",
+      "title": "The firmware supply-chain security is broken: can we fix it? (Workshop)",
+      "submission_type": 1462,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Nowadays, it’s difficult to find any hardware vendor who develops all the components present in its products. Many of these components, including firmware, are outsourced to ODMs. As a result, this limits the ability of hardware vendors to have complete control over their hardware products. In addition to creating extra supply chain security risks, this also produces security gaps in the threat modeling process. Through this research, ​we wanted to raise awareness about the risks in the firmware supply chain and the complexity of fixing known vulnerabilities. \r\n\r\nThe firmware patch cycles last typically around 6-9 months (sometimes even longer) due to the complexity of the firmware supply chain and the lack of a uniform patching process. The 1-day and n-day vulnerabilities in many cases have a large impact on enterprises since the latest firmware update wasn’t installed or the device vendor had not released a patch yet. Each vendor follows their own patch cycle. Even known issues may not be patched until the next firmware update is available.\r\n\r\nWe decided to build an open-source framework to identify known vulnerabilities in the context of UEFI specifics, classify them based on their impact and detect across the firmware ecosystem with the help of the LVFS project. We will be sharing our approach as well as the tooling we have created to help industry identify the problems and get patched.\r\n\r\nWorkshop outline:\r\n\r\n* Why it's important to get patched in time, and why your EDR won't help you with compromised firmware?\r\n* The uefi_r2 scanner details internals (https://github.com/binarly-io/uefi_r2)\r\n  * How semantic code annotations work to bring UEFI codentext for code analysis \r\n  * How to scale uefi_r2 scanner in enterprise infrastructure?\r\n* Deep dive into FwHunt rules format\r\n  * What is the difference between detecting new and known issues?\r\n  * How does the FwHunt detection work on different layers PEI/DXE/SMM?\r\n* LVFS integration of uefi_r2 and FwHunt\r\n  * How patch the industry deal with the help of LVFS?\r\n* Future plans and upcoming updates for FwHunt technology",
+      "duration": 60,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "DMZWKT",
+          "name": "Richard Hughes",
+          "biography": "Richard has over 15 years of experience developing open source software.\r\n\r\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\r\n\r\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+          "submissions": []
+        },
+        {
+          "code": "QK9KBX",
+          "name": "Kai Michaelis",
+          "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "FQ3VR9",
+          "name": "Alex Matrosov",
+          "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+          "submissions": []
+        },
+        {
+          "code": "YHHG7F",
+          "name": "Alex Ermolov",
+          "biography": "Alex leads supply chain security research & development at Binarly Inc. With more than 10 years of experience in researching low-level design, firmware and system software built for various platforms and architectures, he helps to create a solution for protecting devices against firmware threats.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184786,
+          "start": "2021-12-01T18:30:00+01:00",
+          "end": "2021-12-01T19:30:00+01:00",
+          "duration": 60,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "EWEZGU",
+      "title": "OSFC Opening",
+      "submission_type": 1463,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "",
+      "duration": 15,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [],
+      "slots": [
+        {
+          "id": 184772,
+          "start": "2021-11-30T16:40:00+01:00",
+          "end": "2021-11-30T16:55:00+01:00",
+          "duration": 15,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "FUZQDQ",
+      "title": "Designing Transparency Systems using the Claimant Model",
+      "submission_type": 1465,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "In this talk we will introduce roles for describing participation in verifiable systems, and use this terminology to understand what it means for a system to be transparent. Having a common model for these ecosystems allows for precise communication, and avoids blindly copying design decisions from other systems that may not be appropriate.\r\n\r\nBy the end of this talk you will be familiar with the Claimant, Believer, Verifier, and Arbiter roles. You will understand what a Claim is, and how this is committed to by a Statement. You will understand how logs can be used to make these Statements discoverable to Verifiers, and how this can enable systems to operate using Trust But Verify.\r\n\r\nWe will use Certificate Authorities and Certificate Transparency as case studies. Prior knowledge of this would be beneficial but is not required.\r\n\r\nMartin is a SWE on the TrustFabric team at Google. The TrustFabric team works on Trillian, Certificate Transparency, and also research into other verifiable data structures, witnessing, and more.",
+      "duration": 20,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "UWP3QP",
+          "name": "Martin Hutchinson",
+          "biography": "I'm a software engineer on the TrustFabric team at Google. The TrustFabric team works on Trillian, Certificate Transparency, and also research into other verifiable data structures, witnessing, and more.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184777,
+          "start": "2021-11-30T19:50:00+01:00",
+          "end": "2021-11-30T20:10:00+01:00",
+          "duration": 20,
+          "description": null,
+          "room": {
+            "id": 1149,
+            "guid": null,
+            "uuid": "6878f169-6eeb-5c15-ae93-2182734f8ec2",
+            "name": {
+              "en": "PadSec"
+            },
+            "description": {},
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "GVKKXU",
+      "title": "How Slim Bootloader turned fantastic in this pandemic",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "The open-source Slim Bootloader project began 3 years ago with the goal of providing a boot firmware that’s specific to Internet of Things use cases especially in Intel-based embedded systems and solutions. It’s also designed to be small in flash footprint, boots fast, secure, extensible, and easily configurable. \r\nSince its inception, Slim Bootloader has matured into a robust boot firmware with multiple exciting new features such as Time Coordinated Computing (TCC) technology, Functional Safety (FuSa), Firmware Update Resiliency, enhanced firmware & Intel Firmware Support Package (FSP) configuration just to name a few. As Intel continues to release various new processors and System on Chips (SoC), the Intel team has continued to enable Slim Bootloader support for them on the respective reference platform offerings. \r\nThis talk will provide a state of art update of what has changed over the years and what we’ve learnt from maintaining it in the open-source community.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "TY3MBG",
+          "name": "Yah-Wen Ho",
+          "biography": "Yah-Wen is a Senior Firmware Tech Lead from the Intel Internet of Things Group. He has close to 18 years of experience mainly boot firmware for products such as desktop & laptop motherboards, test & measurement instruments (PXI) and Intel Architecture based-IoT embedded solutions. He's an active Slim Bootloader evangelist.\r\n\r\nAside from technology, he's also passionate in health & fitness and spends his free time as a certified Personal Trainer specializing in fat loss & body composition.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/TY3MBG_Gc4tmRO.webp",
+          "submissions": []
+        },
+        {
+          "code": "AAP3EU",
+          "name": "Sai Kiran Talamudupula",
+          "biography": "Firmware Engineer working on the Slim Bootloader project.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184791,
+          "start": "2021-12-01T23:20:00+01:00",
+          "end": "2021-12-01T23:50:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 983,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/GVKKXU/resources/OSFC2021_-_How_Slim_Bootloader_turned_fantastic_in_HLEzX2H.pdf",
+          "description": "How Slim Bootloader turned fantastic in this pandemic"
+        }
+      ]
+    },
+    {
+      "code": "HYZL3U",
+      "title": "An evolutionary approach to system firmware",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "This talk will cover Universal Scalable Firmware (USF). USF entails an evolution of the platform firmware stack. It entails evolutions from the hardware through the SOC to the platform layer and in the OS facing payload. Elements of the stack include the system on a chip (SOC) abstraction layer (SAL) into the scalable Firmware Support Package (sFSP). Atop of the sFSP a set of infrastructure referred to as the Platform Orchestration Layer (POL) will support a plurality of bootloader implementations, such as coreboot, EDKII, and slim bootloader. Each of these POL entities can then be composed with a Universal Payload to provide alternate boot methodologies such as UEFI and LinuxBoot. In addition to supporting a variety of POL's, this work hopes to support a variety of implementation languages beyond C, including Rust. And beyond booting, USF provides guidance on more consistent configuration using YAML and firmware support beyond the host CPU SOC into alternate platform computing elements, or XPU’s. More information on this work can be found at https://github.com/UniversalScalableFirmware.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "PSYZCP",
+          "name": "Vincent Zimmer",
+          "biography": "Vincent is an engineer working on firmware in the Pacific Northwest.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/PSYZCP_d01Svai.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184790,
+          "start": "2021-12-01T21:10:00+01:00",
+          "end": "2021-12-01T21:40:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 938,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/HYZL3U/resources/OSFC_UFS_Zimmer_2021_HBiMx9p.pdf",
+          "description": "Presentation material"
+        }
+      ]
+    },
+    {
+      "code": "J3NSBZ",
+      "title": "Making the RaspberryPi SystemReady: A study in applying firmware standards to nonstandard hardware.",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Modern Arm machines have management processors, security states, and EL3 (which is conceptually somewhat similar to SMM on x86). They also have a wild west of power, clock, and nonstandard hardware devices which need to be supported before general purpose operating systems can be utilized.  In the server space, Arm has hardware (SBSA) and firmware (SBBR) standards for assuring long term support, as well as providing a \"just works\" experience for end users. The Arm SystemReady program is designed to bring many of these advantages to the Edge and Iot markets as well. It is born out of the fact that much of the what makes x86 or SBSA/SBBR work are standardized firmware abstractions that create a common platform out of diverse hardware, and questioning what the minimal HW platform that is required for those software standards to work.\r\n\r\nA couple years ago, the RPi was identified as an easily available platform that could be used to demonstrate that it was possible to boot a wide range of OS's without a lot of custom driver/etc work by focusing on the firmware. Earlier this year the resulting community first, opensource project (https://github.com/pftf/), was successfully one of the first platforms to be SystemReady ES certified and boots a who's who of OSs and hypervisors, both opensource and commercial.\r\n\r\nThis talk will focus on explaining some of what modern Arm machines look like, their failings, how much code we avoided putting in the Linux kernel, as well as some concrete examples of platform abstraction in ACPI/AML in the context of the RPi. It will also cover some of the critical HW/SW problems that can stop a project like this from succeeding.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "DUGFEQ",
+          "name": "Jeremy Linton",
+          "biography": "Software Engineer at Arm,  on the opensource communities and distro's team. Our mandate is to assure that our partners machines, new architectural features, and software products, are enabled on Linux. The goal is to make the ecosystem \"just work\".",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184792,
+          "start": "2021-11-30T23:45:00+01:00",
+          "end": "2021-12-01T00:15:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 978,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/J3NSBZ/resources/OSFS2_8armINC.pdf",
+          "description": "Making the RaspberryPi Systemready Slides"
+        }
+      ]
+    },
+    {
+      "code": "JTWYEH",
+      "title": "On Hubris and Humility: developing an OS for robustness in Rust",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "On Hubris and Humility: when \"write your own OS\" isn't the worst idea\r\n\r\nHubris is a small open-source operating system for deeply-embedded computer\r\nsystems, such as our server's replacement for the Baseboard Management\r\nController. Because our BMC replacement uses a lower-complexity microcontroller\r\nwith region-based memory protection instead of virtual memory, our options were\r\nlimited. We were unable to find an off-the-shelf option that met our\r\nrequirements around safety, security, and correctness, so we wrote one.\r\n\r\nHubris provides preemptive multitasking, memory isolation between\r\nseparately-compiled components, the ability to isolate crashing drivers and\r\nrestart them without affecting the rest of the system, and flexible\r\ninter-component messaging that eliminates the need for most syscalls -- in about\r\n2000 lines of Rust. The Hubris debugger, Humility, allows us to walk up to a\r\nrunning system and inspect the interaction of all tasks, or capture a dump for\r\noffline debugging.\r\n\r\nHowever, Hubris may be more interesting for what it _doesn't_ have. There are no\r\noperations for creating or destroying tasks at runtime, no dynamic resource\r\nallocation, no driver code running in privileged mode, and no C code in the\r\nsystem. This removes, by construction, a lot of the attack surface normally\r\npresent in similar systems.\r\n\r\nThis talk will provide an overview of Hubris's design, the structure of a Hubris\r\napplication, and some highlights of things we learned along the way.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "TVYBFQ",
+          "name": "Cliff L. Biffle",
+          "biography": "Cliff is a software generalist at Oxide Computer Company working on server system software. He's spent the most recent 12 years of his career neck-deep in low-level applications from processor sandboxing on Native Client, to stratospheric avionics firmware at Loon, to machine learning ASIC design at Google. He has a passion for equipping programmers with better tools that let them build more complex things, faster, with fewer defects, which caused him to get really excited about Rust around 2015. He is the author of \"Learn Rust the Dangerous Way,\" a tutorial aimed at C systems programmers like him.\r\n\r\nWhen not exchanging services for currency, he enjoys building absurdist electronic art and upending fashion norms.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/TVYBFQ_gW3fu3j.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184781,
+          "start": "2021-11-30T21:10:00+01:00",
+          "end": "2021-11-30T21:40:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "MA7KHW",
+      "title": "u-bmc, the next gen BMC software stack born from the u-root ecosystem",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "This talk will be about u-bmc, a proof of concept project born out of the idea of having u-root on the BMC side as well. I will talk about the basic structure of the software stack, the way u-root and gobusybox can assemble a complete userspace that lives in a single binary, the advantages it has over OpenBMC as well as the disadvantages. In addition concepts like IPMI will be compared to gRPC which is used by u-bmc. A very short part of the presentation will also be held about u-bmc's buildsystem called Taskfile as it fits will within the topic. The current state of development and a roadmap will also be presented. This includes possible directions this project can take and also shows the progress it made in the past and how it shifted from using U-Boot to using LinuxBoot and how it could be slimmed down further using other Open Source projects that focus on barematel boot logic of ARM SoCs.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "8PCFES",
+          "name": "Marvin Drees",
+          "biography": "Cyber Sec student at the Ruhr University Bochum and student worker at 9eSec. Passionate about security features on ARM, the Linux Kernel and coreboot. Hosts Clusters in his free time and has subpar soldering skills.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/8PCFES_lX5uT0R.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184776,
+          "start": "2021-11-30T17:00:00+01:00",
+          "end": "2021-11-30T17:30:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 991,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/MA7KHW/resources/OSFC2021_ubmc.pptx_594elFy.pdf",
+          "description": "slides"
+        }
+      ]
+    },
+    {
+      "code": "NHTZTG",
+      "title": "S-RTM and D-RTM: Better Together",
+      "submission_type": 1462,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Together with Daniel Smith, TrenchBoot Project Leader, we invite Open Source Firmware Community to discuss various approaches to establishing a root of trust and maintaining its security properties over platform runtime. Initial measurement is crucial to platform security because the code that creates root measurement has to be secured. S-RTM (Static Root of Trust for Measurement) is found at a fixed point in time, which is the beginning of the boot process for most platforms. Typically, it is done by Intel Boot Guard, AMD Hardware Validated Boot, NXP High-Assured Boot, or other proprietary implementations. S-RTM-related measurements are recorded in TPM PCR[0-7]. Those can be used for local attestation (unsealing of secret, e.g., disk encryption password) or remote attestation. Finally, to keep the security properties of S-RTM, there is a need for a mechanism that can adjust firmware measurements after its update. D-RTM (Dynamic Root of Trust for Measurement) can be established at any point in time through dedicated hardware and firmware functions. D-RTM initial measurement happens right before the execution of minimal code called D-RTM Configuration Environment, which establishes a new Root of Trust for Measurement. D-RTM-related measurements are recorded in PCR[17-22] protected by hardware through the TPM locality mechanism. Obtained measurements can be used in precisely the same way as in the S-RTM case.\r\n\r\nLet's discuss:\r\n- update mechanisms \r\n- protection mechanisms for S-RTM and D-RTM\r\n- future of related functionality\r\n- synergy: beyond RTM coexistence",
+      "duration": 40,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "D8FJUY",
+          "name": "Piotr Król",
+          "biography": "Piotr Król is a multi-disciplinary executive running several companies in the embedded systems and semiconductor industries, including 3mdeb, LPN Plant, and Vitro Technology. Piotr helps companies around the world realize their products’ potential by supporting upgradeability and enabling advanced hardware features through firmware. \r\n\r\nHis career started in Intel’s Data Center Division. He went through building storage controllers validation frameworks to implementing hardware initialization code for modern server platforms as BIOS Software Engineer realizing that the firmware ecosystem has to change and become more open.\r\n\r\nAfter seven years at Intel, Piotr went on to start his own consulting company. Piotr specializes in Embedded Firmware (coreboot, UEFI/EDK2/BIOS, training, and security), Embedded Linux (Yocto, Buildroot, OpenWrt), and Trusted Execution Environments. His teams contributed to NGI projects related to open source implementation of Trusted Computing D-RTM, a firmware update for QubesOS and BSD systems, and working on bringing more open-source firmware and hardware-related projects in the future.\r\n\r\nHe is an active leader in the firmware community, speaking at events like the Platform Security Summit, Open Source Firmware Conference, and FOSDEM. Piotr is open-source software and open-source hardware evangelist, active in the Open Source Firmware (e.g. coreboot) and Linux communities.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/D8FJUY_clDzu23.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184784,
+          "start": "2021-11-30T21:40:00+01:00",
+          "end": "2021-11-30T22:20:00+01:00",
+          "duration": 40,
+          "description": null,
+          "room": {
+            "id": 1149,
+            "guid": null,
+            "uuid": "6878f169-6eeb-5c15-ae93-2182734f8ec2",
+            "name": {
+              "en": "PadSec"
+            },
+            "description": {},
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 973,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/NHTZTG/resources/S-RTM_and_D-RTM_KO5QUzI.pdf",
+          "description": "S-RTM and D-RTM: Better Together"
+        }
+      ]
+    },
+    {
+      "code": "NJD893",
+      "title": "Testing platform for Open System Firmware",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "It's been a long held notion that having standardized testing across the various near metal projects. With standardized testing, we can build a testing framework to test platforms that have open hardware components across coreboot, linuxboot, u-root and so on. With these in place we would be able to thoroughly test all platforms that use these ecosystems. Furthermore by agreeing on the framework we would be able to build our own internal tests for the platforms we care about. \r\n\r\nThis brief talk will talk about the fundamentals of standard testing and how we can build these tests using ConTest, a testing framework that was written by Facebook and released as an open source project. By standardizing on a single framework we will be able to ramp up specific tests to help build more reliable platforms by being able to detect regressions, adding new tests for new failure scenarios and so on. We hope that after this talk that you would be excited in joining the effort to build these tests and improve the state of these open source projects and the platforms that depend on it.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "EU9GLW",
+          "name": "Christian Walter",
+          "biography": null,
+          "avatar_url": "https://talks.osfc.io/media/avatars/EU9GLW_rJkUJ5F.webp",
+          "submissions": []
+        },
+        {
+          "code": "BM7HUR",
+          "name": "Sriram Ramkrishna",
+          "biography": "Sriram Ramkrishna works for ITRenew Inc as a Principal Ecosystems Engineering - using his over 22 years of experience in free and open source communities and a diverse set of skill sets from IT to marketing and social media, to engage with upstream projects.\r\n\r\nSri revels in creating meta communities and building coalitions in order to advance high level goals whether for his employer or for his personal ambitions.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/BM7HUR_lxjzix9.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184778,
+          "start": "2021-12-01T22:40:00+01:00",
+          "end": "2021-12-01T23:10:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "NTG77F",
+      "title": "coreboot/LinuxBoot Development on OCP Server Delta Lake",
+      "submission_type": 1460,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "In this talk, I will talk about coreboot/LinuxBoot development progress on OCP Delta Lake, \r\nwhich is a single-socket compute server based on the 3rd Gen Intel Xeon Scalable processor Cooper Lake. This is a joint effort between Wiwynn, Facebook, Intel and 9elements. The OCP Open System Firmware project is an initiative with the goal to move the control of firmware to the system owner. It allows the system firmware (also known as BIOS) to be modified and shared openly. Starting from March 2021, “OCP Accepted” badge for servers requires that server systems support OSF and can pass the OSF checklist. Delta Lake is the first server product that achieves this milestone. I will present the development progress, how to download and build the firmware image, and the OCP OSF checklist. Our firmware configuration method is also presented. And finally, I will share the benefits of employing an open source firmware solution for our customers.",
+      "duration": 15,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "ZYHJCG",
+          "name": "Johnny Lin",
+          "biography": "For the past 10 years, I had been working on Linux embedded system bootloader, kernel driver and user space software.\r\nMy current focus is on coreboot and Linuxboot development for server.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/ZYHJCG_Jm9HO5t.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184774,
+          "start": "2021-12-01T17:40:00+01:00",
+          "end": "2021-12-01T17:55:00+01:00",
+          "duration": 15,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 977,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/NTG77F/resources/corebootLinuxBoot_Development_on_OCP_Server_Delta__cRP4v8A.pdf",
+          "description": "corebootLinuxBoot Development on OCP Server Delta Lake"
+        }
+      ]
+    },
+    {
+      "code": "NVDFNC",
+      "title": "Arm LBBR requirements for open source LinuxBoot firmware",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "The Base Boot Requirements (BBR) specification defines standard firmware interfaces for OS and Hypervisors boot on Arm 64-bit based systems. It builds on Arm’s standards-based approach for systems design. The BBR specification defines multiple “recipes” to accommodate different requirements across various operating systems and use cases, regardless of the segments. The LBBR recipe is defined specifically for Arm servers using LinuxBoot based firmware. LinuxBoot (https://www.linuxboot.org/) is an open-source project to replace certain UEFI stages with a Linux kernel and runtime. The LBBR recipe is created to address the needs of hyperscalers and CSPs, where LinuxBoot is often a business requirement. In this presentation, we will highlight the latest developments in defining the LBBR recipe, and show how LinuxBoot can be implemented on Arm systems to be compliant with the requirements. We will also explain how the LBBR recipe is used to build SystemReady LS compliant servers. Finally, we will demonstrate open source proof of concept implementations of LBBR compatible firmware on different devices.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "3DPRVF",
+          "name": "Samer El-Haj-Mahmoud",
+          "biography": "Samer El-Haj-Mahmoud is a Sr. Principal Architect at Arm Architecture and Technology Group, working on firmware architecture, industry standards, and the Arm SystemReady certification program. His work focuses on Arm infrastructure enablement from cloud to edge. He leads and contributes to industry standards bodies, including the UEFI Forum, DMTF, OCP, CXL Consortium, and the Arm System Architecture Advisory Council (SystemArchAC).",
+          "avatar_url": "https://talks.osfc.io/media/avatars/3DPRVF_hYlNgYH.webp",
+          "submissions": []
+        },
+        {
+          "code": "PHJDAB",
+          "name": "Jeffrey Booher-Kaeding",
+          "biography": "Jeff Works as a Systems Architecture Engineer in the Arm Architecture and Technology Group. Jeff has worked with a variety of open source projects in the areas firmware, server manageability, and the Arm SystemReady certification program.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/PHJDAB_RhFwzZz.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184787,
+          "start": "2021-12-01T17:00:00+01:00",
+          "end": "2021-12-01T17:30:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 979,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/NVDFNC/resources/LBBR_OSFC_2021_Bg6kGLT.pdf",
+          "description": "LBBR Slides"
+        }
+      ]
+    },
+    {
+      "code": "P7MXRY",
+      "title": "MicroPython based interactive platform configuration for Coreboot",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "MicroPython as a full Python compiler and runtime that runs on the bare-metal, presents very light weight use cases of executable scripts for microcontrollers and embedded devices today. It is useful and beneficiary because python script can be executed without having a fully running operating system such as Linux/Windows.\r\n\r\n\r\n\r\nThis presentation talks about some work done in enabling MicroPython in Coreboot with libpayload, and some potential future use case enabling that can comes with it. The platform that was used for this enabling activity is x86 QEMU.\r\n\r\n\r\n\r\nCurrently coreboot limits the update of certain FSP related boot parameters during compile time only. This limits developers/advanced user to make changes rapidly. Idea here is to have Micropython based UI which allows user to modify boot parameters without having to re-compile the code. Micropython can be run as alternative payload so it doesn't hinder current user experience but can provide useful tool to developers to tinker multiple parameters without re-compiling code multiple times.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "8DGVWR",
+          "name": "Loo Tung Lun",
+          "biography": "Tung Lun is a senior BIOS lead at Intel Corporation focusing on BIOS and bootloader solutions design and power on activities on IOTG platforms. He had successfully brought up BIOS and bootloaders for Apollo Lake, Elkhart Lake, Kaby Lake, Coffee Lake and future Intel IOT platforms.",
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "3W9EXD",
+          "name": "Subrata Banik",
+          "biography": "Subrata Banik is a Firmware Engineer with twelve years of industry experience in system firmware design,\r\ndevelopment and debugging across various firmware architectures like EDK, coreboot, Slim bootloader etc. for x86\r\nand ARM platforms. Subrata has experience working for all leading PC-makers. Subrata is an active member of open\r\nsource firmware development across different projects like coreboot, oreboot, EDKII etc., where he is one of the top\r\nten contributors in the open firmware (coreboot) community. Subrata has 17 US Patents approved and is very\r\npassionate about learning new technology and sharing knowledge among enthusiast engineers. Subrata has\r\npresented his technical talk at industry events such as Open Source Firmware conference, Institute for Security and\r\nTechnology, Intel Developer Forum etc. Subrata is also a first-time author working with Apress publication on\r\npublishing two of his books on essentials of System Firmware and Firmware Development.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/3W9EXD_nBSEEC9.webp",
+          "submissions": []
+        },
+        {
+          "code": "NEDCUT",
+          "name": "Maulik",
+          "biography": "I am firmware/BIOS engineer working primarily on coreboot BIOS on IA architecture. My area of interest include development of new features, collaborate with community to work on upcoming features / idea. You can connect with me on my linkedin here:  www.linkedin.com/in/maulik-vaghela-7707056a",
+          "avatar_url": "https://talks.osfc.io/media/avatars/NEDCUT_5QCTo7J.webp",
+          "submissions": []
+        },
+        {
+          "code": "CUSPBJ",
+          "name": "Lean Sheng Tan",
+          "biography": "Sheng is a firmware engineer working on coreboot and Slim Bootloader projects after joining Intel in 2017. Since then he has developed a keen interest in firmware development and actively involved in open source firmware initiatives . Outside of work Sheng is a tech geek and enjoys playing Frisbee.",
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "S3ZKGN",
+          "name": "Maurice Ma",
+          "biography": "Xiang (Maurice) Ma is an Intel software architect on IA firmware, BIOS and bootloader.  He has more than 19 years’ extensive experience in the legacy BIOS, UEFI firmware, bootloader and embedded OS development for various Intel IA platforms including embedded systems and workstation/servers,  focusing on the core architecture, firmware security, silicon reference code design and prototyping as well as platform enabling and porting. Now he is focusing on IoT firmware and bootloader initiatives, including Intel FSP, Slim Bootloader, UEFI payload, etc.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184789,
+          "start": "2021-11-30T17:40:00+01:00",
+          "end": "2021-11-30T18:10:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 948,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/P7MXRY/resources/Micropython_based_interactive_platform_configurati_aZz1n2X.pdf",
+          "description": "Session Presentation"
+        }
+      ]
+    },
+    {
+      "code": "SKYZV8",
+      "title": "Unit testing coreboot - status update after one year",
+      "submission_type": 1460,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "In May 2020, initial support for unit testing the coreboot landed in the tree - it was included in the 4.12 release. During talk on the OSFC2020 we described why firmware (and especially coreboot) benefits from the unit testing and how unit testing framework in coreboot is working from the background.\r\n\r\nIn almost every area of programming new frameworks aren't something stable from the beginning - the same applies for unit testing frameworks. In parallel with writing tests for new modules new challenges arise. Almost every new test brings in the need for improving the testing framework and infrastructure. Once starting this journey we weren't sure where it would end and how difficult it may be to test such low-level code as coreboot firmware.\r\n\r\nWe want to go through what the community achieved during the previous year and whether all goals were reached. What is the current test coverage and how test coverage statistics reports work. Furthermore, what were the new features and improvements introduced into the unit testing framework. Finally, how the new libpayload test framework will look like and how the new mock architecture is working.",
+      "duration": 15,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "T7TMMD",
+          "name": "Jan Dąbroś",
+          "biography": "Jan Dąbroś is an embedded software engineer interested in firmware, hardware and security.\r\n\r\nHe is working at the Semihalf - company based in Cracow, Poland. Previously he was working on different firmware projects (both for embedded and server class platforms), including U-boot, ARM-TF and EDK2. Recently he has engaged in development of the coreboot.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/T7TMMD_Svr8ymN.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184782,
+          "start": "2021-12-01T19:35:00+01:00",
+          "end": "2021-12-01T19:50:00+01:00",
+          "duration": 15,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 996,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/SKYZV8/resources/coreboot_unit_testing_-_status_update_after_one_ye_CqrwmBJ.pdf",
+          "description": "Slides"
+        }
+      ]
+    },
+    {
+      "code": "UDU39T",
+      "title": "Open-Source Firmware Foundation - Discussion Round",
+      "submission_type": 1464,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "The Open-Source Firmware Foundation has been founded 6 month ago - we like to look back on the founding process, and like to invite guest to talk about workstreams within the OSFF, and the future of open-source firmware.\r\n\r\nConfirmed Guests:\r\n* Philipp and Chris summarize the past year, trying to bring the foundation to live and solving problems along the way.\r\n* Alex Matrosov is one of the first individuals leading the security workstream within the Open-Source Firmware Foundation\r\n* Bryan Cantrill, Co-Founder of Oxide, refers about open-source firmware and the rising importance of OSF within the industry\r\n* and some more..\r\n\r\nJoin in on 45 minutes of \"behind the scenes\" of the OSFF and general talks on why OSF is important. We will shim some light on these topics from an industry point-of-view.\r\n\r\nThis session will be moderated by 9elements which will guide you through the discussion.",
+      "duration": 45,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "SPWA9R",
+          "name": "Philipp Deppenwiese",
+          "biography": null,
+          "avatar_url": "https://talks.osfc.io/media/avatars/SPWA9R_EGTEpTp.webp",
+          "submissions": []
+        },
+        {
+          "code": "AQF8VK",
+          "name": "ronald g. minnich",
+          "biography": "ron started the coreboot project in 1999. He also started the u-root and linuxboot projects, more recently.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/AQF8VK_LaKUjzj.webp",
+          "submissions": []
+        },
+        {
+          "code": "EU9GLW",
+          "name": "Christian Walter",
+          "biography": null,
+          "avatar_url": "https://talks.osfc.io/media/avatars/EU9GLW_rJkUJ5F.webp",
+          "submissions": []
+        },
+        {
+          "code": "J3LAW3",
+          "name": "Fredrik Stromberg",
+          "biography": null,
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "FQ3VR9",
+          "name": "Alex Matrosov",
+          "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+          "submissions": []
+        },
+        {
+          "code": "WPKTNS",
+          "name": "Bryan Cantrill",
+          "biography": null,
+          "avatar_url": "https://talks.osfc.io/media/avatars/WPKTNS_9HAp4TK.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184801,
+          "start": "2021-11-30T20:20:00+01:00",
+          "end": "2021-11-30T21:05:00+01:00",
+          "duration": 45,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "US3TPX",
+      "title": "oreboot: 2021 Status Update",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "oreboot is a derivative of coreboot without C. The oreboot is a fully open-source power-on-reset and romstage firmware written in Rust.\r\n\r\noreboot can boot the following:\r\n\r\n* Linux on Sifive Unleashed with M-Mode kernel\r\n* Linux on Beagle-V\r\n* Linux on x86 QEMU with Intel FSP\r\n* Linux on RISC-V QEMU\r\n* Linux on arm QEMU\r\n\r\nCurrently being brought up on:\r\n\r\n* AMD Picasso-based Chromebooks\r\n* AMD Rome on AMD Reference Board\r\n* UPXtreme with Intel Coffeelake FSP\r\n\r\nThere have been some slight adjustments to oreboot's firmware driver models. Each driver is distilled into basic functions including: init, pread, pwrite, ctl, and status. The ctl and status are new. This interface allows us to make convenient higher-level drivers such as a \"union driver\" which duplicates a single write operation to multiple drivers. This makes consoles which have multiple underlying UART drivers elegant. The oreboot driver model inspired recent changes to the coreboot console code, within the limits of what C will allow of course.\r\n\r\nBy using the Rust programming language, oreboot has a leg-up in terms of security and reliability compared to contemporary firmware written in C or assembly. Rust's borrow-checker ensures pointers are not used after freed and proves that coroutines are thread-safe at compile time. We know the stack size at compile time. There is no need for linker sets. We have the appearance of dynamically sized vectors without needing an allocator. There is no heap. Macros are safe. Rust optimizations far exceed what is possible in coreboot.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "FYDFMX",
+          "name": "Ryan O'Leary",
+          "biography": "Ryan O’Leary is a core developer of LinuxBoot within Google. Ryan contributes significantly to u-root, fiano, oreboot, and was a key researcher of the LinuxBoot project in its early stages at Google.",
+          "avatar_url": null,
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184785,
+          "start": "2021-11-30T22:10:00+01:00",
+          "end": "2021-11-30T22:40:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 986,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/US3TPX/resources/Oreboot_Status_-_Nov_2021_GWxD1LL.pdf",
+          "description": "oreboot: 2021 Status Update"
+        }
+      ]
+    },
+    {
+      "code": "VDPPQH",
+      "title": "Platform Integrity Attestation at Scale",
+      "submission_type": 1465,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Assuring platform integrity is top-of-mind for platform owners. Hardware roots of trust can measure and attest to firmware integrity, but this is only one component of platform integrity in hyperscalar environments, which impose a number of practical design constraints. Constraints include scaling to a large fleet of machines, scaling to increasingly complex machines, and all while ensuring the high levels of availability and reliability required of our data center fleet.\r\n\r\nThis talk gives an overview of a platform attestation framework designed by Google, whose primary goals consist of providing scalable recovery from firmware vulnerabilities, while amortizing engineering effort across multiple hardware devices and configurations. Subjects of interest include:\r\n\r\n* Attestation policy content, generation, revocation, and enforcement.\r\n\r\n* Representing the physical model of complex platform topologies.\r\n\r\n* Contributions Google has made to standards like SPDM and Redfish, to enable platform operators to directly verify attestations from a wide range of roots of trust.",
+      "duration": 20,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "SMHHG8",
+          "name": "Chris Koch",
+          "biography": null,
+          "avatar_url": null,
+          "submissions": []
+        },
+        {
+          "code": "EDAXDB",
+          "name": "Jeff Andersen",
+          "biography": "Jeff Andersen focuses on hyperscalar platform integrity solutions at Google. He has worked on Google's in-house Titan root-of-trust chip and is now looking to apply Google's domain experience to help advance the state of attestation APIs in the wider industry.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/EDAXDB_lLIXIfd.webp",
+          "submissions": []
+        },
+        {
+          "code": "EAQUV8",
+          "name": "Jonathan Cooke",
+          "biography": "Jonathan has worked in the security industry since 2010, doing a variety of things related to abusing the security of systems. Currently, he is employed by Google to help secure its production data center servers.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/EAQUV8_OeKrNoE.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184775,
+          "start": "2021-11-30T23:20:00+01:00",
+          "end": "2021-11-30T23:40:00+01:00",
+          "duration": 20,
+          "description": null,
+          "room": {
+            "id": 1149,
+            "guid": null,
+            "uuid": "6878f169-6eeb-5c15-ae93-2182734f8ec2",
+            "name": {
+              "en": "PadSec"
+            },
+            "description": {},
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "VSPKZG",
+      "title": "RunDXERun: safely running DXE bootloaders, in a VM, with a Go VMM",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "RunDXERun allows safe execution of UEFI boot applications. It runs these applications in a KVM-based VM, using a Virtual Machine Manager (VMM) written in Go. As the boot applications call UEFI services, they exit the VM and and the RunDXERun VMM handles them. The services themselves are also implemented in Go.\r\n\r\nRunDXERun is  intended to be compiled as part of u-root and used in firmware images. As of October, RunDXERun successfully starts the u-boot EFItest program, and runs one of its tests. \r\n\r\nRunDXERun in a u-root image increases its size by about 500K (uncompressed) or 145K (xz compressed).  This is not much larger than building in a full EDK2. It fits easily in payloads destined for coreboot. \r\n\r\nThe reason to use RunDXERun is for the security it provides. Normally, UEFI boot applications run at the highest privilege level of a machine, as do the boot services. RunDXERun allows running both applications and UEFI services at the lowest privilege level, and the services are implemented in a memory safe language. RunDXERun is similar in spirit to the \"safe\" ROM support already in coreboot.\r\n\r\nRunDXERun compiles for both x86 and ARM64; writing the initial port for ARM64 took four hours.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "AQF8VK",
+          "name": "ronald g. minnich",
+          "biography": "ron started the coreboot project in 1999. He also started the u-root and linuxboot projects, more recently.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/AQF8VK_LaKUjzj.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184788,
+          "start": "2021-12-01T20:30:00+01:00",
+          "end": "2021-12-01T21:00:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": []
+    },
+    {
+      "code": "WJXVWG",
+      "title": "Improving the Secure Boot landscape: sbctl & go-uefi",
+      "submission_type": 1460,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "Taking advantage of Secure Boot should be simple! But convoluted tooling and poor documentation makes this extremely hard for people to navigate viable options, opting them to disable Secure Boot unless they are using the shim provided by larger distributions.\r\n\r\nIn this talk I'll introduce the tooling improvements I have made in this space. go-uefi which is a userspace library for dealing with efivarfs with high-level abstractions and support for the most common operations towards secure boot on Linux.\r\n\r\nBuilt on-top of this is the secure boot key manager, sbctl. This aims to be a user-friendly way of setting up and interacting with secure boot for the common user. We will take a look at why secure boot is hard to grasp for users, the current challenges facing the existing tools and how sbctl solves these. \r\n\r\nLastly, we will introduce some solutions to deal with the largest hurdle that stands in the way of independent key management: Option ROM.",
+      "duration": 15,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "7KZKAN",
+          "name": "Morten Linderud",
+          "biography": "Morten is a Open-Source developer interested in supply-chain security, vulnerability management, linux distributions and software development. He has contributed to the Arch Linux distribution since 2016 along with other projects.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/7KZKAN_ldmmPxr.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184796,
+          "start": "2021-12-01T00:25:00+01:00",
+          "end": "2021-12-01T00:40:00+01:00",
+          "duration": 15,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 990,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/WJXVWG/resources/Improving_the_Secure_Boot_landscape_sbctl__go-uefi_FjeGwl2.pdf",
+          "description": "Presentation"
+        }
+      ]
+    },
+    {
+      "code": "X7FUHN",
+      "title": "Open Source Firmware on modern Intel based laptops",
+      "submission_type": 1460,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "coreboot has support for many recent Intel platforms, largely thanks to Google's\r\ncommitment to open source firmware in their Chromebook line of laptops. However,\r\ndespite the fact that the chips themselves are well supported, getting coreboot\r\nto run on other recent Intel based laptops can be more challenging than one might\r\nthink.\r\n\r\nWe will present the current state of support for the latest Intel platforms in\r\ncoreboot and what it takes to get coreboot running on a recent Intel based\r\nlaptop. We'll then discuss some of the largest obstacles we encountered while\r\ndeveloping a coreboot port for one of our clients' laptops, including Windows\r\ncompatibility, power management and dealing with proprietary embedded controller\r\nfirmware.\r\n\r\nWe will also discuss other components needed to replace proprietary firmware\r\ncompletely, as well as reasons why one might want to have coreboot power their\r\nnewest laptop in the first place, considering the current blob situation.",
+      "duration": 15,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "KQAZFW",
+          "name": "Michał Kopeć",
+          "biography": "Michał Kopeć is a Junior Embedded C Developer at 3mdeb Embedded Systems Consulting. He's been involved with maintaining firmware for the PC Engines apu devices as well as helping port fwupd to FreeBSD. He is an enthusiast of all things open source with a special interest in firmware.",
+          "avatar_url": "https://talks.osfc.io/media/avatars/KQAZFW_E1J02EI.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184794,
+          "start": "2021-12-01T22:15:00+01:00",
+          "end": "2021-12-01T22:30:00+01:00",
+          "duration": 15,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 985,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/X7FUHN/resources/coreboot_intel_osfc_2021_CDgzY3z.pdf",
+          "description": "Slides"
+        }
+      ]
+    },
+    {
+      "code": "ZD9EXK",
+      "title": "Fiedka the Firmware Editor",
+      "submission_type": 1461,
+      "track": null,
+      "tags": [],
+      "state": "confirmed",
+      "abstract": "### Advancing from CLIs to GUIs\r\n\r\nThis talk presents the birth of [Fiedka](https://fiedka.app/) out of _utk-web_, a proof of concept\r\nimage exploration tool that runs on web platforms using WebAssembly.\r\n\r\nLeveraging [Fiano](https://github.com/linuxboot/fiano)'s `utk`, Fiedka supports\r\nfirmware developers and analysts through quick navigation and ideas from the web\r\ndevelopment world, organizing the many different views on the same image in a\r\nconcise manner. For example, when looking at a typical AMD platform OEM image,\r\nthere are UEFI and PSP parts. Walking through the challenges of building a\r\nsuitable graphical interface with a great experience and dealing with specifics,\r\nthe talk concludes with where Fiedka is at right now and what the next milestones\r\nwill be, what users can do and try out already, and how to contribute on the\r\nvarious layers of back-end and front-end work as well as conceptual ideas and\r\nfeature requests.",
+      "duration": 30,
+      "slot_count": 1,
+      "content_locale": "en",
+      "do_not_record": false,
+      "speakers": [
+        {
+          "code": "V9XHZH",
+          "name": "Daniel Maslowski",
+          "biography": "web developer working on firmware, operating systems and distributions in his spare time",
+          "avatar_url": "https://talks.osfc.io/media/avatars/V9XHZH_znEOfq8.webp",
+          "submissions": []
+        }
+      ],
+      "slots": [
+        {
+          "id": 184793,
+          "start": "2021-11-30T19:25:00+01:00",
+          "end": "2021-11-30T19:55:00+01:00",
+          "duration": 30,
+          "description": null,
+          "room": {
+            "id": 1102,
+            "guid": null,
+            "uuid": "f39ef6e3-af2f-59de-8774-36a78d77a236",
+            "name": {
+              "en": "Main Stage"
+            },
+            "description": {
+              "en": "Our Main Stage - where all the fun happens!"
+            },
+            "position": null
+          }
+        }
+      ],
+      "resources": [
+        {
+          "id": 894,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/ZD9EXK/resources/fiedka_BRUotDX.svg",
+          "description": "Fiedka mascot logo"
+        },
+        {
+          "id": 989,
+          "resource": "https://talks.osfc.io/media/osfc2021/submissions/ZD9EXK/resources/slides_EgrRx7k.pdf",
+          "description": "Slides"
+        }
+      ]
+    }
+  ],
+  "speakers": [
+    {
+      "code": "YHHG7F",
+      "name": "Alex Ermolov",
+      "biography": "Alex leads supply chain security research & development at Binarly Inc. With more than 10 years of experience in researching low-level design, firmware and system software built for various platforms and architectures, he helps to create a solution for protecting devices against firmware threats.",
+      "avatar_url": null,
+      "submissions": [
+        "D9X39Z",
+        "E9YYJF"
+      ]
+    },
+    {
+      "code": "FQ3VR9",
+      "name": "Alex Matrosov",
+      "biography": "Alex Matrosov is CEO and Founder of BInarly Inc. where he builds an AI-powered platform to protect devices against emerging firmware threats. Alex has more than two decades of experience with reverse engineering, advanced malware analysis, firmware security, and exploitation techniques. He served as Chief Offensive Security Researcher at Nvidia and Intel Security Center of Excellence (SeCoE). Alex is the author of numerous research papers and the bestselling award-winning book Rootkits and Bootkits: Reversing Modern Malware and Next Generation Threats. He is a frequently invited speaker at security conferences, such as REcon, Black Hat, Offensivecon, WOOT, DEF CON, and many others. Additionally, he was awarded multiple times by Hex-Rays for his open-source contributions to the research community.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/FQ3VR9_fI4TU9Y.webp",
+      "submissions": [
+        "D9X39Z",
+        "E9YYJF",
+        "UDU39T"
+      ]
+    },
+    {
+      "code": "WPKTNS",
+      "name": "Bryan Cantrill",
+      "biography": null,
+      "avatar_url": "https://talks.osfc.io/media/avatars/WPKTNS_9HAp4TK.webp",
+      "submissions": [
+        "UDU39T"
+      ]
+    },
+    {
+      "code": "SMHHG8",
+      "name": "Chris Koch",
+      "biography": null,
+      "avatar_url": null,
+      "submissions": [
+        "VDPPQH"
+      ]
+    },
+    {
+      "code": "EU9GLW",
+      "name": "Christian Walter",
+      "biography": null,
+      "avatar_url": "https://talks.osfc.io/media/avatars/EU9GLW_rJkUJ5F.webp",
+      "submissions": [
+        "NJD893",
+        "UDU39T"
+      ]
+    },
+    {
+      "code": "TVYBFQ",
+      "name": "Cliff L. Biffle",
+      "biography": "Cliff is a software generalist at Oxide Computer Company working on server system software. He's spent the most recent 12 years of his career neck-deep in low-level applications from processor sandboxing on Native Client, to stratospheric avionics firmware at Loon, to machine learning ASIC design at Google. He has a passion for equipping programmers with better tools that let them build more complex things, faster, with fewer defects, which caused him to get really excited about Rust around 2015. He is the author of \"Learn Rust the Dangerous Way,\" a tutorial aimed at C systems programmers like him.\r\n\r\nWhen not exchanging services for currency, he enjoys building absurdist electronic art and upending fashion norms.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/TVYBFQ_gW3fu3j.webp",
+      "submissions": [
+        "JTWYEH"
+      ]
+    },
+    {
+      "code": "V9XHZH",
+      "name": "Daniel Maslowski",
+      "biography": "web developer working on firmware, operating systems and distributions in his spare time",
+      "avatar_url": "https://talks.osfc.io/media/avatars/V9XHZH_znEOfq8.webp",
+      "submissions": [
+        "ZD9EXK"
+      ]
+    },
+    {
+      "code": "J3LAW3",
+      "name": "Fredrik Stromberg",
+      "biography": null,
+      "avatar_url": null,
+      "submissions": [
+        "UDU39T"
+      ]
+    },
+    {
+      "code": "T7TMMD",
+      "name": "Jan Dąbroś",
+      "biography": "Jan Dąbroś is an embedded software engineer interested in firmware, hardware and security.\r\n\r\nHe is working at the Semihalf - company based in Cracow, Poland. Previously he was working on different firmware projects (both for embedded and server class platforms), including U-boot, ARM-TF and EDK2. Recently he has engaged in development of the coreboot.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/T7TMMD_Svr8ymN.webp",
+      "submissions": [
+        "SKYZV8"
+      ]
+    },
+    {
+      "code": "EDAXDB",
+      "name": "Jeff Andersen",
+      "biography": "Jeff Andersen focuses on hyperscalar platform integrity solutions at Google. He has worked on Google's in-house Titan root-of-trust chip and is now looking to apply Google's domain experience to help advance the state of attestation APIs in the wider industry.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/EDAXDB_lLIXIfd.webp",
+      "submissions": [
+        "VDPPQH"
+      ]
+    },
+    {
+      "code": "PHJDAB",
+      "name": "Jeffrey Booher-Kaeding",
+      "biography": "Jeff Works as a Systems Architecture Engineer in the Arm Architecture and Technology Group. Jeff has worked with a variety of open source projects in the areas firmware, server manageability, and the Arm SystemReady certification program.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/PHJDAB_RhFwzZz.webp",
+      "submissions": [
+        "NVDFNC"
+      ]
+    },
+    {
+      "code": "DUGFEQ",
+      "name": "Jeremy Linton",
+      "biography": "Software Engineer at Arm,  on the opensource communities and distro's team. Our mandate is to assure that our partners machines, new architectural features, and software products, are enabled on Linux. The goal is to make the ecosystem \"just work\".",
+      "avatar_url": null,
+      "submissions": [
+        "J3NSBZ"
+      ]
+    },
+    {
+      "code": "ZYHJCG",
+      "name": "Johnny Lin",
+      "biography": "For the past 10 years, I had been working on Linux embedded system bootloader, kernel driver and user space software.\r\nMy current focus is on coreboot and Linuxboot development for server.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/ZYHJCG_Jm9HO5t.webp",
+      "submissions": [
+        "NTG77F"
+      ]
+    },
+    {
+      "code": "EAQUV8",
+      "name": "Jonathan Cooke",
+      "biography": "Jonathan has worked in the security industry since 2010, doing a variety of things related to abusing the security of systems. Currently, he is employed by Google to help secure its production data center servers.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/EAQUV8_OeKrNoE.webp",
+      "submissions": [
+        "VDPPQH"
+      ]
+    },
+    {
+      "code": "QK9KBX",
+      "name": "Kai Michaelis",
+      "biography": "Kai Michaelis is co-founder and CTO of immune GmbH set out to build a solution for platform and supply chain security. He’s also a co-founder of the Open Source Firmware Foundation. He earned a Masters degree in computer security in 2018 from Ruhr University Bochum and has previously worked on GnuPG.",
+      "avatar_url": null,
+      "submissions": [
+        "D388SS",
+        "D9X39Z",
+        "E9YYJF"
+      ]
+    },
+    {
+      "code": "CUSPBJ",
+      "name": "Lean Sheng Tan",
+      "biography": "Sheng is a firmware engineer working on coreboot and Slim Bootloader projects after joining Intel in 2017. Since then he has developed a keen interest in firmware development and actively involved in open source firmware initiatives . Outside of work Sheng is a tech geek and enjoys playing Frisbee.",
+      "avatar_url": null,
+      "submissions": [
+        "P7MXRY"
+      ]
+    },
+    {
+      "code": "8DGVWR",
+      "name": "Loo Tung Lun",
+      "biography": "Tung Lun is a senior BIOS lead at Intel Corporation focusing on BIOS and bootloader solutions design and power on activities on IOTG platforms. He had successfully brought up BIOS and bootloaders for Apollo Lake, Elkhart Lake, Kaby Lake, Coffee Lake and future Intel IOT platforms.",
+      "avatar_url": null,
+      "submissions": [
+        "P7MXRY"
+      ]
+    },
+    {
+      "code": "UWP3QP",
+      "name": "Martin Hutchinson",
+      "biography": "I'm a software engineer on the TrustFabric team at Google. The TrustFabric team works on Trillian, Certificate Transparency, and also research into other verifiable data structures, witnessing, and more.",
+      "avatar_url": null,
+      "submissions": [
+        "FUZQDQ"
+      ]
+    },
+    {
+      "code": "8PCFES",
+      "name": "Marvin Drees",
+      "biography": "Cyber Sec student at the Ruhr University Bochum and student worker at 9eSec. Passionate about security features on ARM, the Linux Kernel and coreboot. Hosts Clusters in his free time and has subpar soldering skills.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/8PCFES_lX5uT0R.webp",
+      "submissions": [
+        "MA7KHW"
+      ]
+    },
+    {
+      "code": "NEDCUT",
+      "name": "Maulik",
+      "biography": "I am firmware/BIOS engineer working primarily on coreboot BIOS on IA architecture. My area of interest include development of new features, collaborate with community to work on upcoming features / idea. You can connect with me on my linkedin here:  www.linkedin.com/in/maulik-vaghela-7707056a",
+      "avatar_url": "https://talks.osfc.io/media/avatars/NEDCUT_5QCTo7J.webp",
+      "submissions": [
+        "P7MXRY"
+      ]
+    },
+    {
+      "code": "S3ZKGN",
+      "name": "Maurice Ma",
+      "biography": "Xiang (Maurice) Ma is an Intel software architect on IA firmware, BIOS and bootloader.  He has more than 19 years’ extensive experience in the legacy BIOS, UEFI firmware, bootloader and embedded OS development for various Intel IA platforms including embedded systems and workstation/servers,  focusing on the core architecture, firmware security, silicon reference code design and prototyping as well as platform enabling and porting. Now he is focusing on IoT firmware and bootloader initiatives, including Intel FSP, Slim Bootloader, UEFI payload, etc.",
+      "avatar_url": null,
+      "submissions": [
+        "P7MXRY"
+      ]
+    },
+    {
+      "code": "KQAZFW",
+      "name": "Michał Kopeć",
+      "biography": "Michał Kopeć is a Junior Embedded C Developer at 3mdeb Embedded Systems Consulting. He's been involved with maintaining firmware for the PC Engines apu devices as well as helping port fwupd to FreeBSD. He is an enthusiast of all things open source with a special interest in firmware.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/KQAZFW_E1J02EI.webp",
+      "submissions": [
+        "X7FUHN"
+      ]
+    },
+    {
+      "code": "7KZKAN",
+      "name": "Morten Linderud",
+      "biography": "Morten is a Open-Source developer interested in supply-chain security, vulnerability management, linux distributions and software development. He has contributed to the Arch Linux distribution since 2016 along with other projects.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/7KZKAN_ldmmPxr.webp",
+      "submissions": [
+        "WJXVWG"
+      ]
+    },
+    {
+      "code": "SPWA9R",
+      "name": "Philipp Deppenwiese",
+      "biography": null,
+      "avatar_url": "https://talks.osfc.io/media/avatars/SPWA9R_EGTEpTp.webp",
+      "submissions": [
+        "UDU39T"
+      ]
+    },
+    {
+      "code": "D8FJUY",
+      "name": "Piotr Król",
+      "biography": "Piotr Król is a multi-disciplinary executive running several companies in the embedded systems and semiconductor industries, including 3mdeb, LPN Plant, and Vitro Technology. Piotr helps companies around the world realize their products’ potential by supporting upgradeability and enabling advanced hardware features through firmware. \r\n\r\nHis career started in Intel’s Data Center Division. He went through building storage controllers validation frameworks to implementing hardware initialization code for modern server platforms as BIOS Software Engineer realizing that the firmware ecosystem has to change and become more open.\r\n\r\nAfter seven years at Intel, Piotr went on to start his own consulting company. Piotr specializes in Embedded Firmware (coreboot, UEFI/EDK2/BIOS, training, and security), Embedded Linux (Yocto, Buildroot, OpenWrt), and Trusted Execution Environments. His teams contributed to NGI projects related to open source implementation of Trusted Computing D-RTM, a firmware update for QubesOS and BSD systems, and working on bringing more open-source firmware and hardware-related projects in the future.\r\n\r\nHe is an active leader in the firmware community, speaking at events like the Platform Security Summit, Open Source Firmware Conference, and FOSDEM. Piotr is open-source software and open-source hardware evangelist, active in the Open Source Firmware (e.g. coreboot) and Linux communities.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/D8FJUY_clDzu23.webp",
+      "submissions": [
+        "NHTZTG"
+      ]
+    },
+    {
+      "code": "DMZWKT",
+      "name": "Richard Hughes",
+      "biography": "Richard has over 15 years of experience developing open source software.\r\n\r\nHe is the maintainer of the LVFS, fwupd, libxmlb, ODRS, GNOME Software, AppStream-glib, PackageKit, colord, and UPower and also contributes to many other projects and opensource standards.\r\n\r\nRichard graduated in 2007 from the University of Surrey with a Masters in Electronics Engineering. He now works as a principle engineer for Red Hat, and once built a company selling open source calibration equipment. Richard's outside interests include taking photos, eating good food and looking after his two daughters.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/DMZWKT_WE04WA1.webp",
+      "submissions": [
+        "BCEELY",
+        "D9X39Z",
+        "E9YYJF"
+      ]
+    },
+    {
+      "code": "FYDFMX",
+      "name": "Ryan O'Leary",
+      "biography": "Ryan O’Leary is a core developer of LinuxBoot within Google. Ryan contributes significantly to u-root, fiano, oreboot, and was a key researcher of the LinuxBoot project in its early stages at Google.",
+      "avatar_url": null,
+      "submissions": [
+        "US3TPX"
+      ]
+    },
+    {
+      "code": "AAP3EU",
+      "name": "Sai Kiran Talamudupula",
+      "biography": "Firmware Engineer working on the Slim Bootloader project.",
+      "avatar_url": null,
+      "submissions": [
+        "GVKKXU"
+      ]
+    },
+    {
+      "code": "3DPRVF",
+      "name": "Samer El-Haj-Mahmoud",
+      "biography": "Samer El-Haj-Mahmoud is a Sr. Principal Architect at Arm Architecture and Technology Group, working on firmware architecture, industry standards, and the Arm SystemReady certification program. His work focuses on Arm infrastructure enablement from cloud to edge. He leads and contributes to industry standards bodies, including the UEFI Forum, DMTF, OCP, CXL Consortium, and the Arm System Architecture Advisory Council (SystemArchAC).",
+      "avatar_url": "https://talks.osfc.io/media/avatars/3DPRVF_hYlNgYH.webp",
+      "submissions": [
+        "NVDFNC"
+      ]
+    },
+    {
+      "code": "BM7HUR",
+      "name": "Sriram Ramkrishna",
+      "biography": "Sriram Ramkrishna works for ITRenew Inc as a Principal Ecosystems Engineering - using his over 22 years of experience in free and open source communities and a diverse set of skill sets from IT to marketing and social media, to engage with upstream projects.\r\n\r\nSri revels in creating meta communities and building coalitions in order to advance high level goals whether for his employer or for his personal ambitions.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/BM7HUR_lxjzix9.webp",
+      "submissions": [
+        "NJD893"
+      ]
+    },
+    {
+      "code": "3W9EXD",
+      "name": "Subrata Banik",
+      "biography": "Subrata Banik is a Firmware Engineer with twelve years of industry experience in system firmware design,\r\ndevelopment and debugging across various firmware architectures like EDK, coreboot, Slim bootloader etc. for x86\r\nand ARM platforms. Subrata has experience working for all leading PC-makers. Subrata is an active member of open\r\nsource firmware development across different projects like coreboot, oreboot, EDKII etc., where he is one of the top\r\nten contributors in the open firmware (coreboot) community. Subrata has 17 US Patents approved and is very\r\npassionate about learning new technology and sharing knowledge among enthusiast engineers. Subrata has\r\npresented his technical talk at industry events such as Open Source Firmware conference, Institute for Security and\r\nTechnology, Intel Developer Forum etc. Subrata is also a first-time author working with Apress publication on\r\npublishing two of his books on essentials of System Firmware and Firmware Development.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/3W9EXD_nBSEEC9.webp",
+      "submissions": [
+        "P7MXRY"
+      ]
+    },
+    {
+      "code": "PSYZCP",
+      "name": "Vincent Zimmer",
+      "biography": "Vincent is an engineer working on firmware in the Pacific Northwest.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/PSYZCP_d01Svai.webp",
+      "submissions": [
+        "HYZL3U"
+      ]
+    },
+    {
+      "code": "TY3MBG",
+      "name": "Yah-Wen Ho",
+      "biography": "Yah-Wen is a Senior Firmware Tech Lead from the Intel Internet of Things Group. He has close to 18 years of experience mainly boot firmware for products such as desktop & laptop motherboards, test & measurement instruments (PXI) and Intel Architecture based-IoT embedded solutions. He's an active Slim Bootloader evangelist.\r\n\r\nAside from technology, he's also passionate in health & fitness and spends his free time as a certified Personal Trainer specializing in fat loss & body composition.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/TY3MBG_Gc4tmRO.webp",
+      "submissions": [
+        "GVKKXU"
+      ]
+    },
+    {
+      "code": "AQF8VK",
+      "name": "ronald g. minnich",
+      "biography": "ron started the coreboot project in 1999. He also started the u-root and linuxboot projects, more recently.",
+      "avatar_url": "https://talks.osfc.io/media/avatars/AQF8VK_LaKUjzj.webp",
+      "submissions": [
+        "UDU39T",
+        "VSPKZG"
+      ]
+    }
+  ],
+  "breaks": [],
+  "videos": [
+    {
+      "submission": "US3TPX",
+      "vimeo_link": "https://vimeo.com/video/650918646",
+      "vimeo_id": "650918646"
+    },
+    {
+      "submission": "UDU39T",
+      "vimeo_link": "https://vimeo.com/video/652886327",
+      "vimeo_id": "652886327"
+    },
+    {
+      "submission": "HYZL3U",
+      "vimeo_link": "https://vimeo.com/video/649635012",
+      "vimeo_id": "649635012"
+    },
+    {
+      "submission": "ZD9EXK",
+      "vimeo_link": "https://vimeo.com/video/650495991",
+      "vimeo_id": "650495991"
+    },
+    {
+      "submission": "MA7KHW",
+      "vimeo_link": "https://vimeo.com/video/650496413",
+      "vimeo_id": "650496413"
+    },
+    {
+      "submission": "X7FUHN",
+      "vimeo_link": "https://vimeo.com/video/650496790",
+      "vimeo_id": "650496790"
+    },
+    {
+      "submission": "J3NSBZ",
+      "vimeo_link": "https://vimeo.com/video/650496999",
+      "vimeo_id": "650496999"
+    },
+    {
+      "submission": "NTG77F",
+      "vimeo_link": "https://vimeo.com/video/650497324",
+      "vimeo_id": "650497324"
+    },
+    {
+      "submission": "WJXVWG",
+      "vimeo_link": "https://vimeo.com/video/650912633",
+      "vimeo_id": "650912633"
+    },
+    {
+      "submission": "BCEELY",
+      "vimeo_link": "https://vimeo.com/video/650912821",
+      "vimeo_id": "650912821"
+    },
+    {
+      "submission": "SKYZV8",
+      "vimeo_link": "https://vimeo.com/video/650913201",
+      "vimeo_id": "650913201"
+    },
+    {
+      "submission": "JTWYEH",
+      "vimeo_link": "https://vimeo.com/video/650913348",
+      "vimeo_id": "650913348"
+    },
+    {
+      "submission": "P7MXRY",
+      "vimeo_link": "https://vimeo.com/video/650915332",
+      "vimeo_id": "650915332"
+    },
+    {
+      "submission": "GVKKXU",
+      "vimeo_link": "https://vimeo.com/video/650915802",
+      "vimeo_id": "650915802"
+    },
+    {
+      "submission": "NJD893",
+      "vimeo_link": "https://vimeo.com/video/650916177",
+      "vimeo_id": "650916177"
+    },
+    {
+      "submission": "NVDFNC",
+      "vimeo_link": "https://vimeo.com/video/650916370",
+      "vimeo_id": "650916370"
+    },
+    {
+      "submission": "VSPKZG",
+      "vimeo_link": "https://vimeo.com/video/650918003",
+      "vimeo_id": "650918003"
+    },
+    {
+      "submission": "D9X39Z",
+      "vimeo_link": "https://vimeo.com/video/650918313",
+      "vimeo_id": "650918313"
+    }
+  ]
+}

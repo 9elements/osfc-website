@@ -228,13 +228,23 @@ export const fontSize = {
 
 ## Data Sources
 
-- Conference data (talks, speakers, schedules) comes from Pretalx. Details are documented once the Pretalx sync script exists.
+Conference data (schedule, talks, speakers, breaks, videos) comes from Pretalx.
+
+- Each year is saved as a JSON snapshot in `src/data/pretalx/{year}.json` and committed
+- `npm run pretalx:sync` refreshes all years, `npm run pretalx:sync -- 2026` one year
+- Per-year sources and quirks live in [src/utils/pretalx/years.js](src/utils/pretalx/years.js). A new year starts there
+- `live: true` on a year fetches it from Pretalx during the build instead of reading the snapshot. A failed fetch fails the build
+- Tokens come from `.env` (see `.env.example`): `PRETALX_TOKEN` for pretalx.com, `TALKS_OSFC_TOKEN` for talks.osfc.io
+- Authenticated responses contain private data (emails, reviews, internal notes). Everything passes through the allowlist in [src/utils/pretalx/sanitize.js](src/utils/pretalx/sanitize.js) before it is saved or rendered. Only add fields there that are public
+- Pages read the data through the `conferenceYears` content collection (`getEntry("conferenceYears", "2025")`)
+- Use `slugify()` from `src/utils/slugify.js` for talk and speaker URLs; it matches the old 11ty URLs
 
 ## Scripts and Commands
 
 - `npm run dev` - Development server
 - `npm run build` - Production build
 - `npm run preview` - Preview production build
+- `npm run pretalx:sync` - Refresh Pretalx snapshots (all years, or pass years: `-- 2026`)
 
 ## Git Workflow
 
