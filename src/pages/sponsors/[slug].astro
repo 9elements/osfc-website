@@ -1,0 +1,76 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RhombImage from "@/components/RhombImage/RhombImage.astro";
+import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
+import { getSponsors } from "@/utils/sponsors";
+import { renderPageMarkdown } from "@/utils/conference";
+
+export const getStaticPaths = async () => {
+  const sponsors = await getSponsors();
+  return sponsors.map((sponsor, index) => ({
+    params: { slug: sponsor.slug },
+    props: { sponsor, prev: sponsors[index - 1], next: sponsors[index + 1] },
+  }));
+};
+
+const { sponsor, prev, next } = Astro.props;
+---
+
+<BaseLayout title="Sponsors" transparentHeader>
+  <RhombDefs />
+
+  <div class="stack-major">
+    <section>
+      <div class="wrapper-l">
+        <div class="stack-major">
+          <div class="wrapper-s stack-800">
+            <div class="shadow-box stack-900 sponsor">
+              <div class="sponsor__image">
+                <RhombImage
+                  name={sponsor.name}
+                  image={sponsor.image}
+                  size={sponsor.size}
+                  tier={sponsor.sponsor}
+                />
+              </div>
+              <div class="stack-800 plain-html">
+                <h1 class="text-700">{sponsor.name}</h1>
+                <p class={`uppercase weight-bold text-${sponsor.sponsor}-text`}>
+                  {sponsor.sponsor} Sponsor
+                </p>
+                <div class="stack-200" set:html={renderPageMarkdown(sponsor.body)} />
+                <a
+                  style="display: inline-block"
+                  class="uppercase weight-bold"
+                  href={sponsor.link}>{sponsor.linkText ?? sponsor.link}</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="uppercase text-peach weight-bold sponsor-buttons"
+              style={`display: flex; justify-content: ${prev ? "space-between" : "flex-end"};`}
+            >
+              {
+                prev && (
+                  <a href={prev.url}>
+                    <span aria-hidden="true">&lt;</span>{" "}
+                    {prev.name}
+                  </a>
+                )
+              }
+              {
+                next && (
+                  <a href={next.url}>
+                    {next.name}{" "}
+                    <span aria-hidden="true">&gt;</span>
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

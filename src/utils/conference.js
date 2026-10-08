@@ -7,6 +7,10 @@ const markdown = markdownIt({ html: true, breaks: true, linkify: true });
 
 export const renderMarkdown = (value) => markdown.render(value ?? "");
 
+// Eleventy's default markdown-it options, so text pages render exactly like before
+const pageMarkdown = markdownIt({ html: true });
+export const renderPageMarkdown = (value) => pageMarkdown.render(value ?? "");
+
 export const getConferenceYears = async () =>
   (await getCollection("conferenceYears")).map((entry) => ({
     ...entry.data,

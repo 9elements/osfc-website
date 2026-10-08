@@ -1,0 +1,194 @@
+.gadget-intro {
+  --video-height: 100svh;
+  margin-top: calc(-1 * var(--space-900));
+  background: var(--color-violet);
+  background-color: var(--color-black);
+  margin-top: calc(-1 * var(--header-height) - var(--space-900));
+}
+
+.gadget-intro__video {
+  width: 100%;
+  height: var(--video-height);
+  pointer-events: none;
+  z-index: 0;
+  inset-inline: 0;
+  object-fit: cover;
+  background-color: var(--color-black);
+}
+
+.gadget-intro__content {
+  background-color: var(--color-violet);
+  padding-block: clamp(5rem, 12vh, 18rem);
+  position: relative;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    content: "";
+    height: clamp(5rem, 12vh, 18rem);
+  }
+
+  &::before {
+    width: 100%;
+    display: block;
+    background-image: linear-gradient(
+      to top,
+      rgb(79 81 169) 0%,
+      rgb(79 81 169 / 0.987) 8.1%,
+      rgb(79 81 169 / 0.951) 15.8%,
+      rgb(79 81 169 / 0.896) 23%,
+      rgb(79 81 169 / 0.825) 29.8%,
+      rgb(79 81 169 / 0.741) 36.4%,
+      rgb(79 81 169 / 0.648) 42.7%,
+      rgb(79 81 169 / 0.55) 48.8%,
+      rgb(79 81 169 / 0.45) 54.9%,
+      rgb(79 81 169 / 0.352) 60.9%,
+      rgb(79 81 169 / 0.259) 67%,
+      rgb(79 81 169 / 0.175) 73.1%,
+      rgb(79 81 169 / 0.104) 79.4%,
+      rgb(79 81 169 / 0.049) 86%,
+      rgb(79 81 169 / 0.013) 92.8%,
+      rgb(79 81 169 / 0) 100%
+    );
+    bottom: 100%;
+    inset-inline: 0;
+    position: absolute;
+  }
+
+  &::after {
+    width: 100%;
+    display: block;
+    background-color: var(--color-violet);
+    top: 100%;
+    inset-inline: 0;
+    position: absolute;
+  }
+}
+
+.gadget-intro__illustration {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.gadget-intro__keycap-wrapper {
+  transform-box: fill-box;
+
+  translate: calc(var(--pointer-x) * -5%) calc(var(--pointer-y) * -5%);
+}
+
+.gadget-intro__keycap {
+  transform-box: fill-box;
+
+  --keycap-scale-start: 0.9;
+  --keycap-scale-end: 1;
+  scale: calc(
+    var(--keycap-scale-start) +
+      (var(--keycap-scale-end) - var(--keycap-scale-start)) * var(--progress)
+  );
+
+  --keycap-translate-start: 50%;
+  --keycap-translate-end: -13%;
+  translate: 0
+    calc(
+      var(--keycap-translate-start) +
+        (var(--keycap-translate-end) - var(--keycap-translate-start)) *
+        var(--progress)
+    );
+}
+
+.gadget-intro__illustration-line {
+  transform-origin: center;
+  transform-box: fill-box;
+
+  --line-scale-start: 0.9;
+  --line-scale-end: 1;
+  scale: calc(
+    var(--line-scale-start) + (var(--line-scale-end) - var(--line-scale-start)) *
+      clamp(0, var(--progress), 1)
+  );
+
+  --line-translate-start: 10%;
+  --line-translate-end: 0%;
+  translate: 0
+    calc(
+      var(--line-translate-start) +
+        (var(--line-translate-end) - var(--line-translate-start)) *
+        var(--progress)
+    );
+
+  --line-opacity-start: 0.3;
+  --line-opacity-end: 1;
+  opacity: calc(
+    var(--line-opacity-start) +
+      (var(--line-opacity-end) - var(--line-opacity-start)) * var(--progress)
+  );
+}
+
+.gadget-info {
+  background-image: linear-gradient(
+    to bottom,
+    rgb(79 81 169) 0%,
+    rgb(79 81 169 / 0.987) 8.1%,
+    rgb(79 81 169 / 0.951) 15.8%,
+    rgb(79 81 169 / 0.896) 23%,
+    rgb(79 81 169 / 0.825) 29.8%,
+    rgb(79 81 169 / 0.741) 36.4%,
+    rgb(79 81 169 / 0.648) 42.7%,
+    rgb(79 81 169 / 0.55) 48.8%,
+    rgb(79 81 169 / 0.45) 54.9%,
+    rgb(79 81 169 / 0.352) 60.9%,
+    rgb(79 81 169 / 0.259) 67%,
+    rgb(79 81 169 / 0.175) 73.1%,
+    rgb(79 81 169 / 0.104) 79.4%,
+    rgb(79 81 169 / 0.049) 86%,
+    rgb(79 81 169 / 0.013) 92.8%,
+    rgb(79 81 169 / 0) 100%
+  );
+}
+
+.gadget-info__logo {
+  margin-inline: auto;
+  color: var(--color-white);
+}
+
+.gadget-info__divider {
+  height: 5rem;
+  width: 2px;
+  background-color: var(--color-white);
+  margin-inline: auto;
+}
+
+.gadget-slider {
+  & swiper-container {
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 1%,
+      black 99%,
+      transparent 100%
+    );
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+  }
+
+  & swiper-slide {
+    object-fit: contain;
+    width: fit-content;
+    max-width: 30rem;
+    aspect-ratio: 3/4;
+
+    & img {
+      width: 100%;
+      height: clamp(20rem, 12.727rem + 36.36vw, 40rem);
+      object-fit: contain;
+      background-color: var(--color-white);
+    }
+
+    & video {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

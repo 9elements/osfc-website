@@ -9,4 +9,8 @@ export const colors = {
   silver: "#dedede",
   bronze: "#cd7f32",
   gold: "#f5a623",
+  // Tier text colors with at least 4.5:1 contrast on white
+  "silver-text": "#707070",
+  "gold-text": "#8a5a00",
+  "bronze-text": "#94591f",
 };

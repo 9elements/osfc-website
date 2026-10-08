@@ -1,4 +1,5 @@
 import { defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { pretalxLoader } from "./utils/pretalx/loader.js";
 
@@ -67,4 +68,43 @@ const conferenceYears = defineCollection({
   }),
 });
 
-export const collections = { conferenceYears };
+const pages = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/pages" }),
+  schema: z.object({ title: z.string() }),
+});
+
+const logoSize = z.enum(["s", "m", "l"]).optional();
+
+const projects = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/projects" }),
+  schema: ({ image }) =>
+    z.object({ name: z.string(), image: image(), link: z.url(), size: logoSize, order: z.number() }),
+});
+
+const organizers = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/organizers" }),
+  schema: ({ image }) =>
+    z.object({ name: z.string(), image: image(), link: z.url(), size: logoSize, order: z.number() }),
+});
+
+const sponsors = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/sponsors" }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      image: image(),
+      link: z.url(),
+      linkText: z.string().optional(),
+      sponsor: z.enum(["gold", "silver", "bronze"]),
+      size: logoSize,
+      order: z.number(),
+    }),
+});
+
+const team = defineCollection({
+  loader: glob({ pattern: "*.md", base: "./src/content/team" }),
+  schema: ({ image }) =>
+    z.object({ name: z.string(), position: z.string(), image: image(), order: z.number() }),
+});
+
+export const collections = { conferenceYears, pages, projects, organizers, sponsors, team };

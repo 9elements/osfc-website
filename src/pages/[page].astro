@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import PlainLayout from "@/layouts/PlainLayout.astro";
+import { renderPageMarkdown } from "@/utils/conference";
+
+export const getStaticPaths = async () =>
+  (await getCollection("pages")).map((entry) => ({
+    params: { page: entry.id },
+    props: { entry },
+  }));
+
+const { entry } = Astro.props;
+---
+
+<PlainLayout title={entry.data.title}>
+  <Fragment set:html={renderPageMarkdown(entry.body)} />
+</PlainLayout>

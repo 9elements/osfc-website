@@ -1,0 +1,166 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Newsletter from "@/components/Newsletter/Newsletter.astro";
+import KeycapTypo from "@/assets/svg/keycap-typo.svg";
+import PoweredBy9e from "@/assets/svg/powered-by-9e.svg";
+import slider1 from "@/assets/images/gadget-2025/slider-1.jpg";
+import slider2 from "@/assets/images/gadget-2025/slider-2.jpg";
+import slider3 from "@/assets/images/gadget-2025/slider-3.jpg";
+import slider4 from "@/assets/images/gadget-2025/slider-4.jpg";
+import slider5 from "@/assets/images/gadget-2025/slider-5.jpg";
+import slider6 from "@/assets/images/gadget-2025/slider-6.jpg";
+import slider7 from "@/assets/images/gadget-2025/slider-7.jpg";
+import slider8 from "@/assets/images/gadget-2025/slider-8.jpg";
+---
+
+<BaseLayout title="Gadget 2025" headerTextShadow pageName="gadget2025">
+  <div class="stack-900">
+    <section class="gadget-intro">
+      <video
+        class="gadget-intro__video"
+        poster="/assets/video/gadget-2025/macropad-thumb.webp"
+        playsinline
+        muted
+        autoplay
+        loop
+      >
+        <source
+          src="/assets/video/gadget-2025/macropad.webm"
+          type="video/webm"
+        />
+        <source src="/assets/video/gadget-2025/macropad.mp4" type="video/mp4" />
+      </video>
+
+      <div class="gadget-intro__content">
+        <div class="wrapper-l">
+          <KeycapTypo />
+
+          <h1 class="sr-only">Press to Open source</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="gadget-info">
+      <div class="py-900 wrapper-s stack-800">
+        <PoweredBy9e />
+
+        <div class="gadget-info__divider" aria-hidden="true"></div>
+
+        <div class="gadget-info__card | shadow-box bg-light-gray stack-500">
+          <p class="uppercase text-bronze weight-black">
+            #OSFC2025GADGET – Built for OSFC, open to the community.
+          </p>
+          <h2
+            class="uppercase text-800-900 text-peach weight-black leading-flat"
+          >
+            Press to Open Source, literally
+          </h2>
+          <p class="weight-bold">
+            Every conference has swag. But this year, OSFC 2025 has super-swag:
+            a custom-built macropad, designed, assembled, and flashed in-house
+            at 9elements. It’s more than a gadget in your goodie bag – It’s a
+            piece of OSFC you can hack, extend, and take home.
+          </p>
+          <p>The details (because we know you care):</p>
+          <ul class="stack-200">
+            <li>
+              Fully open-source firmware, written in Rust using the Embassy
+              framework
+            </li>
+            <li>3 mechanical keyswitches + 1 rotary encoder</li>
+            <li>USB-C connection</li>
+            <li>
+              Based on the Raspberry Pi Pico (RP2040) microcontroller board
+            </li>
+            <li>Removable, socketed Raspberry Pi Pico</li>
+            <li>Four programmable WS2812-compatible RGB LEDs</li>
+            <li>
+              One mode selection switch with three positions:Top: Programmer /
+              serial interface onlyMiddle: Full feature setBottom: Macro keypad
+              only
+            </li>
+            <li>
+              Rear 8-pin connector for programming SPI flash chips using the
+              serprog protocol (compatible with Flashrom/Flashprog)
+            </li>
+            <li>
+              Rear 3-pin connector configured as a UART interface in the default
+              firmware
+            </li>
+          </ul>
+
+          <p>
+            <strong>It’s our way of saying thanks!</strong>
+            <br />
+            Take it home. Hack it. Extend it. Share it.
+          </p>
+
+          <div
+            class="cluster my-stack-space-800"
+            style="--cluster-justification: center"
+          >
+            <a class="button" href="https://github.com/9elements/OSKAR">
+              Customize your board
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gadget-slider pb-900 wrapper-l">
+      <swiper-container
+        slides-per-view="auto"
+        centered-slides="true"
+        autoplay="true"
+        autoplay-delay="6000"
+        space-between="32"
+        speed="750"
+        grab-cursor="true"
+      >
+        <swiper-slide>
+          <Image src={slider1} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <video
+            src="/assets/images/gadget-2025/gadget-bts.webm"
+            type="video/webm"
+            playsinline
+            controls
+            autoplay
+            loop></video>
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider2} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider3} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider4} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider5} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider6} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider7} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+        <swiper-slide>
+          <Image src={slider8} width={600} densities={[1, 2]} alt="" />
+        </swiper-slide>
+      </swiper-container>
+    </section>
+    <Newsletter />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import "../styles/pages/gadget-2025.css" layer(blocks);
+</style>
+
+<script>
+  import "@/scripts/gadget2025.js";
+</script>

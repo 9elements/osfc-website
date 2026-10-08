@@ -1,0 +1,33 @@
+.rhomb-image {
+  position: relative;
+
+  svg {
+    filter: drop-shadow(0px 0.375rem 0.625rem rgba(0, 0, 0, 0.2));
+    width: 100%;
+  }
+
+  a {
+    display: block;
+    transition: transform 0.2s ease-out;
+
+    &:hover {
+      transform: translatey(-2%);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  a:focus-visible:after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    right: 15%;
+    bottom: 15%;
+    outline: 2px dashed var(--color-peach);
+    transform: rotate(45deg);
+    border-radius: 14%;
+  }
+}

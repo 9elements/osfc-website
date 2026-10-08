@@ -1,0 +1,103 @@
+@custom-media --person-md (width >= 50rem);
+@custom-media --person-lg (width >= 75rem);
+
+.person {
+  text-align: center;
+  position: relative;
+
+  & .rhomb-image {
+    filter: grayscale(100%);
+  }
+
+  @media (--person-lg) {
+    text-align: left;
+  }
+}
+
+.person__details {
+  margin-top: 1rem;
+
+  > * {
+    display: block;
+  }
+
+  @media (--person-md) {
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  @media (--person-lg) {
+    width: auto;
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: rotate(45deg);
+    transform-origin: left top;
+  }
+}
+
+.person-grid {
+  display: grid;
+  gap: 3rem;
+
+  > * {
+    max-width: min(80%, 24.375rem);
+    margin-inline: auto;
+  }
+
+  @media screen and (min-width: 36rem) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 3rem;
+
+    > * {
+      max-width: none;
+      width: 100%;
+      grid-column-end: span 2;
+
+      &:nth-child(odd) {
+        grid-column-start: 2;
+      }
+    }
+  }
+
+  @media (--person-md) {
+    grid-template-columns: repeat(4, 1fr);
+
+    > *:nth-child(odd) {
+      grid-column-start: auto;
+    }
+
+    > *:nth-child(3n-2) {
+      grid-column-start: 2;
+    }
+  }
+
+  @media screen and (min-width: 64rem) {
+    grid-template-columns: repeat(6, 1fr);
+
+    > *:nth-child(3n-2) {
+      grid-column-start: auto;
+    }
+
+    > *:nth-child(5n-4) {
+      grid-column-start: 2;
+    }
+  }
+
+  @media (--person-lg) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 20rem;
+
+    > *:not(:first-child) {
+      margin-top: -4rem;
+    }
+
+    > *:nth-child(5n-4) {
+      grid-column-start: auto;
+    }
+
+    > *:nth-child(3n - 1) {
+      grid-column-start: 2;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RhombImage from "@/components/RhombImage/RhombImage.astro";
+
+const team = (await getCollection("team")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout title="Team" transparentHeader>
+  <svg
+    style="width: 0; height: 0; display: block; opacity: 0;"
+    aria-hidden="true"
+  >
+    <defs>
+      <clipPath id="oct-clip">
+        <polygon
+          points="7 188 7 142 142 7 188 7 323 142 323 188 188 323 142 323"
+        ></polygon>
+      </clipPath>
+    </defs>
+  </svg>
+  <div class="stack-major">
+    <section id="team" class="team">
+      <img
+        alt=""
+        class="team__beam"
+        src="/assets/images/beams/beam-04.svg"
+        aria-hidden="true"
+      />
+      <img
+        alt=""
+        class="team__beam team__beam--1"
+        src="/assets/images/beams/beam-05.svg"
+        aria-hidden="true"
+      />
+      <div class="wrapper-l">
+        <div class="stack-700">
+          <h1
+            class="uppercase text-peach weight-black text-800-major leading-flat"
+          >
+            Team
+          </h1>
+          <div class="person-grid">
+            {
+              team.map(({ data }) => (
+                <figure class="person">
+                  <RhombImage name={data.name} image={data.image} />
+                  <figcaption class="person__details">
+                    <span class="text-600-700 leading-flat text-violet weight-bold uppercase">
+                      {data.name}
+                    </span>
+                    <span class="text-500-600 leading-tight">
+                      {data.position}
+                    </span>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import "../styles/pages/team.css" layer(blocks);
+</style>
