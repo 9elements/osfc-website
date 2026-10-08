@@ -65,7 +65,7 @@ const talkJsonLd = talkEventJsonLd(year, talk, description);
     {
       slot && (
         <p class="weight-bold">
-          {slot.room?.name?.en},
+          {slot.room?.name?.en},{" "}
           {slot.start && (
             <time datetime={new Date(slot.start).toISOString()}>
               {formatDay(slot.start)}

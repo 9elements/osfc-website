@@ -19,7 +19,7 @@ const days = schedule.days.filter((day) => Object.keys(day.rooms).length > 0);
         <a href={`#day-${day.date}`} class="text-white weight-bold">
           <span class="jump-navigation__day-count">
             Day {padNumber(index + 1)}
-          </span>
+          </span>{" "}
           <span class="jump-navigation__date">{formatDay(day.date)}</span>
         </a>
       </li>

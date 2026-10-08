@@ -108,7 +108,7 @@ const getDayGrid = (day) => {
                     style={`--row-start: slice-${talk.start.slice(0, 2)}-${talk.start.slice(3, 5)}; --row-span: ${toMinutes(talk.duration) / 5}; --column: ${roomIndex + 2};`}
                   >
                     <div class="grid-event__time | bg-violet leading-tight">
-                      <span class="weight-bold text-300-400">{talk.start}</span>
+                      <span class="weight-bold text-300-400">{talk.start}</span>{" "}
                       <span class="text-300">
                         {toMinutes(talk.duration)}min
                       </span>
