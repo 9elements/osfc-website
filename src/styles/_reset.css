@@ -81,6 +81,10 @@ html {
   scroll-behavior: smooth;
 }
 
+:where(a:not([class])) {
+  color: inherit;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {

@@ -47,10 +47,6 @@ body {
   }
 }
 
-a:not([class]) {
-  color: currentColor;
-}
-
 :focus-visible {
   outline: 2px dashed var(--color-peach);
   outline-offset: 0.25rem;
