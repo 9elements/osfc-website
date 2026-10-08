@@ -14,8 +14,6 @@ const { variant = "default", background, textShadow = false } = Astro.props;
 
 const isTransparent = variant === "transparent";
 const currentPath = Astro.url.pathname;
-const isHome = currentPath === "/";
-const HomeLinkTag = isHome ? "span" : "a";
 const Logo = isTransparent ? LogoBlack : LogoNoYear;
 ---
 
@@ -29,12 +27,14 @@ const Logo = isTransparent ? LogoBlack : LogoNoYear;
 >
   <div class="wrapper-l">
     <nav aria-label="Main" class="nav | cluster" style="padding: 2rem 0">
-      <HomeLinkTag
+      <a
+        href="/"
         class="nav__home-link"
-        {...!isHome && { href: "/", "aria-label": "Home" }}
+        aria-label="Home"
+        aria-current={currentPath === "/" ? "page" : undefined}
       >
         <Logo aria-hidden="true" />
-      </HomeLinkTag>
+      </a>
       <button
         class="nav__button"
         id="hamburger"

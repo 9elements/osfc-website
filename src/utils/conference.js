@@ -3,7 +3,8 @@ import markdownIt from "markdown-it";
 import { slugify } from "./slugify.js";
 import { getYearConfig } from "./pretalx/years.js";
 
-const markdown = markdownIt({ html: true, breaks: true, linkify: true });
+// No raw HTML: speakers write these texts in Pretalx
+const markdown = markdownIt({ html: false, breaks: true, linkify: true });
 
 // Pretalx texts use any heading level; start them at <h2> below the page's own <h1>
 markdown.core.ruler.push("normalize_headings", (state) => {

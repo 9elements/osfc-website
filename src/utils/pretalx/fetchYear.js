@@ -83,8 +83,18 @@ export const fetchYear = async (config) => {
   const submissions = await fetchAllPages(
     `${api}/${event}/submissions/?format=json&limit=200&expand=speakers,slots,slots.room,resources`
   );
+  const scheduleExport = await fetchJson(config.scheduleExport);
+  // Only talks in the published schedule are public; confirmed but unscheduled
+  // submissions (placeholders, members-only sessions) don't get a page
+  const scheduledCodes = new Set(
+    scheduleExport.schedule.conference.days.flatMap((day) =>
+      Object.values(day.rooms).flatMap((roomTalks) =>
+        roomTalks.map((talk) => talk.code)
+      )
+    )
+  );
   let talks = uniqueBy(submissions, "code").filter(
-    (talk) => talk.state === "confirmed"
+    (talk) => talk.state === "confirmed" && scheduledCodes.has(talk.code)
   );
   if (config.sortTalksByTitle) {
     talks = talks.sort((a, b) => (a.title > b.title ? 1 : -1));
@@ -121,8 +131,6 @@ export const fetchYear = async (config) => {
   }
   speakers = speakers.sort(byName);
 
-  const scheduleExport = await fetchJson(config.scheduleExport);
-
   // Pretalx no longer lists breaks on schedules/latest; they are slots without a submission
   const breaks = config.breaks
     ? (
@@ -142,6 +150,21 @@ export const fetchYear = async (config) => {
         video.vimeo_link.lastIndexOf("/") + 1
       ),
     }));
+
+  // Talk and speaker pages are addressed by slug; Astro would silently overwrite duplicates
+  for (const [label, items, key] of [
+    ["talk", talks, "title"],
+    ["speaker", speakers, "name"],
+  ]) {
+    const seen = new Set();
+    for (const item of items) {
+      const slug = slugify(item[key]);
+      if (seen.has(slug)) {
+        throw new Error(`${year}: two ${label}s share the URL slug "${slug}"`);
+      }
+      seen.add(slug);
+    }
+  }
 
   return sanitizeYearData({
     year,
