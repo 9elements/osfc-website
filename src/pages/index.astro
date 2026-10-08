@@ -10,6 +10,7 @@ import nineElementsLogo from "@/assets/images/organizer/9e_logo_black.svg";
 import venueMap from "@/assets/images/oscar_map_netherlands.png";
 import { site } from "@/data/site";
 import { getSponsors } from "@/utils/sponsors";
+import { webSiteJsonLd } from "@/utils/seo";
 
 const byOrder = (a, b) => a.data.order - b.data.order;
 const projects = (await getCollection("projects")).sort(byOrder);
@@ -22,16 +23,7 @@ const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
 <BaseLayout
   title={site.name}
   metaTitle="OSFC - Open Source Firmware Conference"
-  jsonLd={[
-    {
-      "@type": "WebSite",
-      "@id": `${site.url}/#website`,
-      name: "Open Source Firmware Conference",
-      alternateName: site.name,
-      url: `${site.url}/`,
-      publisher: { "@id": `${site.url}/#organization` },
-    },
-  ]}
+  jsonLd={[webSiteJsonLd]}
   triangle
 >
   <RhombDefs />

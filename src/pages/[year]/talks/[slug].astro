@@ -9,13 +9,7 @@ import {
 } from "@/utils/conference";
 import { currentYear } from "@/utils/pretalx/years.js";
 import { slugify } from "@/utils/slugify";
-import {
-  absoluteUrl,
-  avatarSocialImage,
-  eventId,
-  toDescription,
-} from "@/utils/seo";
-import { speakerPath, talkPath } from "@/utils/conference";
+import { avatarSocialImage, talkEventJsonLd, toDescription } from "@/utils/seo";
 
 export const getStaticPaths = async () =>
   (await getConferenceYears()).flatMap((conference) =>
@@ -46,22 +40,7 @@ const firstAvatar = talk.speakers.find(
 )?.avatar_url;
 const socialImage = await avatarSocialImage(firstAvatar);
 
-const talkJsonLd = {
-  "@type": "Event",
-  name: talk.title,
-  description,
-  url: absoluteUrl(talkPath(year, talk)),
-  ...(slot?.start && { startDate: slot.start, endDate: slot.end }),
-  ...(slot?.room?.name?.en && {
-    location: { "@type": "Place", name: slot.room.name.en },
-  }),
-  superEvent: { "@id": eventId(year) },
-  performer: talk.speakers.map((speaker) => ({
-    "@type": "Person",
-    name: speaker.name,
-    url: absoluteUrl(speakerPath(year, speaker)),
-  })),
-};
+const talkJsonLd = talkEventJsonLd(year, talk, description);
 ---
 
 <BaseLayout
