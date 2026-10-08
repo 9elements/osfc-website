@@ -4,6 +4,7 @@ import RhombImage from "@/components/RhombImage/RhombImage.astro";
 import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
 import { getSponsors } from "@/utils/sponsors";
 import { renderPageMarkdown } from "@/utils/conference";
+import { toDescription } from "@/utils/seo";
 
 export const getStaticPaths = async () => {
   const sponsors = await getSponsors();
@@ -14,9 +15,17 @@ export const getStaticPaths = async () => {
 };
 
 const { sponsor, prev, next } = Astro.props;
+const description =
+  toDescription(sponsor.body ?? "") ||
+  `${sponsor.name} is a ${sponsor.sponsor} sponsor of the Open Source Firmware Conference.`;
 ---
 
-<BaseLayout title="Sponsors" transparentHeader>
+<BaseLayout
+  title="Sponsors"
+  metaTitle={`${sponsor.name} - OSFC Sponsor`}
+  description={description}
+  transparentHeader
+>
   <RhombDefs />
 
   <div class="stack-major">
@@ -38,7 +47,10 @@ const { sponsor, prev, next } = Astro.props;
                 <p class={`uppercase weight-bold text-${sponsor.sponsor}-text`}>
                   {sponsor.sponsor} Sponsor
                 </p>
-                <div class="stack-200" set:html={renderPageMarkdown(sponsor.body)} />
+                <div
+                  class="stack-200"
+                  set:html={renderPageMarkdown(sponsor.body)}
+                />
                 <a
                   style="display: inline-block"
                   class="uppercase weight-bold"
@@ -54,16 +66,14 @@ const { sponsor, prev, next } = Astro.props;
               {
                 prev && (
                   <a href={prev.url}>
-                    <span aria-hidden="true">&lt;</span>{" "}
-                    {prev.name}
+                    <span aria-hidden="true">&lt;</span> {prev.name}
                   </a>
                 )
               }
               {
                 next && (
                   <a href={next.url}>
-                    {next.name}{" "}
-                    <span aria-hidden="true">&gt;</span>
+                    {next.name} <span aria-hidden="true">&gt;</span>
                   </a>
                 )
               }

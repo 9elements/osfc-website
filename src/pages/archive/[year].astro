@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import DayTalkList from "@/components/DayTalkList/DayTalkList.astro";
 import YearNavigation from "@/components/YearNavigation/YearNavigation.astro";
 import { getYearPaths } from "@/utils/yearPaths";
+import { conferenceEventJsonLd } from "@/utils/seo";
 
 export const getStaticPaths = getYearPaths;
 
@@ -10,7 +11,13 @@ const { conference } = Astro.props;
 const { year, schedule } = conference;
 ---
 
-<BaseLayout title="Archive" transparentHeader>
+<BaseLayout
+  title="Archive"
+  metaTitle={`Archive - OSFC ${year}`}
+  description={`Talks and recordings of the Open Source Firmware Conference ${year}.`}
+  jsonLd={[conferenceEventJsonLd(conference)]}
+  transparentHeader
+>
   <section class="archive">
     <img
       loading="lazy"

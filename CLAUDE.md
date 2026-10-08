@@ -15,7 +15,7 @@ This document contains coding guidelines and conventions for the OSFC conference
 - Place components in `src/components/` with their associated CSS files
 - Each component should have its own folder if it includes CSS or multiple files
 - Use Astro's component props with TypeScript-style destructuring
-- Validate slot content when expecting specific markup (see [Scroller.astro](src/components/Scroller/Scroller.astro) for reference)
+- Validate slot content when expecting specific markup
 
 Example structure:
 
@@ -29,7 +29,7 @@ src/components/
 ### Component Props
 
 - Destructure props in the frontmatter with default values where appropriate
-- Use descriptive prop names (e.g., `scrollAlign`, `itemMinWidth`)
+- Use descriptive prop names (e.g., `headingLevel`, `transparentHeader`)
 - Support `class` prop for external styling: `class: className`
 - Pass className to root element using `class:list`
 
@@ -46,7 +46,8 @@ When components expect specific markup:
 
 ### CSS Architecture
 
-- Use separate CSS files imported via `@import` in component `<style>` blocks
+- Use separate CSS files next to the component, imported as global styles into the `blocks` layer: `<style is:global>@import "./Component.css" layer(blocks);</style>`. Global, because the CSS often targets ancestor state classes (`.js-active`, `.with-text-shadow`) or Markdown output; the layer keeps the cascade order
+- Page-specific CSS lives in `src/styles/pages/` and is imported the same way from the page
 - Leverage CSS custom properties for dynamic values via `define:vars`
 - Import global CSS in component styles when needed
 
@@ -108,7 +109,6 @@ Examples:
 
 - Fluid font sizes are `clamp()` values built with `interpolate()` from [tokens/helpers/interpolate.ts](tokens/helpers/interpolate.ts)
 - Prefer CSS custom properties for dynamic styling
-- Support both auto and forced scrolling modes via data attributes
 
 ## Design Tokens System
 
@@ -239,12 +239,27 @@ Conference data (schedule, talks, speakers, breaks, videos) comes from Pretalx.
 - Pages read the data through the `conferenceYears` content collection (`getEntry("conferenceYears", "2025")`)
 - Use `slugify()` from `src/utils/slugify.js` for talk and speaker URLs; it matches the old 11ty URLs
 
+## Content Collections
+
+- Markdown collections in `src/content/` are defined in `src/content.config.ts`: `pages`, `projects`, `organizers`, `sponsors`, `team`
+- Images in frontmatter are relative paths, validated with the `image()` schema helper
+- Grid order comes from the `order` frontmatter field
+- Render Markdown bodies with `renderPageMarkdown()` from `src/utils/conference.js` (markdown-it, same options as the old 11ty site), not Astro's `render()`
+
+## SEO
+
+- `BaseLayout` renders meta tags with `astro-seo` and JSON-LD with `astro-seo-schema`
+- Every page passes `title` and a page-specific `description`; year pages also set `metaTitle` (`<Page> - OSFC <year>`)
+- Structured data goes into the `jsonLd` prop as schema.org nodes; helpers live in `src/utils/seo.js`
+- Keep old URLs working: when a URL changes, add a 301 to `public/_redirects` and check with `npm run compare:urls`
+
 ## Scripts and Commands
 
 - `npm run dev` - Development server
 - `npm run build` - Production build
 - `npm run preview` - Preview production build
 - `npm run pretalx:sync` - Refresh Pretalx snapshots (all years, or pass years: `-- 2026`)
+- `npm run compare:urls -- <old dist>` - Check that every page of an old build still exists or redirects
 
 ## Git Workflow
 
@@ -262,7 +277,7 @@ Conference data (schedule, talks, speakers, breaks, videos) comes from Pretalx.
 
 - Use semantic HTML elements
 - Include `role="list"` on lists when styling removes default list semantics
-- Ensure keyboard navigation works for scrollable components
+- Ensure keyboard navigation works for interactive components (e.g. the schedule tabs)
 
 ## Things to Avoid
 

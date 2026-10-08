@@ -7,6 +7,13 @@ import {
   talkPath,
 } from "@/utils/conference";
 import { slugify } from "@/utils/slugify";
+import {
+  absoluteUrl,
+  avatarSocialImage,
+  personJsonLd,
+  toDescription,
+} from "@/utils/seo";
+import { speakerPath } from "@/utils/conference";
 
 export const getStaticPaths = async () =>
   (await getConferenceYears()).flatMap((conference) =>
@@ -22,9 +29,31 @@ const { year, talks } = conference;
 const speakerTalks = (speaker.submissions ?? [])
   .flatMap((code) => talks.filter((talk) => talk.code === code))
   .filter((talk) => !talk.description || talk.description.length > 30);
+
+const description =
+  toDescription(speaker.biography || "") ||
+  `${speaker.name}, speaker at the Open Source Firmware Conference ${year}.`;
+const socialImage = await avatarSocialImage(speaker.avatar_url);
 ---
 
-<BaseLayout title={speaker.name} transparentHeader>
+<BaseLayout
+  title={speaker.name}
+  metaTitle={`${speaker.name} - OSFC ${year} Speaker`}
+  description={description}
+  ogType="profile"
+  socialImage={socialImage}
+  socialImageAlt={socialImage ? speaker.name : undefined}
+  twitterCard={socialImage ? "summary" : undefined}
+  jsonLd={[
+    personJsonLd(
+      year,
+      speaker,
+      absoluteUrl(speakerPath(year, speaker)),
+      socialImage
+    ),
+  ]}
+  transparentHeader
+>
   <section id="intro" class="intro">
     <div class="wrapper-l stack-300">
       <h1 class="text-black uppercase text-800-major weight-black leading-flat">

@@ -9,7 +9,11 @@ const { conference } = Astro.props;
 const { year, speakers, talks } = conference;
 ---
 
-<BaseLayout title={`Speakers ${year}`} transparentHeader>
+<BaseLayout
+  title={`Speakers ${year}`}
+  description={`The speakers of the Open Source Firmware Conference ${year}.`}
+  transparentHeader
+>
   <section>
     <div class="wrapper-l | stack-700">
       <h1

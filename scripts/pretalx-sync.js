@@ -24,10 +24,7 @@ if (unknown.length) {
 
 for (const config of configs) {
   const data = await fetchYear(config);
-  await fs.writeFile(
-    snapshotPath(config.year),
-    `${JSON.stringify(data)}\n`
-  );
+  await fs.writeFile(snapshotPath(config.year), `${JSON.stringify(data)}\n`);
   console.log(
     `✅ ${config.year}: ${data.talks.length} talks, ${data.speakers.length} speakers, ${data.breaks.length} breaks, ${data.videos.length} videos`
   );

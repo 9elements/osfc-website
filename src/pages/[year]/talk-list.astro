@@ -10,7 +10,12 @@ const { conference } = Astro.props;
 const { year, talks } = conference;
 ---
 
-<BaseLayout title="Talk List" transparentHeader>
+<BaseLayout
+  title="Talk List"
+  metaTitle={`Talk List - OSFC ${year}`}
+  description={`List of all ${talks.length} talks of the Open Source Firmware Conference ${year}.`}
+  transparentHeader
+>
   <section>
     <div class="wrapper-l | stack-700">
       <h1

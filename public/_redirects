@@ -5,3 +5,7 @@
 /pages/sponsors/sponsors/*  /#sponsors  301
 # Former sponsors
 /sponsors/*  /#sponsors  301
+
+# Canceled, unscheduled or renamed talks and their speakers
+/:year/talks/*     /:year/talks/     301
+/:year/speakers/*  /:year/speakers/  301

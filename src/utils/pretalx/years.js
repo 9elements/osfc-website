@@ -19,6 +19,7 @@
  * @property {boolean} [mergeSpeakersByName] merge speakers that would share a slug
  * @property {boolean} [sortTalksByTitle]
  * @property {boolean} [hasSchedule] talk pages link back to the schedule (only while the year is current)
+ * @property {{ name: string, address: Record<string, string> }} [venue] used for schema.org Event data
  * @property {boolean} [live]
  */
 
@@ -101,6 +102,15 @@ export const years = [
     mergeSpeakersByName: true,
     sortTalksByTitle: true,
     hasSchedule: true,
+    venue: {
+      name: "Pakhuis de Zwijger",
+      address: {
+        streetAddress: "Piet Heinkade 179",
+        postalCode: "1019 HC",
+        addressLocality: "Amsterdam",
+        addressCountry: "NL",
+      },
+    },
   },
 ];
 

@@ -8,12 +8,22 @@ import roboto400 from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?ur
 import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
 import SiteHead from "@/components/SiteHead/SiteHead.astro";
 import { site } from "@/data/site";
+import { SEO } from "astro-seo";
+import { Schema } from "astro-seo-schema";
+import type { Thing } from "schema-dts";
+import { organizationJsonLd } from "@/utils/seo";
 
 interface Props {
   title: string;
   metaTitle?: string;
   description?: string;
   socialImage?: string;
+  socialImageAlt?: string;
+  /** "summary" suits square images like speaker avatars */
+  twitterCard?: "summary" | "summary_large_image";
+  ogType?: "website" | "article" | "profile";
+  /** schema.org nodes, combined with the site organization into one @graph */
+  jsonLd?: Thing[];
   transparentHeader?: boolean;
   triangle?: boolean;
   pageName?: string;
@@ -27,6 +37,10 @@ const {
   metaTitle,
   description = site.metaDesc,
   socialImage = new URL("/assets/images/meta/social-share.png", site.url).href,
+  socialImageAlt = `Page image for ${site.name}`,
+  twitterCard = "summary_large_image",
+  ogType = "website",
+  jsonLd = [],
   transparentHeader = false,
   triangle = false,
   pageName,
@@ -45,35 +59,46 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
-    {
-      noindex ? (
-        <meta name="robots" content="noindex" />
-      ) : (
-        <link rel="canonical" href={canonicalUrl} />
-      )
-    }
-
-    <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:image" content={socialImage} />
-    <meta name="twitter:image" content={socialImage} />
-    <meta property="og:image:alt" content={`Page image for ${site.name}`} />
-    <meta name="twitter:image:alt" content={`Page image for ${site.name}`} />
-
-    <meta name="description" content={description} />
-    <meta name="twitter:description" content={description} />
-    <meta property="og:description" content={description} />
-
-    <link
-      rel="icon"
-      href="/assets/images/meta/favicon.svg"
-      type="image/svg+xml"
+    <SEO
+      title={pageTitle}
+      description={description}
+      canonical={noindex ? null : canonicalUrl}
+      noindex={noindex}
+      openGraph={{
+        basic: {
+          title: pageTitle,
+          type: ogType,
+          image: socialImage,
+          url: canonicalUrl,
+        },
+        optional: { siteName: site.name, description, locale: "en_US" },
+        image: { alt: socialImageAlt },
+      }}
+      twitter={{
+        card: twitterCard,
+        site: "@osfc_io",
+        description,
+        image: socialImage,
+        imageAlt: socialImageAlt,
+      }}
+      extend={{
+        link: [
+          {
+            rel: "icon",
+            href: "/assets/images/meta/favicon.svg",
+            type: "image/svg+xml",
+          },
+          { rel: "sitemap", href: "/sitemap-index.xml" },
+        ],
+      }}
     />
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@graph": [organizationJsonLd, ...jsonLd],
+      }}
+    />
+
     <link
       rel="preload"
       href={roboto400}

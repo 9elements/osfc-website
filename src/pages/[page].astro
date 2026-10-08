@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import PlainLayout from "@/layouts/PlainLayout.astro";
 import { renderPageMarkdown } from "@/utils/conference";
+import { toDescription } from "@/utils/seo";
 
 export const getStaticPaths = async () =>
   (await getCollection("pages")).map((entry) => ({
@@ -12,6 +13,9 @@ export const getStaticPaths = async () =>
 const { entry } = Astro.props;
 ---
 
-<PlainLayout title={entry.data.title}>
+<PlainLayout
+  title={entry.data.title}
+  description={toDescription(entry.body ?? "")}
+>
   <Fragment set:html={renderPageMarkdown(entry.body)} />
 </PlainLayout>

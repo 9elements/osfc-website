@@ -2,14 +2,22 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import ScheduleGrid from "@/components/ScheduleGrid/ScheduleGrid.astro";
 import { getYearPaths } from "@/utils/yearPaths";
+import { conferenceEventJsonLd } from "@/utils/seo";
 
 export const getStaticPaths = getYearPaths;
 
 const { conference } = Astro.props;
 const { year, schedule } = conference;
+const description = `Schedule of the Open Source Firmware Conference ${year}, with ${conference.talks.length} talks.`;
 ---
 
-<BaseLayout title="Schedule" transparentHeader>
+<BaseLayout
+  title="Schedule"
+  metaTitle={`Schedule - OSFC ${year}`}
+  description={description}
+  jsonLd={[conferenceEventJsonLd(conference)]}
+  transparentHeader
+>
   <section>
     <div class="wrapper-l | stack-700">
       <h1

@@ -19,7 +19,21 @@ const sponsors = await getSponsors();
 const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
 ---
 
-<BaseLayout title={site.name} triangle>
+<BaseLayout
+  title={site.name}
+  metaTitle="OSFC - Open Source Firmware Conference"
+  jsonLd={[
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: "Open Source Firmware Conference",
+      alternateName: site.name,
+      url: `${site.url}/`,
+      publisher: { "@id": `${site.url}/#organization` },
+    },
+  ]}
+  triangle
+>
   <RhombDefs />
 
   <div class="stack-major">
@@ -28,9 +42,7 @@ const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
       <div class="wrapper-m">
         <h1 class="hero__logo intro__branding">
           <Logo aria-hidden="true" />
-          <span class="sr-only"
-            >OSFC – Open Source Firmware Conference</span
-          >
+          <span class="sr-only">OSFC – Open Source Firmware Conference</span>
         </h1>
       </div>
     </section>
