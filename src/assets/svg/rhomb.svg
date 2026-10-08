@@ -1,0 +1,45 @@
+  <svg style="width: 0; height: 0; display: block; opacity: 0;">
+    <defs>
+      <clipPath id="oct-clip">
+        <polygon points="7 188 7 142 142 7 188 7 323 142 323 188 188 323 142 323"></polygon>
+      </clipPath>
+      <clipPath id="oct-clip-sponsor">
+        <path d="M23 186v-42L144 23h42l121 121v42L186 307h-42L23 186Z" fill="salmon"/>
+      </clipPath>
+      <linearGradient id="gold" x1="370" y1="370" x2="-20" y2="-20" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#AB701C"/>
+            <stop offset=".1" stop-color="#BE8432"/>
+            <stop offset=".3" stop-color="#CD9443"/>
+            <stop offset=".6" stop-color="#FDC760"/>
+            <stop offset=".7" stop-color="#FEE193"/>
+            <stop offset=".8" stop-color="#FEEAA4"/>
+            <stop offset=".9" stop-color="#BE8432"/>
+            <stop offset="1" stop-color="#AB701C"/>
+      </linearGradient>
+      <linearGradient id="silver" x1="0" y1="330" x2="330" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset=".2" stop-color="#BFBFBF"/>
+            <stop offset=".3" stop-color="#fff"/>
+            <stop offset=".5" stop-color="#BFBFBF"/>
+            <stop offset=".8" stop-color="#fff"/>
+      </linearGradient>
+      <linearGradient id="bronze" x1="330" y1="330" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FFCFB9"/>
+            <stop offset=".2" stop-color="#C98F5E"/>
+            <stop offset=".4" stop-color="#CC885A"/>
+            <stop offset=".5" stop-color="#DEA17B"/>
+            <stop offset=".6" stop-color="#F6C2A8"/>
+            <stop offset=".7" stop-color="#FFCFB9"/>
+            <stop offset=".9" stop-color="#B0521F"/>
+      </linearGradient>
+      <filter id="shadow" x="10" y="18" width="310" height="310" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dy="8"/>
+        <feGaussianBlur stdDeviation="6.5"/>
+        <feComposite in2="hardAlpha" operator="out"/>
+        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_723_4090"/>
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_723_4090" result="shape"/>
+      </filter>
+    </defs>
+  </svg>

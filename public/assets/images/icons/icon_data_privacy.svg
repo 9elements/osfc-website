@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_data_privacy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-4" transform="translate(-13.000000, -59.000000)">
+            <g id="icon_data_privacy" transform="translate(13.000000, 59.000000)">
+                <circle id="Combined-Shape-Copy" fill="#FFFFFF" cx="9" cy="9" r="9"></circle>
+                <path d="M6,7 L6,6 C6,4.34314575 7.34314575,3 9,3 C10.6568542,3 12,4.34314575 12,6 L12,7 L13,7 C13.5522847,7 14,7.44771525 14,8 L14,13.5 C14,14.0522847 13.5522847,14.5 13,14.5 L5,14.5 C4.44771525,14.5 4,14.0522847 4,13.5 L4,8 C4,7.44771525 4.44771525,7 5,7 L6,7 Z M7,7 L11,7 L11,6 C11,4.8954305 10.1045695,4 9,4 C7.8954305,4 7,4.8954305 7,6 L7,7 Z" id="Combined-Shape" fill="#4F51A9"></path>
+                <circle id="Oval-8" fill="#FFFFFF" cx="9" cy="10" r="1"></circle>
+                <polygon id="Combined-Shape" fill="#FFFFFF" points="8.43184867 10 9.56815133 10 10 12 8 12"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

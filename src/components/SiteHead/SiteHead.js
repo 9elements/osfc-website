@@ -1,6 +1,6 @@
-const navToggle = document.getElementById("nav-toggle");
-navToggle.addEventListener("click", () => {
-  const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+const hamburger = document.getElementById("hamburger");
 
-  navToggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
+hamburger?.addEventListener("click", () => {
+  const isNavOpen = hamburger.getAttribute("aria-expanded") === "true";
+  hamburger.setAttribute("aria-expanded", isNavOpen ? "false" : "true");
 });

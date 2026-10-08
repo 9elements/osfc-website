@@ -1,7 +1,62 @@
-<footer class="bg-black text-white py-m">
-  <div class="wrapper"><p>This is my SiteFooter Component</p></div>
+---
+const links = [
+  {
+    icon: "icon_telephone",
+    text: "+49 234 689 41 88",
+    href: "tel:+492346894188",
+  },
+  { icon: "icon_mail", text: "Contact", href: "mailto:info@osfc.io" },
+  { icon: "icon_pin", text: "Twitter", href: "https://twitter.com/osfc_io" },
+  {
+    icon: "icon_linkedin",
+    text: "LinkedIn",
+    href: "https://www.linkedin.com/company/osff",
+  },
+  { icon: "icon_imprint", text: "Imprint", href: "/imprint/" },
+  {
+    icon: "icon_data_privacy",
+    text: "Privacy Policy",
+    href: "/privacy-policy/",
+  },
+];
+---
+
+<footer class="site-foot | bg-violet text-white">
+  <div class="wrapper-l">
+    <div class="site-foot__inner stack-300">
+      <div class="footer-statement">
+        <p class="leading-tight text-400 weight-bold">
+          Made with 🤍 by <a href="https://9esec.io/">9elements</a> in Bochum
+        </p>
+      </div>
+      <ul class="site-foot__list text-400">
+        <li>
+          <img
+            src="/assets/images/icons/icon_pin.svg"
+            alt=""
+            width="18"
+            height="18"
+          />
+          Kortumstraße 19-21, 44787 Bochum
+        </li>
+        {
+          links.map(({ icon, text, href }) => (
+            <li>
+              <img
+                src={`/assets/images/icons/${icon}.svg`}
+                alt=""
+                width="18"
+                height="18"
+              />
+              <a href={href}>{text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </footer>
 
-<style>
-  @import "./SiteFoot.css";
+<style is:global>
+  @import "./SiteFoot.css" layer(blocks);
 </style>

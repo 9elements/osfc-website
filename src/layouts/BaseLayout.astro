@@ -1,35 +1,108 @@
 ---
-import favicon from "@/assets/svg/favicon.svg";
-
 import "@fontsource/roboto/latin-400.css";
 import "@fontsource/roboto/latin-700.css";
 import "@fontsource/roboto/latin-900.css";
 import "@/styles/global.css";
+import roboto400 from "@fontsource/roboto/files/roboto-latin-400-normal.woff2?url";
 
 import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
 import SiteHead from "@/components/SiteHead/SiteHead.astro";
+import { site } from "@/data/site";
 
-const { title } = Astro.props;
+interface Props {
+  title: string;
+  metaTitle?: string;
+  description?: string;
+  socialImage?: string;
+  transparentHeader?: boolean;
+  triangle?: boolean;
+  pageName?: string;
+  headerBackground?: "violet";
+  headerTextShadow?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  metaTitle,
+  description = site.metaDesc,
+  socialImage = new URL("/assets/images/meta/social-share.png", site.url).href,
+  transparentHeader = false,
+  triangle = false,
+  pageName,
+  headerBackground,
+  headerTextShadow = false,
+  noindex = false,
+} = Astro.props;
+
+const pageTitle =
+  metaTitle ?? (title === site.name ? title : `${title} - ${site.name}`);
+const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class:list={["no-js", pageName]}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href={favicon.src} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <link rel="canonical" href={canonicalUrl} />
+      )
+    }
+
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta property="og:image:alt" content={`Page image for ${site.name}`} />
+    <meta name="twitter:image:alt" content={`Page image for ${site.name}`} />
+
+    <meta name="description" content={description} />
+    <meta name="twitter:description" content={description} />
+    <meta property="og:description" content={description} />
+
+    <link
+      rel="icon"
+      href="/assets/images/meta/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href={roboto400}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+
+    <script is:inline>
+      document.documentElement.classList.remove("no-js");
+      document.documentElement.classList.add("js-active");
+    </script>
   </head>
+
   <body>
-    <SiteHead />
-    <main tabindex="-1">
-      <slot />
-    </main>
-    <SiteFoot />
+    <div class="site-wrap">
+      {triangle && <div class="triangle" aria-hidden="true" />}
+      <div class="stack-900">
+        <SiteHead
+          variant={transparentHeader ? "transparent" : "default"}
+          background={headerBackground}
+          textShadow={headerTextShadow}
+        />
+        <main tabindex="-1" id="main-content">
+          <slot />
+        </main>
+        <SiteFoot />
+      </div>
+    </div>
   </body>
 </html>
-
-<script>
-  import "@/js/global.js";
-</script>
