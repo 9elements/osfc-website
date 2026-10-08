@@ -4,7 +4,7 @@ export const site = {
   authorEmail: "contact@9elements.com",
   metaDesc:
     "Change the way of firmware development, collaborate with others and share knowledge.",
-  url: "https://osfc.io",
+  url: "https://www.osfc.io",
   newsletterUrl: "https://mailchi.mp/01a2d5ccbe95/osfc-subscription",
 };
 

@@ -8,7 +8,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL ?? "https://osfc.io",
+  site: process.env.SITE_URL ?? "https://www.osfc.io",
   output: "static",
   trailingSlash: "always",
 

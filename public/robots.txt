@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osfc.io/sitemap-index.xml
+Sitemap: https://www.osfc.io/sitemap-index.xml
