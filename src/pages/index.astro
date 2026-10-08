@@ -7,9 +7,9 @@ import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
 import IntroDecoration from "@/assets/svg/intro-decoration.svg";
 import Logo from "@/assets/svg/logo-no-year.svg";
 import nineElementsLogo from "@/assets/images/organizer/9e_logo_black.svg";
-import venueMap from "@/assets/images/oscar_map_netherlands.png";
 import { site } from "@/data/site";
 import { getSponsors } from "@/utils/sponsors";
+import { getLatestConference } from "@/utils/conference";
 import { webSiteJsonLd } from "@/utils/seo";
 
 const byOrder = (a, b) => a.data.order - b.data.order;
@@ -17,7 +17,40 @@ const projects = (await getCollection("projects")).sort(byOrder);
 const organizers = (await getCollection("organizers")).sort(byOrder);
 const sponsors = await getSponsors();
 
-const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
+const { year, archived, schedule, config } = await getLatestConference();
+const venue = config.venue;
+
+const venueMaps = import.meta.glob<{ default: ImageMetadata }>(
+  "@/assets/images/venue-maps/*",
+  { eager: true }
+);
+const venueMap =
+  venue &&
+  venueMaps[`/src/assets/images/venue-maps/${venue.mapImage}`]?.default;
+if (venue && !venueMap) {
+  throw new Error(
+    `Venue map "${venue.mapImage}" not found in src/assets/images/venue-maps/`
+  );
+}
+
+// "NL" -> 🇳🇱
+const flag = venue
+  ? String.fromCodePoint(
+      ...[...venue.address.addressCountry.toUpperCase()].map(
+        (char) => 0x1f1a5 + char.charCodeAt(0)
+      )
+    )
+  : "";
+
+const dateRange = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+}).formatRange(
+  new Date(`${schedule.start}T00:00:00Z`),
+  new Date(`${schedule.end}T00:00:00Z`)
+);
 ---
 
 <BaseLayout
@@ -63,7 +96,17 @@ const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
           <p
             class="uppercase text-peach weight-black text-400-500 leading-flat"
           >
-            <a class="button" href="/archive/2026/">Watch the 2026 talks</a>
+            {
+              archived ? (
+                <a class="button" href={`/archive/${year}/`}>
+                  Watch the {year} talks
+                </a>
+              ) : (
+                <a class="button" href={`/${year}/schedule/`}>
+                  See the {year} schedule
+                </a>
+              )
+            }
           </p>
         </div>
         <RhombImage
@@ -93,27 +136,59 @@ const mapsUrl = "https://maps.app.goo.gl/GqKyRCQtUduvPuas9";
           >
             Venue
           </h2>
-          <p class="text-400-500 weight-bold">
-            OSFC 2026 took place at Pakhuis de Zwijger in Amsterdam – thank you
-            for being there! 🇳🇱
-          </p>
-          <p class="text-400-500 weight-bold">
-            We are already looking for the 2027 venue. Stay tuned and subscribe
-            to our <a href={site.newsletterUrl} target="_blank" rel="noopener"
-              >NEWSLETTER</a
-            >!
-          </p>
-          <p
-            class="uppercase text-peach weight-black text-400-500 leading-flat"
-          >
-            <a class="button" href="/info/">2026 Recap</a>
-          </p>
+          {
+            archived ? (
+              <>
+                <p class="text-400-500 weight-bold">
+                  OSFC {year} took place at {venue.name} in{" "}
+                  {venue.address.addressLocality} – thank you for being there!{" "}
+                  {flag}
+                </p>
+                <p class="text-400-500 weight-bold">
+                  We are already looking for the {year + 1} venue. Stay tuned
+                  and subscribe to our{" "}
+                  <a href={site.newsletterUrl} target="_blank" rel="noopener">
+                    NEWSLETTER
+                  </a>
+                  !
+                </p>
+              </>
+            ) : (
+              <>
+                <p class="text-400-500 weight-bold">
+                  OSFC {year} takes place {dateRange} at {venue.name} in{" "}
+                  {venue.address.addressLocality}. {flag}
+                </p>
+                <address class="text-400-500" style="font-style: normal">
+                  {venue.name}
+                  <br />
+                  {venue.address.streetAddress}
+                  <br />
+                  {venue.address.postalCode} {venue.address.addressLocality}
+                </address>
+                <p class="uppercase text-peach weight-black text-400-500 leading-flat">
+                  <a href={venue.mapsUrl} target="_blank" rel="noopener">
+                    Google Maps
+                  </a>
+                </p>
+              </>
+            )
+          }
+          {
+            archived && (
+              <p class="uppercase text-peach weight-black text-400-500 leading-flat">
+                <a class="button" href="/info/">
+                  {year} Recap
+                </a>
+              </p>
+            )
+          }
         </div>
 
         <RhombImage
           name="Venue on Google Maps"
           image={venueMap}
-          href={mapsUrl}
+          href={venue.mapsUrl}
           external
           utm={false}
         />

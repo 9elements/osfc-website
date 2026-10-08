@@ -5,9 +5,9 @@ import VideoEmbed from "@/components/VideoEmbed/VideoEmbed.astro";
 import {
   formatDay,
   getConferenceYears,
+  isArchived,
   renderMarkdown,
 } from "@/utils/conference";
-import { currentYear } from "@/utils/pretalx/years.js";
 import { slugify } from "@/utils/slugify";
 import { avatarSocialImage, talkEventJsonLd, toDescription } from "@/utils/seo";
 
@@ -20,17 +20,14 @@ export const getStaticPaths = async () =>
   );
 
 const { conference, talk } = Astro.props;
-const { year, videos, config } = conference;
+const { year, videos } = conference;
 
 const slot = talk.slots[0];
 const talkVideos = videos.filter((video) => video.submission === talk.code);
 
-const backLink =
-  year < currentYear
-    ? { href: `/archive/${year}/`, text: "Back to archive" }
-    : config.hasSchedule
-      ? { href: `/${year}/schedule/`, text: "Back to schedule" }
-      : { href: `/${year}/talk-list/`, text: "Back to featured talks" };
+const backLink = isArchived(conference)
+  ? { href: `/archive/${year}/`, text: "Back to archive" }
+  : { href: `/${year}/schedule/`, text: "Back to schedule" };
 
 const description =
   toDescription(talk.abstract || talk.description || "") ||

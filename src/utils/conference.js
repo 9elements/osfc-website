@@ -1,7 +1,7 @@
 import { getCollection, getEntry } from "astro:content";
 import markdownIt from "markdown-it";
 import { slugify } from "./slugify.js";
-import { getYearConfig } from "./pretalx/years.js";
+import { currentYear, getYearConfig, latestYear } from "./pretalx/years.js";
 
 // No raw HTML: speakers write these texts in Pretalx
 const markdown = markdownIt({ html: false, breaks: true, linkify: true });
@@ -34,6 +34,15 @@ export const getConferenceYears = async () =>
 export const getConferenceYear = async (year) => {
   const entry = await getEntry("conferenceYears", String(year));
   return { ...entry.data, config: getYearConfig(year) };
+};
+
+/** Years below currentYear are archived. */
+export const isArchived = (conference) => conference.year < currentYear;
+
+/** The newest conference year with its archive state, used by navigation and homepage. */
+export const getLatestConference = async () => {
+  const conference = await getConferenceYear(latestYear.year);
+  return { ...conference, archived: isArchived(conference) };
 };
 
 export const talkPath = (year, talk) =>

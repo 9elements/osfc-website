@@ -43,6 +43,8 @@ tokens/                 Design tokens that generate CSS variables and utility cl
 
 ## Conference data (Pretalx)
 
+> Setting up a new conference year or archiving the last one? Follow the step-by-step guide in [docs/new-conference-year.md](docs/new-conference-year.md).
+
 Talks, speakers, schedules and video links come from Pretalx.
 
 - Every year is saved as `src/data/pretalx/{year}.json` and committed, so builds don't depend on Pretalx being reachable.

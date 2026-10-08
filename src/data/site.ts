@@ -8,9 +8,18 @@ export const site = {
   newsletterUrl: "https://mailchi.mp/01a2d5ccbe95/osfc-subscription",
 };
 
-export const navigation = [
-  { text: "Talks 2026", url: "/archive/2026/" },
+/** Main navigation; the year links follow the newest conference year automatically. */
+export const getNavigation = ({
+  year,
+  archived,
+}: {
+  year: number;
+  archived: boolean;
+}) => [
+  archived
+    ? { text: `Talks ${year}`, url: `/archive/${year}/` }
+    : { text: `Schedule ${year}`, url: `/${year}/schedule/` },
   { text: "Team", url: "/team/" },
   { text: "COC", url: "/code-of-conduct/" },
-  { text: "Archive", url: "/archive/2026/" },
+  { text: "Archive", url: `/archive/${year}/` },
 ];
