@@ -37,6 +37,10 @@ const stackUtilities = Object.keys(spacing)
   )
   .join("\n");
 
+const stackSpaceUtilities = Object.keys(spacing)
+  .map((key) => `.my-stack-space-${key} { --stack-space: var(--space-${key}); }`)
+  .join("\n");
+
 const fontWeightUtilities = Object.keys(fontWeights)
   .map((key) => {
     const typedKey = key as keyof typeof fontWeights;
@@ -53,6 +57,7 @@ export const utilityClasses = [
   colorUtilities,
   paddingUtilities,
   fontWeightUtilities,
+  stackSpaceUtilities,
   stackUtilities,
   lineHeightUtilities,
 ].join("\n");

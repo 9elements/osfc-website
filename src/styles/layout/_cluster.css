@@ -1,10 +1,34 @@
+/**
+ * Cluster Layout Utility
+ *
+ * This utility creates a flex container designed to control the layout of child elements
+ * into a wrapping cluster.
+ *
+ * Configurable Variables:
+ * --cluster-justification: Adjusts the alignment of child elements along the main axis.
+ *                          Defaults to 'flex-start'. Can be set to any valid value for
+ *                          the CSS justify-content property such as 'center', 'flex-end',
+ *                          'space-around', and 'space-between'.
+ * --cluster-gap: Sets the gap between child items both vertically and horizontally.
+ *                Defaults to '1rem'. Can be overridden individually for vertical or
+ *                horizontal spacing.
+ * --cluster-gap-vertical: Specifically sets the vertical gap between rows of items. If not
+ *                         set, it falls back to the value of '--cluster-gap'.
+ *
+ * Variant Modifiers:
+ * [data-variant="space-between"]: A modifier that can be added to an element with the
+ *                                 `.cluster` class to distribute child elements evenly
+ *                                 with space between them along the main axis.
+ *
+ */
+
 .cluster {
   display: flex;
   flex-wrap: wrap;
   justify-content: var(--cluster-justification, flex-start);
-  align-items: var(--cluster-alignment, flex-start);
   gap: var(--cluster-gap-vertical, var(--cluster-gap, 1rem))
     var(--cluster-gap, 1rem);
+  align-items: var(--cluster-alignment, stretch);
 }
 
 [data-variant="space-between"] {

@@ -1,13 +1,22 @@
-/**
- * WRAPPER
- * Sets a max width, adds a consisten gutter and horizontally
- * centers the contents
- */
-.wrapper {
-  width: min(
-    100% - var(--wrapper-padding, var(--space-m)) * 2,
-    var(--wrapper-max, 60rem)
-  );
-  margin-inline: auto;
+[class*="wrapper-"] {
+  --wrapper-padding-inline: var(--space-300);
+
+  max-width: var(--wrapper-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--wrapper-padding-inline);
   position: relative;
+  z-index: 3;
+}
+
+.wrapper-l {
+  --wrapper-width: 75rem;
+}
+
+.wrapper-m {
+  --wrapper-width: 65rem;
+}
+
+.wrapper-s {
+  --wrapper-width: 80ch;
 }

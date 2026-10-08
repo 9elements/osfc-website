@@ -56,7 +56,7 @@ This project follows principles aligned with the **CUBE CSS methodology**.
 
 **Units and Spacing**
 
-- Use space tokens (`var(--space-m)`, `var(--space-xl)`) for spacing where possible
+- Use space tokens (`var(--space-400)`, `var(--space-800)`) for spacing where possible
 - When space tokens don't fit, use `rem` values
 - Always prefer `rem` over `px` for sizing and spacing
 - Only use `px` for very small values like `1px` border widths
@@ -72,8 +72,8 @@ Examples:
 ```css
 /* ✅ Good - Use space tokens */
 .component {
-  padding: var(--space-m);
-  gap: var(--space-s);
+  padding: var(--space-400);
+  gap: var(--space-300);
 }
 
 /* ✅ Good - Use rem when tokens don't fit */
@@ -93,7 +93,7 @@ Examples:
 
 /* ❌ Bad - Don't add margins to components */
 .component {
-  margin-bottom: var(--space-l);
+  margin-bottom: var(--space-700);
 }
 ```
 
@@ -106,7 +106,7 @@ Examples:
 
 ### Responsive Design
 
-- Use Utopia Core for fluid typography and spacing
+- Fluid font sizes are `clamp()` values built with `interpolate()` from [tokens/helpers/interpolate.ts](tokens/helpers/interpolate.ts)
 - Prefer CSS custom properties for dynamic styling
 - Support both auto and forced scrolling modes via data attributes
 
@@ -119,8 +119,8 @@ This project uses a token-based design system that automatically generates CSS v
 Token files are located in the [tokens/](tokens/) directory:
 
 - [tokens/colors.ts](tokens/colors.ts) - Color palette
-- [tokens/fontSize.ts](tokens/fontSize.ts) - Fluid typography scale (using Utopia Core)
-- [tokens/spacing.ts](tokens/spacing.ts) - Fluid spacing scale (using Utopia Core)
+- [tokens/fontSize.ts](tokens/fontSize.ts) - Typography scale: every spacing step plus fluid `{min}-{max}` steps
+- [tokens/spacing.ts](tokens/spacing.ts) - Numeric spacing scale (`100`–`900`, `major`), defined in px and output as rem
 - [tokens/fontWeight.ts](tokens/fontWeight.ts) - Font weights
 - [tokens/lineHeight.ts](tokens/lineHeight.ts) - Line heights
 
@@ -139,11 +139,11 @@ These files are regenerated automatically on every dev server start and producti
 
 Generated variables follow these naming conventions:
 
-- **Colors**: `--color-{name}` (e.g., `--color-black`, `--color-light-pink`)
-- **Typography**: `--text-step-{n}` (e.g., `--text-step-1`, `--text-step-0`, `--text-step--1`)
-- **Spacing**: `--space-{size}` (e.g., `--space-xs`, `--space-m`, `--space-l`, `--space-xl-2xl`)
-- **Font Weights**: `--weight-{name}` (e.g., `--weight-normal`, `--weight-bold`)
-- **Line Heights**: `--leading-{name}` (e.g., `--leading-tight`, `--leading-normal`)
+- **Colors**: `--color-{name}` (e.g., `--color-black`, `--color-peach`)
+- **Typography**: `--text-{size}` (e.g., `--text-400`, `--text-600-700`, `--text-800-major`)
+- **Spacing**: `--space-{size}` (e.g., `--space-300`, `--space-800`, `--space-major`)
+- **Font Weights**: `--weight-{name}` (e.g., `--weight-regular`, `--weight-bold`, `--weight-black`)
+- **Line Heights**: `--leading-{name}` (e.g., `--leading-flat`, `--leading-tight`, `--leading-loose`)
 
 ### Utility Classes
 
@@ -151,7 +151,8 @@ Generated utility classes include:
 
 **Typography**
 
-- `.text-step-{n}` - Font sizes (e.g., `.text-step-1`, `.text-step-0`)
+- `.text-{size}` - Font sizes (e.g., `.text-400`, `.text-800-major`)
+- Use fluid sizes (e.g. `.text-300-400`) instead of breakpoint-based font-size changes
 - `.weight-{name}` - Font weights (e.g., `.weight-bold`)
 - `.leading-{name}` - Line heights (e.g., `.leading-tight`)
 
@@ -171,6 +172,7 @@ Generated utility classes include:
 **Layout**
 
 - `.stack-{size}` - Vertical spacing between child elements using margin-block-start
+- `.my-stack-space-{size}` - Override the stack space for a single child
 
 ### Working with Tokens
 
@@ -195,16 +197,9 @@ This automatically generates:
 ```typescript
 // tokens/fontSize.ts
 export const fontSize = {
-  ...calculateTypeScale({
-    minWidth: 320,
-    maxWidth: 1140,
-    minFontSize: 18, // Adjust base size
-    maxFontSize: 22,
-    minTypeScale: 1.25, // Adjust scale ratio
-    maxTypeScale: 1.333,
-    positiveSteps: 5, // Number of larger sizes
-    negativeSteps: 1, // Number of smaller sizes
-  }).reduce(/*...*/),
+  ...spacing,
+  // Fluid size from 24px to 32px between 480px and 1440px viewport width
+  "600-700": interpolate({ min: spacingPx[600], max: spacingPx[700] }),
 };
 ```
 
@@ -214,12 +209,12 @@ export const fontSize = {
 /* Use CSS variables directly */
 .my-component {
   color: var(--color-brand-primary);
-  font-size: var(--text-step-2);
-  padding: var(--space-m);
+  font-size: var(--text-600);
+  padding: var(--space-400);
 }
 
 /* Or use utility classes */
-<div class="text-step-2 p-m bg-white">
+<div class="text-600 py-900 bg-white">
 ```
 
 ### Token Best Practices
@@ -229,7 +224,7 @@ export const fontSize = {
 - Modify tokens in the [tokens/](tokens/) directory, not in generated CSS files
 - Generated files are gitignored and should not be manually edited
 - Keep token names semantic (describe purpose, not visual properties when possible)
-- Use Utopia's fluid scales for typography and spacing to maintain responsive design
+- Use the fluid `{min}-{max}` font sizes for headings and large text
 
 ## Data Sources
 

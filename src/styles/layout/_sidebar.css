@@ -1,0 +1,49 @@
+/*
+  SIDEBAR
+  This layout pattern is designed for a two-column sidebar arrangement. One child is a fixed-width sidebar,
+  while the other child is a flexible content area. They are side-by-side until the content area reaches a minimum width
+  (defined by '--sidebar-threshold'), at which point they stack vertically and each take up the full container width.
+
+  Customizable properties:
+  --sidebar-width: Sets the width of the sidebar. Default is 20rem.
+  --sidebar-threshold: The minimum width before the flexible content area stacks
+                       vertically. Default is 50% of the container width.
+  --sidebar-gap: Sets uniform gap spacing both horizontally and vertically between
+                 the sidebar and the content area. Default is 1rem.
+  --sidebar-gap-vertical: Specifically adjusts only the vertical gap between elements
+                          when they stack. If unset, defaults to '--sidebar-gap'.
+
+  Example Usage:
+  <div class="sidebar-left" style="--sidebar-width: 250px; --sidebar-gap: 2rem; --sidebar-threshold: 600px;">
+    <nav>
+      <!-- Sidebar content here -->
+    </nav>
+    <main>
+      <!-- Main content here -->
+    </main>
+  </div>
+
+  The above example creates a left sidebar with a width of 250px, a gap of 2rem between the
+  elements, and a stacking threshold of 600px.
+*/
+.sidebar-left,
+.sidebar-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: var(--sidebar-gap-vertical, var(--sidebar-gap, 1rem))
+    var(--sidebar-gap, 1rem);
+}
+
+.sidebar-left > *:last-child,
+.sidebar-right > *:first-child {
+  flex-grow: 999;
+  flex-basis: calc(var(--sidebar-threshold, 50%) - var(--sidebar-gap, 1rem));
+}
+
+.sidebar-right > *:last-child,
+.sidebar-left > *:first-child {
+  flex-grow: 1;
+  flex-basis: var(--sidebar-width, 20rem);
+}

@@ -1,14 +1,36 @@
 .button {
   display: inline-block;
-  font-size: var(--text-step-0);
-  padding: var(--space-xs) var(--space-m);
-  background: var(--color-light-pink);
-  font-weight: var(--weight-bold);
+  background: var(--color-peach);
   text-decoration: none;
-  border-radius: var(--space-3xs);
+  color: var(--color-white);
+  padding: var(--space-400);
+  font-size: var(--space-400);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-flat);
+  text-transform: uppercase;
+  transition:
+    0.2s background-color,
+    0.2s color;
 
-  &:hover {
-    background: var(--color-dark-pink);
+  &:hover,
+  &:active {
+    background: var(--color-violet);
     color: var(--color-white);
+  }
+
+  &[aria-current="page"] {
+    background: var(--color-violet);
+  }
+
+  &[data-state="active"] {
+    color: var(--color-peach);
+  }
+}
+
+.button--on-violet {
+  &:hover,
+  &:active {
+    background: var(--color-white);
+    color: var(--color-peach);
   }
 }
