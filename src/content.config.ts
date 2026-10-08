@@ -83,7 +83,6 @@ const projects = defineCollection({
       image: image(),
       link: z.url(),
       size: logoSize,
-      order: z.number(),
     }),
 });
 
@@ -95,7 +94,6 @@ const organizers = defineCollection({
       image: image(),
       link: z.url(),
       size: logoSize,
-      order: z.number(),
     }),
 });
 
@@ -109,7 +107,6 @@ const sponsors = defineCollection({
       linkText: z.string().optional(),
       sponsor: z.enum(["gold", "silver", "bronze"]),
       size: logoSize,
-      order: z.number(),
     }),
 });
 
@@ -120,7 +117,6 @@ const team = defineCollection({
       name: z.string(),
       position: z.string(),
       image: image(),
-      order: z.number(),
     }),
 });
 

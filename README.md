@@ -69,13 +69,13 @@ Speaker avatars stay on Pretalx and are optimized at build time with `astro:asse
 
 Markdown collections live in `src/content/` and are defined in `src/content.config.ts`:
 
-| Collection   | Used on                       | Notes                                              |
-| :----------- | :---------------------------- | :------------------------------------------------- |
-| `pages`      | `/imprint/`, `/info/`, …      | One route per file via `src/pages/[page].astro`    |
-| `projects`   | Homepage                      | `order` sets the position in the grid              |
-| `organizers` | Homepage                      | `order` sets the position in the grid              |
-| `sponsors`   | Homepage, `/sponsors/<name>/` | `sponsor` is the tier (`gold`, `silver`, `bronze`) |
-| `team`       | `/team/`                      | `order` sets the position in the grid              |
+| Collection   | Used on                       | Notes                                                                  |
+| :----------- | :---------------------------- | :--------------------------------------------------------------------- |
+| `pages`      | `/imprint/`, `/info/`, …      | One route per file via `src/pages/[page].astro`                        |
+| `projects`   | Homepage                      | Order in `src/data/order.ts`, others A–Z                               |
+| `organizers` | Homepage                      | Sorted A–Z by name                                                     |
+| `sponsors`   | Homepage, `/sponsors/<name>/` | Sorted A–Z by name; `sponsor` is the tier (`gold`, `silver`, `bronze`) |
+| `team`       | `/team/`                      | Order in `src/data/order.ts`, others A–Z                               |
 
 Logos and photos are referenced relative to the Markdown file and optimized by Astro.
 

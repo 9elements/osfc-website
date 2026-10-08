@@ -4,7 +4,6 @@ image: "../../assets/images/sponsors/tillitis.png"
 link: "https://tillitis.se/"
 sponsor: "bronze"
 size: "m"
-order: 2
 ---
 
 **Our name, Tillitis, is a play with words on the Swedish word "tillit", which means trust.**

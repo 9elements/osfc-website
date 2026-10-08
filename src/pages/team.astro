@@ -2,12 +2,12 @@
 import beam04 from "@/assets/images/beams/beam-04.svg";
 import beam05 from "@/assets/images/beams/beam-05.svg";
 import { getCollection } from "astro:content";
+import { order } from "@/data/order";
+import { sortByList } from "@/utils/sortEntries";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import RhombImage from "@/components/RhombImage/RhombImage.astro";
 
-const team = (await getCollection("team")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const team = sortByList(await getCollection("team"), order.team);
 ---
 
 <BaseLayout

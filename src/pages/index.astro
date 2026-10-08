@@ -4,6 +4,8 @@ import beam05 from "@/assets/images/beams/beam-05.svg";
 import smallGreyStripe from "@/assets/images/beams/small_grey_stripe_left.svg";
 import bigGreyStripe from "@/assets/images/beams/big_grey_stripe_left.svg";
 import { getCollection } from "astro:content";
+import { order } from "@/data/order";
+import { byName, sortByList } from "@/utils/sortEntries";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Newsletter from "@/components/Newsletter/Newsletter.astro";
 import RhombImage from "@/components/RhombImage/RhombImage.astro";
@@ -15,9 +17,8 @@ import { getSponsors } from "@/utils/sponsors";
 import { getLatestConference } from "@/utils/conference";
 import { webSiteJsonLd } from "@/utils/seo";
 
-const byOrder = (a, b) => a.data.order - b.data.order;
-const projects = (await getCollection("projects")).sort(byOrder);
-const organizers = (await getCollection("organizers")).sort(byOrder);
+const projects = sortByList(await getCollection("projects"), order.projects);
+const organizers = (await getCollection("organizers")).sort(byName);
 const sponsors = await getSponsors();
 
 const { year, archived, schedule, config } = await getLatestConference();

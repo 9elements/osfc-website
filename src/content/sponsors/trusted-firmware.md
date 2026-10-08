@@ -4,7 +4,6 @@ image: "../../assets/images/sponsors/trustedfirmware.png"
 link: "https://www.trustedfirmware.org/"
 sponsor: "bronze"
 size: "m"
-order: 1
 ---
 
 **Trustedfirmware.org is an Open Source community project that provides a reference implementation of Secure Software for Arm processors across all market segments, in both the A-Profile and M-Profile domains (from powerful application processors down to resource-constrained microcontrollers).**

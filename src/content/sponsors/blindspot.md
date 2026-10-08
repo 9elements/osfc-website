@@ -4,7 +4,6 @@ image: "../../assets/images/sponsors/blindspot.png"
 link: "https://blindspot.software/"
 sponsor: "bronze"
 size: "s"
-order: 5
 ---
 
 **At BlindSpot, we envision a future where firmware development is efficient, accessible, and collaborative. We strive to revolutionize the industry by transforming firmware testing from a complex and manual process into an automated and seamless process.**

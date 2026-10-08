@@ -43,7 +43,8 @@ const uniqueBy = (items, key) =>
     items.reduce((map, item) => map.set(item[key], item), new Map()).values()
   );
 
-const byName = (a, b) => (a.name > b.name ? 1 : -1);
+const compareText = (a, b) => a.localeCompare(b, "en", { sensitivity: "base" });
+const byName = (a, b) => compareText(a.name, b.name);
 
 /** Merge speakers that would share a page (same name, separate Pretalx accounts). */
 const mergeSpeakersByName = (speakers) => {
@@ -97,7 +98,7 @@ export const fetchYear = async (config) => {
     (talk) => talk.state === "confirmed" && scheduledCodes.has(talk.code)
   );
   if (config.sortTalksByTitle) {
-    talks = talks.sort((a, b) => (a.title > b.title ? 1 : -1));
+    talks = talks.sort((a, b) => compareText(a.title, b.title));
   }
 
   // Anonymous on purpose: authenticated requests also list speakers without a public talk

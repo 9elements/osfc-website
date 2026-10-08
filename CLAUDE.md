@@ -46,7 +46,7 @@ When components expect specific markup:
 
 ### CSS Architecture
 
-- Use separate CSS files next to the component, imported as global styles into the `blocks` layer: `<style is:global>@import "./Component.css" layer(blocks);</style>`. Global, because the CSS often targets ancestor state classes (`.js-active`, `.with-text-shadow`) or Markdown output; the layer keeps the cascade order
+- Use separate CSS files next to the component, imported as global styles into the `blocks` layer: `<style is:global>@import "./Component.css" layer(blocks);</style>`. Global, because the CSS often targets ancestor state classes (`.with-text-shadow`, page classes like `.gadget2025`) or Markdown output; the layer keeps the cascade order
 - Page-specific CSS lives in `src/styles/pages/` and is imported the same way from the page
 - Leverage CSS custom properties for dynamic values via `define:vars`
 - Import global CSS in component styles when needed
@@ -244,7 +244,7 @@ Conference data (schedule, talks, speakers, breaks, videos) comes from Pretalx.
 
 - Markdown collections in `src/content/` are defined in `src/content.config.ts`: `pages`, `projects`, `organizers`, `sponsors`, `team`
 - Images in frontmatter are relative paths, validated with the `image()` schema helper
-- Grid order comes from the `order` frontmatter field
+- Team and projects follow the hand-picked list in `src/data/order.ts` (by content file name); unlisted entries, organizers and sponsors are sorted alphabetically by name
 - Render Markdown bodies with `renderPageMarkdown()` from `src/utils/conference.js` (markdown-it, same options as the old 11ty site), not Astro's `render()`
 
 ## SEO
