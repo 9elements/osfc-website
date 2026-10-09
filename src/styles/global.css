@@ -1,4 +1,7 @@
-@layer fonts, reset, layout, utils, blocks;
+/* Layer order (fonts, reset, layout, utils, blocks) is declared in an inline
+<style> at the top of BaseLayout's <head>, not here. In production builds Astro
+may inline small component/page CSS chunks before this file, and the first
+stylesheet that names a layer decides the order. */
 
 /* Import all files from utilities folder
 This needs to be the first import statement */

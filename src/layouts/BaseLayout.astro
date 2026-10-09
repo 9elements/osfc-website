@@ -2,7 +2,6 @@
 import favicon from "@/assets/images/meta/favicon.svg";
 import socialShare from "@/assets/images/meta/social-share.png";
 import "@fontsource-variable/roboto/wght.css";
-import "@/styles/global.css";
 import robotoLatin from "@fontsource-variable/roboto/files/roboto-latin-wght-normal.woff2";
 
 import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
@@ -13,6 +12,8 @@ import { SEO } from "astro-seo";
 import { Schema } from "astro-seo-schema";
 import type { Thing } from "schema-dts";
 import { organizationJsonLd } from "@/utils/seo";
+
+import "@/styles/global.css";
 
 interface Props {
   title: string;
@@ -60,6 +61,10 @@ const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Layer order must come before any stylesheet: Astro may inline small CSS chunks ahead of global.css -->
+    <style is:inline>
+      @layer fonts, reset, layout, utils, blocks;
+    </style>
     <SEO
       title={pageTitle}
       description={description}

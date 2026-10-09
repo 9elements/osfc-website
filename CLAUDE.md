@@ -48,6 +48,7 @@ When components expect specific markup:
 
 - Use separate CSS files next to the component, imported as global styles into the `blocks` layer: `<style is:global>@import "./Component.css" layer(blocks);</style>`. Global, because the CSS often targets ancestor state classes (`.with-text-shadow`, page classes like `.gadget2025`) or Markdown output; the layer keeps the cascade order
 - Page-specific CSS lives in `src/styles/pages/` and is imported the same way from the page
+- The layer order (`fonts, reset, layout, utils, blocks`) is declared in an inline `<style>` at the top of `BaseLayout`'s `<head>`. Keep it there: Astro may inline small CSS chunks before `global.css`, and whichever stylesheet names a layer first decides the order
 - Leverage CSS custom properties for dynamic values via `define:vars`
 - Import global CSS in component styles when needed
 
