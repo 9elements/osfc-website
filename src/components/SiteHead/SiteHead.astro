@@ -58,7 +58,7 @@ const Logo = isTransparent ? LogoBlack : LogoNoYear;
                 href={item.url}
                 aria-current={item.url === currentPath ? "page" : undefined}
                 data-state={
-                  item.url.length > 1 && currentPath.startsWith(item.url)
+                  currentPath.startsWith(item.match ?? item.url)
                     ? "active"
                     : undefined
                 }

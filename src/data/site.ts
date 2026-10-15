@@ -1,3 +1,5 @@
+import { latestAftermovie } from "./aftermovies";
+
 export const site = {
   name: "OSFC",
   authorName: "9elements Cyber Security",
@@ -8,6 +10,13 @@ export const site = {
   newsletterUrl: "https://mailchi.mp/01a2d5ccbe95/osfc-subscription",
 };
 
+interface NavItem {
+  text: string;
+  url: string;
+  /** Path prefix that marks the item as active; defaults to `url`. */
+  match?: string;
+}
+
 /** Main navigation; the year links follow the newest conference year automatically. */
 export const getNavigation = ({
   year,
@@ -15,7 +24,12 @@ export const getNavigation = ({
 }: {
   year: number;
   archived: boolean;
-}) => [
+}): NavItem[] => [
+  {
+    text: "Aftermovies",
+    url: `/aftermovies/${latestAftermovie.year}/`,
+    match: "/aftermovies/",
+  },
   archived
     ? { text: `Talks ${year}`, url: `/archive/${year}/` }
     : { text: `Schedule ${year}`, url: `/${year}/schedule/` },

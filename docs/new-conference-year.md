@@ -1,6 +1,6 @@
 # Adding a new conference year and archiving the old one
 
-This guide is for anyone who needs to update osfc.io for a new conference, no frontend experience needed. **Everything happens in one file:** `src/utils/pretalx/years.js`. Navigation, homepage, talk pages and the archive update themselves from it.
+This guide is for anyone who needs to update osfc.io for a new conference, no frontend experience needed. **Almost everything happens in one file:** `src/utils/pretalx/years.js` (the aftermovie has its own list, see Part 2). Navigation, homepage, talk pages and the archive update themselves from it.
 
 The examples use **2027** as the new year. Replace it with the year you're setting up.
 
@@ -104,7 +104,17 @@ The homepage now says "OSFC 2027 took place …" with a "Watch the 2027 talks" b
 
 The homepage links to a recap page. Update its text in `src/content/pages/info.md`.
 
-### 4. Publish
+### 4. Add the aftermovie
+
+Once the aftermovie is on Vimeo, add it to the end of the list in `src/data/aftermovies.ts`:
+
+```ts
+{ year: 2027, vimeoId: "123456789" },
+```
+
+The ID is the number at the end of the Vimeo URL. The "Aftermovies" link in the navigation and `/aftermovies/` now point to it.
+
+### 5. Publish
 
 Commit and push.
 

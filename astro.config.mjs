@@ -5,12 +5,16 @@ import { generateVarUtils } from "./src/utils/build-scripts/generate-variables-u
 
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
+import { latestAftermovie } from "./src/data/aftermovies";
 
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE_URL ?? "https://www.osfc.io",
   output: "static",
   trailingSlash: "always",
+  redirects: {
+    "/aftermovies/": `/aftermovies/${latestAftermovie.year}/`,
+  },
 
   scopedStyleStrategy: "where",
 
