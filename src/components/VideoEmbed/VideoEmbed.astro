@@ -4,7 +4,7 @@ const { vimeoId, title, full = false } = Astro.props;
 
 <div class:list={["video", full && "video--full"]} style="--aspect-ratio:16/9;">
   <iframe
-    src={`https://player.vimeo.com/video/${vimeoId}?h=7a191cc612&color=4f51a9`}
+    src={`https://player.vimeo.com/video/${vimeoId}?color=4f51a9`}
     title={`Video: ${title}`}
     width="640"
     height="360"
