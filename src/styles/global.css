@@ -1,0 +1,17 @@
+/* Layer order (fonts, reset, layout, utils, blocks) is declared in an inline
+<style> at the top of BaseLayout's <head>, not here. In production builds Astro
+may inline small component/page CSS chunks before this file, and the first
+stylesheet that names a layer decides the order. */
+
+/* Import all files from utilities folder
+This needs to be the first import statement */
+@import "_import-glob.css";
+
+@import "_reset.css" layer(reset);
+
+/* Import generated variables and utilities */
+@import "./generated/_variables.css" layer(layout);
+@import "./generated/_utilities.css" layer(utils);
+
+/* Unlayered on purpose: these rules win over layered utilities, as on the original site */
+@import "_root.css";

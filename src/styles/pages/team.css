@@ -1,0 +1,23 @@
+.team {
+  position: relative;
+  padding-bottom: 5rem;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.team__beam {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  width: clamp(70rem, 233vw, 100%);
+  right: 0;
+  top: 28rem;
+  max-width: none;
+}
+
+.team__beam--1 {
+  top: 0;
+  z-index: 0;
+}

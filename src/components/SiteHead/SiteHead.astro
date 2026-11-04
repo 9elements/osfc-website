@@ -1,0 +1,90 @@
+---
+import LogoNoYear from "@/assets/svg/logo-no-year.svg";
+import LogoBlack from "@/assets/svg/OSFC-logo-black.svg";
+import Hamburger from "@/assets/svg/hamburger.svg";
+import { getNavigation, site } from "@/data/site";
+import { getLatestConference } from "@/utils/conference";
+
+interface Props {
+  variant?: "default" | "transparent";
+  background?: "violet";
+  textShadow?: boolean;
+}
+
+const { variant = "default", background, textShadow = false } = Astro.props;
+
+const isTransparent = variant === "transparent";
+const navigation = getNavigation(await getLatestConference());
+const currentPath = Astro.url.pathname;
+const Logo = isTransparent ? LogoBlack : LogoNoYear;
+---
+
+<header
+  class:list={[
+    "site-head | text-white",
+    !isTransparent && background === "violet" && "bg-violet",
+    !isTransparent && textShadow && "with-text-shadow",
+  ]}
+>
+  <div class="wrapper-l">
+    <nav aria-label="Main" class="nav | cluster">
+      <a
+        href="/"
+        class="nav__home-link"
+        aria-label="Home"
+        aria-current={currentPath === "/" ? "page" : undefined}
+      >
+        <Logo aria-hidden="true" />
+      </a>
+      <button
+        class="nav__button"
+        id="hamburger"
+        aria-controls="nav__items"
+        aria-expanded="false"
+        aria-label="Toggle menu"
+      >
+        <Hamburger />
+      </button>
+
+      <ul class="nav__items" id="nav__items">
+        {
+          navigation.map((item) => (
+            <li class="nav__item">
+              <a
+                class:list={[
+                  "nav__link | weight-bold uppercase",
+                  isTransparent ? "text-black" : "text-white",
+                ]}
+                href={item.url}
+                aria-current={item.url === currentPath ? "page" : undefined}
+                data-state={
+                  currentPath.startsWith(item.match ?? item.url)
+                    ? "active"
+                    : undefined
+                }
+              >
+                {item.text}
+              </a>
+            </li>
+          ))
+        }
+        <li class="nav__item">
+          <a
+            class:list={["button", !isTransparent && "button--on-violet"]}
+            href={site.newsletterUrl}
+            target="_blank"
+            rel="noopener">Subscribe</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style is:global>
+  @import "./SiteHead.css" layer(blocks);
+</style>
+
+<script>
+  import "./SiteHead.js";
+</script>

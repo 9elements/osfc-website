@@ -1,0 +1,110 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Avatar from "@/components/Avatar/Avatar.astro";
+import {
+  getConferenceYears,
+  renderMarkdown,
+  talkPath,
+} from "@/utils/conference";
+import { slugify } from "@/utils/slugify";
+import {
+  absoluteUrl,
+  avatarSocialImage,
+  personJsonLd,
+  toDescription,
+} from "@/utils/seo";
+import { speakerPath } from "@/utils/conference";
+
+export const getStaticPaths = async () =>
+  (await getConferenceYears()).flatMap((conference) =>
+    conference.speakers.map((speaker) => ({
+      params: { year: String(conference.year), slug: slugify(speaker.name) },
+      props: { conference, speaker },
+    }))
+  );
+
+const { conference, speaker } = Astro.props;
+const { year, talks } = conference;
+
+const speakerTalks = (speaker.submissions ?? [])
+  .flatMap((code) => talks.filter((talk) => talk.code === code))
+  .filter((talk) => !talk.description || talk.description.length > 30);
+
+const description =
+  toDescription(speaker.biography || "") ||
+  `${speaker.name}, speaker at the Open Source Firmware Conference ${year}.`;
+const socialImage = await avatarSocialImage(speaker.avatar_url);
+---
+
+<BaseLayout
+  title={speaker.name}
+  metaTitle={`${speaker.name} - OSFC ${year} Speaker`}
+  description={description}
+  ogType="profile"
+  socialImage={socialImage}
+  socialImageAlt={socialImage ? speaker.name : undefined}
+  twitterCard={socialImage ? "summary" : undefined}
+  jsonLd={[
+    personJsonLd(
+      year,
+      speaker,
+      absoluteUrl(speakerPath(year, speaker)),
+      socialImage
+    ),
+  ]}
+  transparentHeader
+>
+  <section id="intro" class="intro">
+    <div class="wrapper-l stack-300">
+      <h1 class="text-black uppercase text-800-major weight-black leading-flat">
+        {speaker.name}
+      </h1>
+      <div class="speaker-intro">
+        {
+          speaker.avatar_url && (
+            <Avatar src={speaker.avatar_url} name={speaker.name} size={280} />
+          )
+        }
+        {
+          speaker.biography && (
+            <div
+              class="speaker-intro__bio | stack-300 text-400-500"
+              set:html={renderMarkdown(speaker.biography)}
+            />
+          )
+        }
+      </div>
+
+      <div class="stack-500">
+        {
+          speakerTalks.map((talk) => (
+            <div class="stack-400 shadow-box">
+              <h2 class="leading-tight uppercase text-600-700 weight-bold">
+                <a
+                  href={talkPath(year, talk)}
+                  class="speaker-talk__link | text-violet"
+                >
+                  {talk.title}
+                </a>
+              </h2>
+              <div
+                class="stack-300"
+                set:html={renderMarkdown(talk.abstract || talk.description)}
+              />
+            </div>
+          ))
+        }
+        <div class="wrapper-s">
+          <a
+            href={`/${year}/speakers/`}
+            class="uppercase weight-bold text-peach">&lt; Back to speakers</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  @import "../../../styles/pages/speaker.css" layer(blocks);
+</style>

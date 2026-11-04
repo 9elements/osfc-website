@@ -1,0 +1,136 @@
+---
+import favicon from "@/assets/images/meta/favicon.svg";
+import socialShare from "@/assets/images/meta/social-share.png";
+import "@fontsource-variable/roboto/wght.css";
+import robotoLatin from "@fontsource-variable/roboto/files/roboto-latin-wght-normal.woff2";
+
+import RhombDefs from "@/components/RhombDefs/RhombDefs.astro";
+import SiteFoot from "@/components/SiteFoot/SiteFoot.astro";
+import SiteHead from "@/components/SiteHead/SiteHead.astro";
+import { site } from "@/data/site";
+import { SEO } from "astro-seo";
+import { Schema } from "astro-seo-schema";
+import type { Thing } from "schema-dts";
+import { organizationJsonLd } from "@/utils/seo";
+
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  metaTitle?: string;
+  description?: string;
+  socialImage?: string;
+  socialImageAlt?: string;
+  /** "summary" suits square images like speaker avatars */
+  twitterCard?: "summary" | "summary_large_image";
+  ogType?: "website" | "article" | "profile";
+  /** schema.org nodes, combined with the site organization into one @graph */
+  jsonLd?: Thing[];
+  transparentHeader?: boolean;
+  triangle?: boolean;
+  pageName?: string;
+  headerBackground?: "violet";
+  headerTextShadow?: boolean;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  metaTitle,
+  description = site.metaDesc,
+  socialImage = new URL(socialShare.src, site.url).href,
+  socialImageAlt = "Open Source Firmware Conference logo in white and coral on a violet background",
+  twitterCard = "summary_large_image",
+  ogType = "website",
+  jsonLd = [],
+  transparentHeader = false,
+  triangle = false,
+  pageName,
+  headerBackground,
+  headerTextShadow = false,
+  noindex = false,
+} = Astro.props;
+
+const pageTitle =
+  metaTitle ?? (title === site.name ? title : `${title} - ${site.name}`);
+const canonicalUrl = new URL(Astro.url.pathname, site.url).href;
+---
+
+<!doctype html>
+<html lang="en" class:list={[pageName]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Layer order must come before any stylesheet: Astro may inline small CSS chunks ahead of global.css -->
+    <style is:inline>
+      @layer fonts, reset, layout, utils, blocks;
+    </style>
+    <SEO
+      title={pageTitle}
+      description={description}
+      canonical={noindex ? null : canonicalUrl}
+      noindex={noindex}
+      openGraph={{
+        basic: {
+          title: pageTitle,
+          type: ogType,
+          image: socialImage,
+          url: canonicalUrl,
+        },
+        optional: { siteName: site.name, description, locale: "en_US" },
+        image: { alt: socialImageAlt },
+      }}
+      twitter={{
+        card: twitterCard,
+        site: "@osfc_io",
+        description,
+        image: socialImage,
+        imageAlt: socialImageAlt,
+      }}
+      extend={{
+        link: [
+          {
+            rel: "icon",
+            href: favicon.src,
+            type: "image/svg+xml",
+          },
+          { rel: "sitemap", href: "/sitemap-index.xml" },
+        ],
+      }}
+    />
+    <Schema
+      item={{
+        "@context": "https://schema.org",
+        "@graph": [organizationJsonLd, ...jsonLd],
+      }}
+    />
+
+    <link
+      rel="preload"
+      href={robotoLatin}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <RhombDefs />
+    <div class="site-wrap">
+      {triangle && <div class="triangle" aria-hidden="true" />}
+      <div class="stack-900">
+        <SiteHead
+          variant={transparentHeader ? "transparent" : "default"}
+          background={headerBackground}
+          textShadow={headerTextShadow}
+        />
+        <main tabindex="-1" id="main-content">
+          <slot />
+        </main>
+        <SiteFoot />
+      </div>
+    </div>
+  </body>
+</html>

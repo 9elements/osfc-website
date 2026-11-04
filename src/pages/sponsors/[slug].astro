@@ -1,0 +1,85 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RhombImage from "@/components/RhombImage/RhombImage.astro";
+import { getSponsors } from "@/utils/sponsors";
+import { renderPageMarkdown } from "@/utils/conference";
+import { toDescription } from "@/utils/seo";
+
+export const getStaticPaths = async () => {
+  const sponsors = await getSponsors();
+  return sponsors.map((sponsor, index) => ({
+    params: { slug: sponsor.slug },
+    props: { sponsor, prev: sponsors[index - 1], next: sponsors[index + 1] },
+  }));
+};
+
+const { sponsor, prev, next } = Astro.props;
+const description =
+  toDescription(sponsor.body ?? "") ||
+  `${sponsor.name} is a ${sponsor.sponsor} sponsor of the Open Source Firmware Conference.`;
+---
+
+<BaseLayout
+  title="Sponsors"
+  metaTitle={`${sponsor.name} - OSFC Sponsor`}
+  description={description}
+  transparentHeader
+>
+  <div class="stack-major">
+    <section>
+      <div class="wrapper-l">
+        <div class="stack-major">
+          <div class="wrapper-s stack-800">
+            <div class="shadow-box stack-900 sponsor">
+              <div class="sponsor__image">
+                <RhombImage
+                  name={sponsor.name}
+                  image={sponsor.image}
+                  size={sponsor.size}
+                  tier={sponsor.sponsor}
+                />
+              </div>
+              <div class="stack-800 plain-html">
+                <h1 class="text-700">{sponsor.name}</h1>
+                <p class={`uppercase weight-bold text-${sponsor.sponsor}-text`}>
+                  {sponsor.sponsor} Sponsor
+                </p>
+                <div
+                  class="stack-200"
+                  set:html={renderPageMarkdown(sponsor.body)}
+                />
+                <a
+                  class="sponsor__link | uppercase weight-bold"
+                  href={sponsor.link}>{sponsor.linkText ?? sponsor.link}</a
+                >
+              </div>
+            </div>
+
+            <div
+              class:list={[
+                "sponsor-buttons | uppercase text-peach weight-bold",
+                !prev && "sponsor-buttons--end",
+              ]}
+            >
+              {
+                prev && (
+                  <a href={prev.url}>
+                    <span aria-hidden="true">&lt;</span> {prev.name}
+                  </a>
+                )
+              }
+              {" "}
+              {
+                next && (
+                  <a href={next.url}>
+                    {next.name} <span aria-hidden="true">&gt;</span>
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

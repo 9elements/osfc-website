@@ -1,0 +1,109 @@
+---
+import type { ImageMetadata } from "astro";
+import { getImage } from "astro:assets";
+
+interface Props {
+  name: string;
+  image: ImageMetadata;
+  size?: "s" | "m" | "l";
+  href?: string;
+  /** Opens in a new tab */
+  external?: boolean;
+  /** Appends ?utm_source=osfc.io to external links */
+  utm?: boolean;
+  /** Overrides the logo box inside the 330×330 rhomb */
+  box?: { imageSize: number; offset: number };
+  /** Sponsor tier, renders the tier gradient frame */
+  tier?: "gold" | "silver" | "bronze";
+}
+
+const {
+  name,
+  image,
+  size,
+  href,
+  external = false,
+  utm = external,
+  box,
+  tier,
+} = Astro.props;
+
+const { imageSize, offset } =
+  box ??
+  (size === "m"
+    ? { imageSize: 230, offset: 50 }
+    : size === "s"
+      ? { imageSize: 160, offset: 85 }
+      : { imageSize: 330, offset: 0 });
+
+const imageSrc =
+  image.format === "svg"
+    ? image.src
+    : (await getImage({ src: image, width: imageSize * 2, format: "webp" }))
+        .src;
+
+const LinkTag = href ? "a" : "span";
+const linkProps = href
+  ? {
+      "aria-label": name,
+      ...(external
+        ? {
+            href: utm ? `${href}?utm_source=osfc.io` : href,
+            target: "_blank",
+            rel: "noopener",
+          }
+        : { href }),
+    }
+  : {};
+// Links carry the name themselves; a standalone logo is announced as an image
+const svgA11y = href
+  ? { "aria-hidden": "true" }
+  : { role: "img", "aria-label": name };
+---
+
+<div class="rhomb-image">
+  <LinkTag {...linkProps}>
+    {
+      tier ? (
+        <svg class="rhomb-image__svg" viewBox="0 0 330 330" {...svgA11y}>
+          <path
+            d="M0 189v-48L141 0h48l141 141v48L189 330h-48L0 189Z"
+            fill={`url(#${tier})`}
+          />
+          <g filter="url(#shadow)">
+            <path
+              d="M23.1 185.7v-41.4L144.3 23.1h41.4l121.2 121.2v41.4L185.7 306.9h-41.4L23.1 185.7Z"
+              fill="#fff"
+            />
+          </g>
+          <image
+            clip-path="url(#oct-clip-sponsor)"
+            height={imageSize}
+            width={imageSize}
+            x={offset}
+            y={offset}
+            href={imageSrc}
+          />
+        </svg>
+      ) : (
+        <svg class="rhomb-image__svg" viewBox="0 0 330 330" {...svgA11y}>
+          <polygon
+            class="rhomb-image__border"
+            fill="#fff"
+            stroke-width="14"
+            stroke="#fff"
+            points="7 188 7 142 142 7 188 7 323 142 323 188 188 323 142 323"
+          />
+          <image
+            clip-path="url(#oct-clip)"
+            height={imageSize}
+            width={imageSize}
+            x={offset}
+            y={offset}
+            href={imageSrc}
+          />
+        </svg>
+      )
+    }
+  </LinkTag>
+</div>

@@ -1,0 +1,159 @@
+.tabbed {
+  border-image-source: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 64 64'%3E%3Cpath fill='%23F96360' fill-rule='evenodd' d='M26 0H0v64h64V0H38v27.5a14 14 0 1 1-12 0V0Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  border-image-slice: 100% 0 0 0;
+  border-image-repeat: round;
+  border-width: 3rem 0 0 0;
+  border-style: solid;
+  border-color: transparent;
+  box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+
+.tabbed__header {
+  padding: var(--space-400);
+}
+
+.tabbed__body {
+  padding: var(--space-400);
+}
+
+.tabbed__headline {
+  margin: -1rem -1rem 1rem;
+  padding: 1rem;
+  border-top: 1px dashed;
+  text-align: center;
+}
+
+.tablist {
+  padding: 0;
+  list-style: none;
+  margin-bottom: 1rem;
+  --cluster-gap: 0.5rem;
+}
+
+.tablist a {
+  color: var(--color-white);
+  text-decoration: none;
+  display: inline-block;
+  pointer-events: auto;
+  cursor: pointer;
+  padding: var(--space-200) var(--space-300);
+  font-weight: var(--weight-bold);
+  position: relative;
+  border: 1px solid transparent;
+}
+
+[role="tablist"] [aria-selected] {
+  background: var(--color-violet);
+  color: var(--color-white);
+  border-color: var(--color-violet);
+
+  &:focus {
+    outline-offset: -5px;
+  }
+}
+.schedule {
+  --schedule-first-column: 4ch;
+
+  display: grid;
+  /* --room-count and --slice-rows (named 5-minute rows) are set per day in the markup */
+  grid-template-columns: var(--schedule-first-column, 4ch) repeat(
+      var(--room-count),
+      1fr
+    );
+  grid-template-rows: [head] auto var(--slice-rows);
+  gap: 2px 1rem;
+  max-width: 100%;
+  overflow-x: auto;
+
+  @media (--md) {
+    --schedule-first-column: 8ch;
+    overflow-x: visible;
+  }
+}
+
+.schedule__head {
+  grid-row-start: head;
+  grid-column: 1 / -1;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.schedule__hour {
+  grid-row-start: var(--row-start);
+  grid-row-end: span 12;
+  grid-column: 1;
+  padding: 0.5rem;
+}
+
+.schedule__divider {
+  grid-row-start: var(--row-start);
+  background: #ccc;
+  height: 1px;
+  grid-column: 1 / -1;
+}
+
+.schedule__room {
+  grid-column: var(--column);
+  grid-row-start: head;
+  text-align: center;
+  padding: 1rem;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  margin-bottom: 0.5rem;
+}
+.grid-event {
+  background: var(--color-violet);
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.grid-event__body {
+  padding: 0.5rem;
+  flex-grow: 999;
+  flex-basis: 12rem;
+}
+
+.grid-event__subline {
+  opacity: 0.8;
+}
+
+.grid-event__time {
+  background: color-mix(in srgb, var(--color-violet), var(--color-black) 10%);
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: var(--space-100) 0.5rem;
+  flex-basis: min-content;
+  align-content: flex-start;
+  align-items: baseline;
+}
+
+.grid-event__link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: box-shadow 0.2s ease-out;
+
+  .grid-event:hover {
+    box-shadow: inset 0 0 0 3px var(--color-peach);
+  }
+}
+
+/* --row-start, --row-span and --column come from the talk's time and room */
+.schedule__event {
+  grid-row: var(--row-start) / span var(--row-span);
+  grid-column: var(--column);
+}

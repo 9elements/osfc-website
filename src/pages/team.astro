@@ -1,0 +1,59 @@
+---
+import beam04 from "@/assets/images/beams/beam-04.svg";
+import beam05 from "@/assets/images/beams/beam-05.svg";
+import { getCollection } from "astro:content";
+import { order } from "@/data/order";
+import { sortByList } from "@/utils/sortEntries";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import RhombImage from "@/components/RhombImage/RhombImage.astro";
+
+const team = sortByList(await getCollection("team"), order.team);
+---
+
+<BaseLayout
+  title="Team"
+  description="The team behind the Open Source Firmware Conference."
+  transparentHeader
+>
+  <div class="stack-major">
+    <section id="team" class="team">
+      <img alt="" class="team__beam" src={beam04.src} aria-hidden="true" />
+      <img
+        alt=""
+        class="team__beam team__beam--1"
+        src={beam05.src}
+        aria-hidden="true"
+      />
+      <div class="wrapper-l">
+        <div class="stack-700">
+          <h1
+            class="uppercase text-peach weight-black text-800-major leading-flat"
+          >
+            Team
+          </h1>
+          <div class="person-grid">
+            {
+              team.map(({ data }) => (
+                <figure class="person">
+                  <RhombImage name={data.name} image={data.image} />
+                  <figcaption class="person__details">
+                    <span class="text-600-700 leading-flat text-violet weight-bold uppercase">
+                      {data.name}
+                    </span>{" "}
+                    <span class="text-500-600 leading-tight">
+                      {data.position}
+                    </span>
+                  </figcaption>
+                </figure>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import "../styles/pages/team.css" layer(blocks);
+</style>

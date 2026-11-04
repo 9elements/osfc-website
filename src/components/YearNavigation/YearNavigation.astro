@@ -1,0 +1,25 @@
+---
+import { years as conferenceYears } from "@/utils/pretalx/years.js";
+
+const {
+  year,
+  years = conferenceYears.map((conference) => conference.year),
+  base = "/archive/",
+} = Astro.props;
+---
+
+<ul class="year-navigation">
+  {
+    years.map((item: number) => (
+      <li>
+        <a
+          href={`${base}${item}/`}
+          class="weight-bold button"
+          aria-current={item === year ? "page" : undefined}
+        >
+          <span>{item}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

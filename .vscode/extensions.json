@@ -1,8 +1,4 @@
 {
-  "recommendations": [
-    "csstools.postcss",
-    "vunguyentuan.vscode-postcss",
-    "bradlc.vscode-tailwindcss",
-    "heybourn.headwind"
-  ]
+  "recommendations": ["astro-build.astro-vscode"],
+  "unwantedRecommendations": []
 }

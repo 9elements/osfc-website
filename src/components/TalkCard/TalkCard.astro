@@ -1,0 +1,31 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+  headingLevel?: "h2" | "h4";
+  headingClass?: string;
+}
+
+const {
+  title,
+  href,
+  headingLevel: Heading = "h4",
+  headingClass = "weight-bold text-300-400",
+} = Astro.props;
+---
+
+<article class:list={["talk-card", href && "talk-card--linked"]}>
+  <Heading class={headingClass}>{title}</Heading>
+  <p class="text-300"><slot /></p>
+  {
+    href && (
+      <a class="talk-card__link" href={href}>
+        <span class="sr-only">Talk details: {title}</span>
+      </a>
+    )
+  }
+</article>
+
+<style is:global>
+  @import "./TalkCard.css" layer(blocks);
+</style>

@@ -1,0 +1,305 @@
+---
+import beam01 from "@/assets/images/beams/beam-01.svg";
+import beam05 from "@/assets/images/beams/beam-05.svg";
+import smallGreyStripe from "@/assets/images/beams/small_grey_stripe_left.svg";
+import bigGreyStripe from "@/assets/images/beams/big_grey_stripe_left.svg";
+import { getCollection } from "astro:content";
+import { order } from "@/data/order";
+import { byName, sortByList } from "@/utils/sortEntries";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Newsletter from "@/components/Newsletter/Newsletter.astro";
+import RhombImage from "@/components/RhombImage/RhombImage.astro";
+import IntroDecoration from "@/assets/svg/intro-decoration.svg";
+import Logo from "@/assets/svg/logo-no-year.svg";
+import nineElementsLogo from "@/assets/images/organizer/9e_logo_black.svg";
+import { site } from "@/data/site";
+import { getSponsors } from "@/utils/sponsors";
+import { getLatestConference } from "@/utils/conference";
+import { webSiteJsonLd } from "@/utils/seo";
+
+const projects = sortByList(await getCollection("projects"), order.projects);
+const organizers = (await getCollection("organizers")).sort(byName);
+const sponsors = await getSponsors();
+
+const { year, archived, schedule, config } = await getLatestConference();
+const venue = config.venue;
+
+const venueMaps = import.meta.glob<{ default: ImageMetadata }>(
+  "@/assets/images/venue-maps/*",
+  { eager: true }
+);
+const venueMap =
+  venue &&
+  venueMaps[`/src/assets/images/venue-maps/${venue.mapImage}`]?.default;
+if (venue && !venueMap) {
+  throw new Error(
+    `Venue map "${venue.mapImage}" not found in src/assets/images/venue-maps/`
+  );
+}
+
+// "NL" -> 🇳🇱
+const flag = venue
+  ? String.fromCodePoint(
+      ...[...venue.address.addressCountry.toUpperCase()].map(
+        (char) => 0x1f1a5 + char.charCodeAt(0)
+      )
+    )
+  : "";
+
+const dateRange = new Intl.DateTimeFormat("en-US", {
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+}).formatRange(
+  new Date(`${schedule.start}T00:00:00Z`),
+  new Date(`${schedule.end}T00:00:00Z`)
+);
+---
+
+<BaseLayout
+  title={site.name}
+  metaTitle="OSFC - Open Source Firmware Conference"
+  jsonLd={[webSiteJsonLd]}
+  triangle
+>
+  <div class="stack-major">
+    <section id="intro" class="intro">
+      <IntroDecoration aria-hidden="true" />
+      <div class="wrapper-m">
+        <h1 class="hero__logo intro__branding">
+          <Logo aria-hidden="true" />
+          <span class="sr-only">OSFC – Open Source Firmware Conference</span>
+        </h1>
+      </div>
+    </section>
+
+    <section id="mission" class="mission">
+      <div class="wrapper-l stack-600">
+        <div class="stack-300 shadow-box bg-light-gray mission__text">
+          <h2
+            class="uppercase text-peach weight-black text-800-major leading-flat"
+          >
+            Mission
+          </h2>
+          <p class="leading-tight text-peach weight-bold text-600-700">
+            Change the way of firmware development, collaborate with others and
+            share knowledge.
+          </p>
+          <p class="text-500-600">
+            Closed source firmware development has been the de-facto standard
+            for the electronics industry since its inception. That didn't change
+            even when open-source took off in other areas. Now, with changing
+            use cases and strict security requirements, it's more important than
+            ever to take open-source firmware development to the next level.
+            That's why we're inviting you to the Open Source Firmware
+            Conference.
+          </p>
+          <p
+            class="uppercase text-peach weight-black text-400-500 leading-flat"
+          >
+            {
+              archived ? (
+                <a class="button" href={`/archive/${year}/`}>
+                  Watch the {year} talks
+                </a>
+              ) : (
+                <a class="button" href={`/${year}/schedule/`}>
+                  See the {year} schedule
+                </a>
+              )
+            }
+          </p>
+        </div>
+        <RhombImage
+          name="9elements Cyber Security"
+          image={nineElementsLogo}
+          box={{ imageSize: 220, offset: 55 }}
+          href="https://9esec.io/"
+          external
+          utm={false}
+        />
+      </div>
+    </section>
+
+    <section id="venue" class="venue">
+      <img
+        loading="lazy"
+        decoding="async"
+        alt=""
+        class="venue__beam"
+        src={beam01.src}
+        aria-hidden="true"
+      />
+      <div class="wrapper-l stack-600">
+        <div class="stack-300 venue__text bg-light-gray">
+          <h2
+            class="text-black uppercase weight-black text-800-major leading-flat"
+          >
+            Venue
+          </h2>
+          {
+            archived ? (
+              <>
+                <p class="text-400-500 weight-bold">
+                  OSFC {year} took place at {venue.name} in{" "}
+                  {venue.address.addressLocality} – thank you for being there!{" "}
+                  {flag}
+                </p>
+                <p class="text-400-500 weight-bold">
+                  We are already looking for the {year + 1} venue. Stay tuned
+                  and subscribe to our{" "}
+                  <a href={site.newsletterUrl} target="_blank" rel="noopener">
+                    NEWSLETTER
+                  </a>
+                  !
+                </p>
+              </>
+            ) : (
+              <>
+                <p class="text-400-500 weight-bold">
+                  OSFC {year} takes place {dateRange} at {venue.name} in{" "}
+                  {venue.address.addressLocality}. {flag}
+                </p>
+                <address class="venue__address | text-400-500">
+                  {venue.name}
+                  <br />
+                  {venue.address.streetAddress}
+                  <br />
+                  {venue.address.postalCode} {venue.address.addressLocality}
+                </address>
+                <p class="uppercase text-peach weight-black text-400-500 leading-flat">
+                  <a href={venue.mapsUrl} target="_blank" rel="noopener">
+                    Google Maps
+                  </a>
+                </p>
+              </>
+            )
+          }
+          {
+            archived && (
+              <p class="uppercase text-peach weight-black text-400-500 leading-flat">
+                <a class="button" href="/info/">
+                  {year} Recap
+                </a>
+              </p>
+            )
+          }
+        </div>
+
+        <RhombImage
+          name="Venue on Google Maps"
+          image={venueMap}
+          href={venue.mapsUrl}
+          external
+          utm={false}
+        />
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="wrapper-l">
+        <div class="stack-300">
+          <h2
+            class="text-black uppercase weight-black text-800-major leading-flat"
+          >
+            Projects
+          </h2>
+          <div class="rhomb-grid">
+            {
+              projects.map(({ data }) => (
+                <RhombImage
+                  name={data.name}
+                  image={data.image}
+                  size={data.size}
+                  href={data.link}
+                  external
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="organizer" class="organizer">
+      <div class="wrapper-l">
+        <div class="stack-800">
+          <h2
+            class="text-black uppercase weight-black text-800-major leading-flat"
+          >
+            Organizers
+          </h2>
+          <div class="rhomb-grid">
+            {
+              organizers.map(({ data }) => (
+                <RhombImage
+                  name={data.name}
+                  image={data.image}
+                  size={data.size}
+                  href={data.link}
+                  external
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors" class="sponsors">
+      <img
+        loading="lazy"
+        decoding="async"
+        alt=""
+        class="sponsors__beam"
+        src={beam05.src}
+        aria-hidden="true"
+      />
+      <img
+        loading="lazy"
+        decoding="async"
+        alt=""
+        class="sponsors__beam sponsors__beam--1"
+        src={smallGreyStripe.src}
+        aria-hidden="true"
+      />
+      <img
+        loading="lazy"
+        decoding="async"
+        alt=""
+        class="sponsors__beam sponsors__beam--2"
+        src={bigGreyStripe.src}
+        aria-hidden="true"
+      />
+      <div class="wrapper-l">
+        <div class="stack-800">
+          <h2
+            class="text-black uppercase weight-black text-800-major leading-flat"
+          >
+            Sponsors
+          </h2>
+          <div class="rhomb-grid">
+            {
+              sponsors.map((sponsor) => (
+                <RhombImage
+                  name={sponsor.name}
+                  image={sponsor.image}
+                  size={sponsor.size}
+                  href={sponsor.url}
+                  tier={sponsor.sponsor}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Newsletter />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import "../styles/pages/home.css" layer(blocks);
+</style>

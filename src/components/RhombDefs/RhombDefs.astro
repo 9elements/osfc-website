@@ -1,0 +1,89 @@
+<!-- Shared clip paths, tier gradients and shadow filter for RhombImage. Rendered once on every page by BaseLayout -->
+<svg
+  style="width: 0; height: 0; display: block; opacity: 0;"
+  aria-hidden="true"
+>
+  <defs>
+    <clipPath id="oct-clip">
+      <polygon points="7 188 7 142 142 7 188 7 323 142 323 188 188 323 142 323"
+      ></polygon>
+    </clipPath>
+    <clipPath id="oct-clip-sponsor">
+      <path
+        d="M23 186v-42L144 23h42l121 121v42L186 307h-42L23 186Z"
+        fill="salmon"></path>
+    </clipPath>
+    <linearGradient
+      id="gold"
+      x1="370"
+      y1="370"
+      x2="-20"
+      y2="-20"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#AB701C"></stop>
+      <stop offset=".1" stop-color="#BE8432"></stop>
+      <stop offset=".3" stop-color="#CD9443"></stop>
+      <stop offset=".6" stop-color="#FDC760"></stop>
+      <stop offset=".7" stop-color="#FEE193"></stop>
+      <stop offset=".8" stop-color="#FEEAA4"></stop>
+      <stop offset=".9" stop-color="#BE8432"></stop>
+      <stop offset="1" stop-color="#AB701C"></stop>
+    </linearGradient>
+    <linearGradient
+      id="silver"
+      x1="0"
+      y1="330"
+      x2="330"
+      y2="0"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop offset=".2" stop-color="#BFBFBF"></stop>
+      <stop offset=".3" stop-color="#fff"></stop>
+      <stop offset=".5" stop-color="#BFBFBF"></stop>
+      <stop offset=".8" stop-color="#fff"></stop>
+    </linearGradient>
+    <linearGradient
+      id="bronze"
+      x1="330"
+      y1="330"
+      x2="0"
+      y2="0"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#FFCFB9"></stop>
+      <stop offset=".2" stop-color="#C98F5E"></stop>
+      <stop offset=".4" stop-color="#CC885A"></stop>
+      <stop offset=".5" stop-color="#DEA17B"></stop>
+      <stop offset=".6" stop-color="#F6C2A8"></stop>
+      <stop offset=".7" stop-color="#FFCFB9"></stop>
+      <stop offset=".9" stop-color="#B0521F"></stop>
+    </linearGradient>
+    <filter
+      id="shadow"
+      x="10"
+      y="18"
+      width="310"
+      height="310"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
+      <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+      <feColorMatrix
+        in="SourceAlpha"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"></feColorMatrix>
+      <feOffset dy="8"></feOffset>
+      <feGaussianBlur stdDeviation="6.5"></feGaussianBlur>
+      <feComposite in2="hardAlpha" operator="out"></feComposite>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"
+      ></feColorMatrix>
+      <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_723_4090"
+      ></feBlend>
+      <feBlend
+        in="SourceGraphic"
+        in2="effect1_dropShadow_723_4090"
+        result="shape"></feBlend>
+    </filter>
+  </defs>
+</svg>

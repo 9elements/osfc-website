@@ -1,0 +1,46 @@
+---
+import Avatar from "@/components/Avatar/Avatar.astro";
+import { speakerPath, talkPath } from "@/utils/conference";
+
+const { year, speaker, talks } = Astro.props;
+
+const speakerTalks = (speaker.submissions ?? []).flatMap((code) =>
+  talks.filter((talk) => talk.code === code)
+);
+---
+
+<div class="speaker-card | bg-white">
+  <a
+    class="speaker-card__image"
+    href={speakerPath(year, speaker)}
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <Avatar
+      src={speaker.avatar_url}
+      name={speaker.name}
+      size={224}
+      decorative
+    />
+  </a>
+  <div class="speaker-card__body | stack-200">
+    <h2
+      class="speaker-card__name | text-500-600 leading-tight weight-bold uppercase"
+    >
+      <a href={speakerPath(year, speaker)}>{speaker.name}</a>
+    </h2>
+    <ul class="speaker-card__talklist | text-300-400" role="list">
+      {
+        speakerTalks.map((talk) => (
+          <li class="leading-tight">
+            <a href={talkPath(year, talk)}>{talk.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style is:global>
+  @import "./SpeakerCard.css" layer(blocks);
+</style>

@@ -1,0 +1,47 @@
+---
+import beam02 from "@/assets/images/beams/beam-02.svg";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import VideoEmbed from "@/components/VideoEmbed/VideoEmbed.astro";
+import YearNavigation from "@/components/YearNavigation/YearNavigation.astro";
+import { aftermovies } from "@/data/aftermovies";
+
+export const getStaticPaths = () =>
+  aftermovies.map((movie) => ({
+    params: { year: String(movie.year) },
+    props: { movie },
+  }));
+
+const { movie } = Astro.props;
+const { year, vimeoId } = movie;
+---
+
+<BaseLayout
+  title="Aftermovies"
+  metaTitle={`Aftermovie - OSFC ${year}`}
+  description={`Aftermovie of the Open Source Firmware Conference ${year}.`}
+  transparentHeader
+>
+  <section class="archive">
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      class="archive__beam"
+      src={beam02.src}
+      aria-hidden="true"
+    />
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="text-800-major weight-black uppercase leading-tight text-peach"
+      >
+        Aftermovies
+      </h1>
+      <YearNavigation
+        year={year}
+        years={aftermovies.map((movie) => movie.year)}
+        base="/aftermovies/"
+      />
+      <VideoEmbed vimeoId={vimeoId} title={`OSFC ${year} Aftermovie`} full />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,13 @@
+/* This file defines our media queries */
+
+@custom-media --md (width >= 36em);
+
+@custom-media --lg (width >= 64em);
+@custom-media --nav (width >= 66em);
+
+@custom-media --xl (width >= 80em);
+@custom-media --xxl (width >= 90em);
+@custom-media --xxxl (width >= 100em);
+
+@custom-media --js (scripting: enabled);
+@custom-media --no-js (scripting: none);

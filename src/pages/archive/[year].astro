@@ -1,0 +1,41 @@
+---
+import beam02 from "@/assets/images/beams/beam-02.svg";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import DayTalkList from "@/components/DayTalkList/DayTalkList.astro";
+import YearNavigation from "@/components/YearNavigation/YearNavigation.astro";
+import { getYearPaths } from "@/utils/yearPaths";
+import { conferenceEventJsonLd } from "@/utils/seo";
+
+export const getStaticPaths = getYearPaths;
+
+const { conference } = Astro.props;
+const { year, schedule } = conference;
+---
+
+<BaseLayout
+  title="Archive"
+  metaTitle={`Archive - OSFC ${year}`}
+  description={`Talks and recordings of the Open Source Firmware Conference ${year}.`}
+  jsonLd={[conferenceEventJsonLd(conference)]}
+  transparentHeader
+>
+  <section class="archive">
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      class="archive__beam"
+      src={beam02.src}
+      aria-hidden="true"
+    />
+    <div class="wrapper-l | stack-700">
+      <h1
+        class="text-800-major weight-black uppercase leading-tight text-peach"
+      >
+        Archive
+      </h1>
+      <YearNavigation year={year} />
+      <DayTalkList year={year} schedule={schedule} monthName />
+    </div>
+  </section>
+</BaseLayout>
