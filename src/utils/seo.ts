@@ -69,6 +69,8 @@ export const organizationJsonLd: Organization = {
   sameAs: [
     "https://twitter.com/osfc_io",
     "https://www.linkedin.com/company/osff",
+    "https://www.youtube.com/@osfc_io",
+    "https://www.reddit.com/user/osfc_io/",
   ],
 };
 
