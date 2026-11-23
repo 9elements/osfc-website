@@ -12,11 +12,25 @@ const links = [
     icon: "twitter",
     text: "Twitter",
     href: "https://twitter.com/osfc_io",
+    newTab: true,
   },
   {
     icon: "linkedin",
     text: "LinkedIn",
     href: "https://www.linkedin.com/company/osff",
+    newTab: true,
+  },
+  {
+    icon: "youtube",
+    text: "YouTube",
+    href: "https://www.youtube.com/@osfc_io",
+    newTab: true,
+  },
+  {
+    icon: "reddit",
+    text: "Reddit",
+    href: "https://www.reddit.com/user/osfc_io/",
+    newTab: true,
   },
   { icon: "imprint", text: "Imprint", href: "/imprint/" },
   {
@@ -41,10 +55,17 @@ const links = [
           Kortumstraße 19-21, 44787 Bochum
         </li>
         {
-          links.map(({ icon, text, href }) => (
+          links.map(({ icon, text, href, newTab }) => (
             <li>
               <Icon name={icon} class="site-foot__icon" aria-hidden="true" />
-              <a href={href}>{text}</a>
+              {newTab ? (
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  {text}
+                  <span class="sr-only"> (opens in a new tab)</span>
+                </a>
+              ) : (
+                <a href={href}>{text}</a>
+              )}
             </li>
           ))
         }
